@@ -1,0 +1,582 @@
+@use "mixin" as * ; //mixin
+@use "sass:color";
+
+/*リセットcss
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+li {
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+// リセットCSSここまで=====================================================
+
+// 共通CSS=====================================================
+
+// カラーパレットの定義
+$color-main: #1976d2; // 青
+$color-sectionbg: #f5f5f5; // セクションタイトルバック用　薄グレー
+$color-bg: #ffffff; // 背景色　白
+$color-bghober: #e3f2fd; // 背景ホバー色　薄いグレー
+$color-textmain: #333333; // メインテキスト色　濃いグレー
+$color-textsub: #757575;// サブテキスト色　中グレー
+$color-textlink: #1565c0; // リンク色　青
+$color-border: #e0e0e0; // 境界線色　薄いグレー
+$shadow-light: rgba(0, 0, 0, 0.1); // 軽い影
+$shadow-strong: rgba(0, 0, 0, 0.2); // 強い影
+
+// フォントの定義
+$font-jp: "sawarabi gothic", sans-serif;
+$font-jp-text: "rounded mplus 1c", sans-serif;
+$font-en: "patrick hand", cursive;
+$font-en-accent: "caveat", sans-serif;
+
+// フォントサイズの定義（レスポンシブ対応）
+$font-size-xs: 1.2rem;    // 12px - 最小サイズ
+$font-size-sm: 1.4rem;    // 14px - 小サイズ
+$font-size-base: 1.6rem;  // 16px - ベースサイズ
+$font-size-lg: 1.8rem;    // 18px - 大サイズ
+$font-size-xl: 2.0rem;    // 20px - 特大サイズ
+$font-size-2xl: 2.4rem;   // 24px - 2倍サイズ
+$font-size-3xl: 3.6rem;   // 36px - 3倍サイズ
+$font-size-4xl: 6.4rem;   // 64px - 4倍サイズ
+
+// レスポンシブフォントサイズの定義
+$font-size-title-mobile: 4.8rem;    // モバイルタイトル
+$font-size-title-desktop: 8.0rem;   // デスクトップタイトル
+$font-size-heading-mobile: 2.4rem;  // モバイル見出し
+$font-size-heading-desktop: 3.6rem; // デスクトップ見出し
+$font-size-body-mobile: 1.4rem;     // モバイル本文
+$font-size-body-desktop: 1.6rem;    // デスクトップ本文
+
+// 余白の定義（統一されたスペーシングシステム）
+$spacing-xs: 0.5rem;    // 8px - 最小余白
+$spacing-sm: 1rem;      // 16px - 小余白
+$spacing-md: 1.5rem;    // 24px - 中余白
+$spacing-lg: 2rem;      // 32px - 大余白
+$spacing-xl: 3rem;      // 48px - 特大余白
+$spacing-2xl: 4rem;     // 64px - 2倍余白
+$spacing-3xl: 6rem;     // 96px - 3倍余白
+$spacing-4xl: 8rem;     // 128px - 4倍余白
+
+// レスポンシブ余白の定義
+$spacing-section-mobile: 4rem;      // モバイルセクション間隔
+$spacing-section-desktop: 8rem;     // デスクトップセクション間隔
+$spacing-container-mobile: 2rem;    // モバイルコンテナ余白
+$spacing-container-desktop: 4rem;   // デスクトップコンテナ余白
+
+
+// 基本フォントの設定
+* {
+  font-family: $font-en, $font-jp, sans-serif;
+  color: $color-textmain;
+}
+
+/* ============================
+ベーススタイル
+============================ */
+
+// コンテナクラス
+.pf-l-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  @include fluid-spacing(padding, 0 $spacing-container-mobile, 0 $spacing-container-desktop);
+}
+html {
+  /* ページ内リンクでアニメーションをかける */
+  scroll-behavior: smooth;
+    /* ベースのフォントサイズを定義（１rem=10px） 16px*62.5%=10px */
+  font-size: 62.5%;
+
+  body{
+    font-family: $font-en,$font-jp-text, sans-serif;
+    // font-size: フルードタイポグラフィ
+    @include fluid-font(1.2rem, 1.6rem); // 基本フォントサイズ12px(1.2rem)~16px(1.6rem)
+    /* 標準のフォントウェイト */
+    font-weight: 400;
+    /* 英語フォントだと行間１、５、日本語は1．７くらいがおすすめ */
+    line-height: 1.7;
+  }
+    a {
+      color: $color-textmain;
+      text-decoration: none;
+      &:hover {
+        color: $color-textlink;
+        text-decoration: underline;
+      }
+    }
+  }
+
+
+/*========================================*/
+/*コンポーネント====================================*/
+/* ボタン */
+/* 基本 */
+.pf-c-btn {
+  display: inline-block;
+  width: clamp(20rem, 20vw, 56rem);
+  height: auto;
+  border: 1px solid $color-border;
+  background-color: $color-main;
+  line-height: 60px;
+  text-align: center;
+  vertical-align: center;
+  color: $color-bg;
+  font-family: $font-jp;
+  font-size: clamp(2rem, 2vw, 3.4rem);
+  position: relative;
+  border-radius: 9999px ;
+  /* 後述の要素が上書きされる（スタックオーダー（重ね順））をコントロールするのがpositionプロパティ */
+  /* isolationはスタックオーダーから抜けるプロパティisolateは分離する属性　テキストは抜けてないので上にいるが擬似要素beforeはZ-index-1で後ろに回る */
+  isolation: isolate;
+}
+
+// .pf-c-btn::after {
+//   content: '';
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   background-color: $color-bghober;
+//   left: 0;
+//   top: 0;
+//   z-index: -1;
+//   transform: scaleY(0);
+//   /* デフォルトセンターセンター */
+//   transform-origin: center top;
+//   opacity: 0;
+//   transition: .3s;
+// }
+
+.pf-c-btn:hover {
+  color: $color-bg;
+  border-color: $color-textlink;
+}
+
+.pf-c-btn:hover::after {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+
+// ページタイトル　見出し
+div.pf-c-pageTitle {
+  @include flex-column;
+  width: 20rem;
+  height: auto;
+  background-image: url('../img/titleback2.svg');
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 4rem auto;
+
+
+  //　-日本語タイトル-
+  h2.pf-c-pageTitlejp{
+    @include text-outline;
+    font-family: $font-jp;
+    font-size:  clamp(1.8rem,2vw, 3.6rem); ;
+    font-weight: 400;
+    color: $color-bg;
+    letter-spacing: .1em;
+    padding-top: .8rem;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // 英語タイトル
+  span.pf-c-pageTitleen{
+    @include text-outline;
+    font-family: $font-en;
+    font-size: 2.4rem;
+    letter-spacing: .1em;
+    align-items: center;
+    line-height: 1.5rem;
+    color: $color-bg;
+    margin-bottom: 1.6rem;
+    text-shadow: $shadow-strong;
+  }
+}
+
+
+/* セクションタイトル 見出し */
+.pf-c-sectTitle {
+  min-width: 20rem;
+  min-height: 8rem;
+  text-align: center;
+  display: table;
+  margin-top: 8rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $color-sectionbg;
+}
+
+.pf-c-sectTitle__jp {
+  @include fluid-font($font-size-heading-mobile, $font-size-heading-desktop);
+  font-weight: 400;
+  color: $color-textmain;
+  letter-spacing: .1em;
+  padding-top: .8rem;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+.pf-c-sectTitle__en {
+  font-family: $font-en;
+  @include fluid-font($font-size-2xl, 3.6rem);
+  letter-spacing: .1em;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+
+// 詳細ページの見出しコンポーネント
+div.pf-c-detailItem__title{
+  width: 20rem;
+  height: auto;
+  @include flex-column;
+  margin: 4rem auto;
+
+  h3.pf-c-detailItem__titleJp{
+    font-family: $font-jp;
+    font-size: 3.6rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  span.pf-c-detailItem__titleEn{
+    font-family: $font-en;
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+}
+
+
+
+
+// .pf-c-sectTitle__en::before,
+// .pf-c-sectTitle__en::after {
+//   content: '';
+//   display: block;
+//   width: 100px;
+//   height: 1px;
+//   background-color: $color-border;
+//   margin: .4rem auto;
+// }
+
+/* ページタイトル */
+    /* 文字部分 */
+.pf-c-pageTitle__heading {
+  background-color: var(--sub-color1);
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pf-c-pageTitle__headingText {
+  background-color: var(--white);
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: var(--ff-en);
+  letter-spacing: .1em;
+}
+    /* 画像部分 */
+.pf-c-pageTitle__img {
+  height: 120px;
+}
+.pf-c-pageTitle__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* PC状態の時は画像大きめの設定 */
+@media screen and (min-width: 768px) {
+  .pf-c-pageTitle__heading {
+    height: 180px;
+  }
+
+  .pf-c-pageTitle__headingText {
+    width: 340px;
+    height: 140px;
+    font-size: 3.4rem;
+  }
+
+  .pf-c-pageTitle__img {
+    height: 400px;
+  }
+}
+
+/* ============================
+  レイアウト
+============================ */
+// 共通のマージン・パディング
+$spacer: 1rem; // 基本の間隔
+$spacer-sm: 0.5rem; // 小さい間隔
+$spacer-lg: 2rem; // 大きい間隔
+$spacer-xl: 3rem; // 特大の間隔
+
+body {
+  padding-top: 7rem;
+}
+
+/* コンテナ */
+.l-container {
+  padding-right: 24px;
+  padding-left: 24px;
+  /* 1160px + 24px + 24px = 1208px */
+  /* max-width: 1208px; */
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* ============================
+  プロジェクト
+============================ */
+/* TOPページ */
+/* kvセクションの箱 */
+.pf-p-topkv {
+  width: 100vw;
+  height: 100vh;
+}
+/* トップページ＞KV画像 */
+.pf-p-topKv  {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .pf-p-topKv {
+    height: calc(100vh - 70px);
+  }
+}
+/* トップページ＞コンセプト */
+.p-topConcept {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+/* セクションタイトル下余白 */
+.p-topConcept .c-sectTitle {
+  margin-bottom: 56px;
+}
+/* コンセプトの文章とボタンの間の余白　フォントサイズ */
+.p-topConcept__text {
+  margin-bottom: 32px;
+  font-size: 1.5rem;
+}
+/* 文字感の余白 */
+.p-topConcept__text p:not(:first-child) {
+  margin-top: .8rem;
+}
+/* sp状態でbrを無効化 */
+.p-topConcept__text p br {
+  display: none;
+}
+/* コンセプトボタンの文字中央寄せ */
+.p-topConcept__link {
+  text-align: center;
+}
+/* PC */
+@media screen and (min-width: 768px) {
+  /*　コンセプト文章中央寄せ */
+  .p-topConcept__text {
+    text-align: center;
+  }
+  /* sp状態で無効化していたbrタグを有効化 */
+  .p-topConcept__text p br {
+    display: block;
+  }
+}
+
+// アバウトページの各セクション内タイトル
+
+hgroup.pf-c-subsectionTitle{
+  @include flex-column;
+  margin: 4rem auto 0 auto;
+  background-image: url("../img/subtitleback.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  line-height: 2rem;
+
+  h3.pf-c-subsection_titleJp{
+    @include fluid-font($font-size-lg, $font-size-xl);
+    font-weight: 400;
+    font-family: $font-jp;
+    letter-spacing: .1em;
+    margin-bottom: 0.5rem;
+
+  }
+  span.pf-c-subsection_titleEn{
+    @include fluid-font($font-size-lg, $font-size-xl);
+    font-weight: 400;
+    font-family: $font-en;
+    letter-spacing: 0;
+    margin-top: 0.5rem;
+  }
+
+}
+
+/* TOPに戻るボタン */
+.pf-c-scrollToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: $color-main;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+
+  &:hover {
+    background-color: color.adjust($color-main, $lightness: -10%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .pf-c-scrollToTop__arrow {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+    display: block;
+  }
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 767px) {
+  .pf-c-scrollToTop {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 4rem;
+    height: 4rem;
+
+    .pf-c-scrollToTop__arrow {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+/* スクロールプログレスインジケーター */
+.pf-c-scrollProgress {
+  position: fixed;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .pf-c-scrollProgress__indicator {
+    width: 10vw;
+    height: 10vw;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1.1);
+    }
+
+    .pf-c-scrollProgress__img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    &:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* PC表示時のプログレスインジケーター */
+@media screen and (min-width: 768px) {
+  .pf-c-scrollProgress {
+    left: 2rem;
+  }
+}
+
+/* モバイル表示時のプログレスインジケーター */
+@media screen and (max-width: 767px) {
+  .pf-c-scrollProgress {
+    left: 1rem;
+  }
+}

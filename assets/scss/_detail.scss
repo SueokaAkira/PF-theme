@@ -1,0 +1,335 @@
+@use "common" as * ;
+@use "mixin" as * ;
+
+// 制作物画像スライダー
+.pf-p-detail__imgSlider {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .slick-slide {
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.02);
+            }
+        }
+    }
+
+    // ドットナビゲーション
+    .slick-dots {
+        bottom: -40px;
+
+        li {
+            button {
+                &::before {
+                    font-size: 12px;
+                    color: $color-main;
+                }
+            }
+
+            &.slick-active button::before {
+                color: $color-main;
+            }
+        }
+    }
+
+    // 矢印ナビゲーション
+    .slick-prev,
+    .slick-next {
+        z-index: 10;
+
+        &::before {
+            font-size: 20px;
+            color: $color-main;
+        }
+    }
+
+    .slick-prev {
+        left: 10px;
+    }
+
+    .slick-next {
+        right: 10px;
+    }
+}
+
+// モーダルスタイル
+.pf-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: none;
+
+    .pf-modal-content {
+        position: relative;
+        width: 90%;
+        max-width: 800px;
+        height: 90%;
+        margin: 5% auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .pf-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 10000;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        .pf-modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+    }
+}
+
+// ツールアイコンのスタイル
+.pf-p-detail__iconBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+
+    .tool-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .tool-icon {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .tool-name {
+            font-size: 14px;
+            color: #666;
+        }
+    }
+}
+
+main{
+    section.pf-l-detail__KV{
+        width: 100vw;
+        height: auto;
+
+        // div.pf-c-pageTitle{
+        // }
+        div.pf-p-detailKVimg-container{
+            @include flex-row;
+            width: 80%;
+            height: auto;
+            align-items: center;
+            align-self: center;
+            margin: 0 auto;
+            img{
+                width: 50%;
+                height: 50%;
+            }
+        }
+
+    }
+    section.pf-p-detailContainer{
+        @include fluid-spacing(margin-top, $spacing-3xl, $spacing-3xl);
+        width: 90vw;
+        margin: 0 auto;
+
+        // セクションタイトル
+        hgroup.pf-c-sectTitle{
+            @extend .pf-c-sectTitle;
+            width: fit-content;
+            padding: 1.5rem 2rem;
+            margin: 0 auto;
+
+            .pf-c-sectTitle__jp {
+                @extend .pf-c-sectTitle__jp;
+                display: block;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+
+            .pf-c-sectTitle__en {
+                @extend .pf-c-sectTitle__en;
+                display: block;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+        }
+
+        // 共通ボックス
+        div.detail-itembox{
+            border: 1px solid $color-border;
+            padding-bottom: 4rem;
+            margin: 1rem auto;
+
+            // 項目名
+            div.pf-c-detailItem__title{
+                background-image: url('../img/subtitleback.svg');
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+            }
+
+        }
+
+        // 画像
+        div.pf-f-detailImg{
+            img{
+                width: 100%;
+                height: auto;
+                aspect-ratio: 4/3;
+            }
+        }
+
+        // タイトル
+        div.pf-p-detailTitle{
+            @include flex-column;
+
+            // 内容
+            strong{
+                font-family: $font-jp;
+                font-weight: 500;
+                text-align: center;
+                @include fluid-font($font-size-heading-mobile, $font-size-heading-desktop);
+                margin: 0 auto;
+            }
+        }
+
+        // 期間
+        div.pf-p-detailTerm{
+            @include flex-column;
+            // 項目名
+            // div.pf-c-detailItem__title{}
+            // 内容
+            div{
+                @include flex-column;
+                p{
+                    font-family: $font-jp;
+                    font-weight: 500;
+                    @include fluid-font($font-size-body-mobile, $font-size-body-desktop);
+                    span{
+                        font-family: $font-jp-text;
+                        font-weight: 400;
+                        @include fluid-font($font-size-body-mobile, $font-size-body-desktop);
+                    }
+                }
+            }
+        }
+        // ツール
+        div.pf-p-detailTool{
+            @include flex-column;
+            // 項目名
+            // div.pf-c-detailItem__title{}
+            // 内容：ツールアイコンの配置
+            div.pf-p-detail__iconBox{
+                @include flex-row;
+                flex-wrap: wrap;
+                img{
+                    width: 3.6rem;
+                    height: auto;
+                    margin: 0 .4rem;
+                }
+            }
+        }
+        // 目的
+        div.pf-p-detailPurpose{
+            @include flex-column;
+            // div.pf-c-detailItem__title{}
+            // 目的の内容記述欄
+            p{
+                font-family: $font-jp-text;
+                @include fluid-font($font-size-body-mobile, $font-size-body-desktop);
+                text-align: center;
+            }
+        }
+
+        // 対象
+        div.pf-p-detailTarget{
+            @include flex-column;
+            // div.pf-c-detailItem__title{}
+            p{
+                font-family: $font-jp-text;
+                @include fluid-font($font-size-body-mobile, $font-size-body-desktop);
+                text-align: center;
+            }
+        }
+
+        // 設計意図
+        div.pf-p-detailDesignIntent{
+            @include flex-column;
+            // div.pf-c-detailItem__title{}
+            // 設計意図記述欄
+            p{
+                font-family: $font-jp-text;
+                @include fluid-font($font-size-body-mobile, $font-size-body-desktop);
+                text-align: center;
+            }
+        }
+    }
+
+    // ページネーション
+    div.pf-p-detailPagination{
+        @include flex-row;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 4rem;
+        padding: 2rem 0;
+
+        div.pf-p-detailPagination__prev,
+        div.pf-p-detailPagination__next{
+            a{
+                display: block;
+                padding: 1rem 2rem;
+                background-color: white;
+                color: $color-main;
+                text-decoration: none;
+                border: 1px solid $color-border;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+
+                &:hover{
+                    background-color: $color-main;
+                    color: white;
+                }
+
+                p{
+                    margin: 0;
+                    font-family: $font-jp;
+                    font-size: 1.4rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

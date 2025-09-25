@@ -1,0 +1,297 @@
+@use "common" as * ;
+@use "mixin" as * ;
+
+/* ヘッダー */
+
+header.pf-l-header {
+  background-color: $color-bg;
+  height: 8rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+
+  h1.pf-l-header__logo {
+    width: 20rem;
+    height: auto;
+    flex-shrink: 0;
+    
+    @include mq-bppc {
+      margin-right: 2rem;
+    }
+
+
+    a{
+      @include flex-center;
+      vertical-align: center;
+      gap: 1rem;
+      img{
+        width: 7rem;
+      }
+      span{
+        display: block;
+        width: auto;
+      }
+    }
+  }
+
+  // ３本線ナブボタン
+  button.pf-l-header__navBtn {
+    width: 44px;
+    height: 44px;
+    appearance: none;
+    border: none;
+    background: none;
+    /* 全てのプロパティの値を破棄する */
+    /* all: unset; */
+    position: relative;
+    color: $color-main;
+
+    span,
+    &::before,
+    &::after {
+      content: '';
+      background-color: $color-main;
+      width: 24px;
+      height: 2px;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+    }
+    &::before {
+    top: calc(50% - 9px);
+    }
+    &::after {
+      top: calc(50% + 9px);
+    }
+  }
+  nav.pf-l-header__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* モバイル表示時の初期状態 */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+    body.is-nav-open &{
+      /* bodyにis-nav-openというクラスが追加されたときに表示する */
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    /* 閉じるボタンSP用 のbutton */
+    button.pf-l-header__navClose {
+      /* 右上での位置調整 */
+      position: absolute;
+      right: .4rem;
+      top: 1.6rem;
+      width: 44px;
+      height: 44px;
+        /* スタイルリセット */
+      appearance: none;
+      border: none;
+      background: none;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background-color: $color-main;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      translate: -50% -50%;
+    }
+
+    &::before {
+      rotate: -45deg;
+    }
+    /* ×の線を斜めに回転 */
+    &::after {
+      rotate: 45deg;
+    }
+    /* ×の線を反対の斜めに回転 */
+    }
+    p.pf-l-header__navLogo {
+      width: 11rem;
+      margin-bottom: 1.6rem;
+      img{
+        width: 100%;
+      }
+    }
+
+    ul.pf-l-header__navList {
+      list-style: none;
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+      padding: 0;
+      display: flex;
+        /* spではカラム、PCでrow */
+      flex-direction: column;
+
+      li.pf-l-header__navLItem {
+        margin-bottom: 4rem;
+      // spのみ
+      // 奇数
+      &:nth-child(odd){
+        background-image: url('../img/subtitleback.svg') ;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+      }
+      &:nth-child(even){
+        background-image: url('../img/ハンバーガー偶数.svg') ;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+      }
+        a{
+          @include flex-column;
+          align-items: center;
+          text-decoration: none;
+          color: $color-main;
+          line-height: 2.4rem;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('../img/ホバー背景.webp');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            opacity: 0; // 最初は非表示
+            transition: opacity 0.3s;
+          }
+          &:hover::before {
+            opacity: 0.5; // hover時だけ半透明で表示
+          }
+
+          span.pf-l-header__navItemJp{
+            display: block;
+            font-family: $font-jp;
+            font-size: 2.4rem;;
+          }
+          span.pf-l-header__navItemEn{
+            display: block;
+            font-family: $font-en;
+            font-size: 2.4rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* PC状態 */
+@media screen and (min-width: 768px) {
+  header.pf-l-header {
+    @include flex-center;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    padding: 0 1.6rem;
+    background: none;
+  }
+  
+  header.pf-l-header button.pf-l-header__navBtn {
+    display: none;
+  }
+  
+  header.pf-l-header nav.pf-l-header__nav {
+    position: static;
+    width: auto;
+    height: 7rem;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
+  
+  header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose {
+    display: none;
+  }
+  
+  header.pf-l-header nav.pf-l-header__nav p.pf-l-header__navLogo {
+    display: none;
+  }
+  /* ナブリストを横並び */
+  header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: flex-end;
+    height: 100%;
+  }
+
+  header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  
+  header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem:nth-child(odd),
+  header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem:nth-child(even) {
+    background-image: none;
+    height: auto;
+  }
+
+  /* ナブリストの文字色変更および行間 */
+  header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem a {
+    color: $color-textmain;
+    padding: 0 0.8rem;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem a::before,
+  header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem a::after {
+    height: 100%;
+  }
+
+  header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem a span.pf-l-header__navItemJp {
+    color: $color-textmain;
+    @include fluid-font(1.8rem, 2.0rem);
+    line-height: 100%;
+    white-space: nowrap;
+  }
+
+  header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem a span.pf-l-header__navItemEn {
+    @include fluid-font(1.4rem, 1.6rem);
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+}
+

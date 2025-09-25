@@ -1,0 +1,318 @@
+@use "common" as * ;
+@use "mixin" as * ;
+@use "sass:color";
+
+main#page-works{
+    section.pf-l-works__hero{
+        margin-top: 7rem;
+
+        .pf-c-pageTitle{
+            .pf-c-pageTitlejp{
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        div.pf-p-work__KVimgContainer{
+            width:20rem;
+            height:auto;
+            margin: 0 auto;
+            img{
+                width:100%;
+                aspect-ratio: 4/3;
+            }
+        }
+    }
+
+    // カテゴリフィルター
+    section.pf-p-worksFilter{
+        margin: 4rem auto;
+
+        .filter-btn {
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: $color-main;
+                color: white;
+            }
+
+            &.active {
+                background-color: $color-main;
+                color: white;
+            }
+        }
+        padding: 2rem 0;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+
+
+        .pf-p-worksFilter__title{
+            font-family: $font-jp;
+            @include fluid-font($font-size-xl, $font-size-2xl);
+            @include fluid-spacing(margin-bottom, $spacing-md, $spacing-md);
+            text-align: center;
+        }
+
+        .pf-p-worksFilter__categories{
+            .pf-p-worksFilter_list{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li{
+                    a{
+                        display: inline-block;
+                        @include fluid-spacing(padding, $spacing-sm $spacing-lg, $spacing-sm $spacing-lg);
+                        background-color: #fff;
+                        border: 2px solid $color-border;
+                        border-radius: 8px;
+                        text-decoration: none;
+                        font-family: $font-jp;
+                        @include fluid-font($font-size-sm, $font-size-base);
+                        color: #333;
+                        transition: all 0.3s ease;
+                        cursor: pointer;
+                        font-weight: 500;
+
+                        &:hover{
+                            background-color: $color-main;
+                            color: #fff;
+                            border-color: $color-main;
+                            text-decoration: none;
+                            transform: translateY(-2px);
+                            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                        }
+
+                        &.active{
+                            background-color: $color-main;
+                            color: #fff;
+                            border-color: $color-main;
+                            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                        }
+                    }
+
+                    span{
+                        display: inline-block;
+                        padding: 0.8rem 1.5rem;
+                        background-color: #f5f5f5;
+                        border: 2px solid $color-border;
+                        border-radius: 25px;
+                        font-family: $font-jp;
+                        font-size: 1.4rem;
+                        color: #999;
+                    }
+                }
+            }
+        }
+    }
+
+    section.pf-p-works{
+        @include fluid-spacing(margin, $spacing-3xl auto, $spacing-3xl auto);
+        
+        // セクションタイトル
+        hgroup.pf-c-sectTitle{
+            @extend .pf-c-sectTitle;
+            width: fit-content;
+            padding: 1.5rem 2rem;
+            margin: 0 auto;
+
+            .pf-c-sectTitle__jp {
+                @extend .pf-c-sectTitle__jp;
+                display: block;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+
+            .pf-c-sectTitle__en {
+                @extend .pf-c-sectTitle__en;
+                display: block;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+        }
+
+        .pf-p-works__container{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: $spacing-lg;
+            @include fluid-spacing(margin, $spacing-3xl auto, $spacing-3xl auto);
+            max-width: 1200px;
+
+            // フィルタリング用のアニメーション
+            .pf-p-works__item {
+                transition: opacity 0.3s ease, transform 0.3s ease;
+
+                &.filtered-out {
+                    opacity: 0;
+                    transform: scale(0.95);
+                    pointer-events: none;
+                }
+            }
+            padding: 0 2rem;
+
+            // カード
+            .pf-p-works__item{
+                border: 2px solid $color-border;
+                border-radius: 8px;
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                display: flex;
+                flex-direction: column;
+
+                &:hover{
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                }
+
+                a{
+                    display: flex;
+                    flex-direction: column;
+                    text-decoration: none;
+                    color: inherit;
+                    height: 100%;
+                }
+
+                // サムネ部分
+                .pf-p-works__thmbnail{
+                    width: 100%;
+                    flex: 1; // 50%の高さ
+                    overflow: hidden;
+                    min-height: 0; // フレックスアイテムの最小高さを0に設定
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        aspect-ratio: 4/3; // 4:3の比率に変更
+                    }
+                }
+
+                // カードテキスト部分
+                > div{
+                    padding: 1.5rem;
+                    flex: 1; // 50%の高さ
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    min-height: 0; // フレックスアイテムの最小高さを0に設定
+
+                    // カードタイトル
+                    .pf-p-works__itemTitle{
+                        font-family: $font-jp;
+                        @include fluid-font($font-size-heading-mobile, $font-size-heading-desktop);
+                        margin: 0 0 1rem 0;
+                        color: #333;
+                    }
+
+                    .pf-p-works__customTitle{
+                        font-family: $font-jp;
+                        @include fluid-font($font-size-sm, $font-size-base);
+                        margin: 0 0 1rem 0;
+                        color: #666;
+                    }
+
+                    // 作品概要
+                    .pf-p-works__itemText{
+                        font-family: $font-jp-text;
+                        @include fluid-font($font-size-sm, $font-size-base);
+                        margin: 0;
+                        color: #666;
+                        line-height: 1.6;
+                    }
+                }
+            }
+        }
+
+        // ページネーション
+        .pf-p-pagination{
+            @include fluid-spacing(margin, $spacing-3xl auto, $spacing-3xl auto);
+            text-align: center;
+
+            .page-numbers{
+                display: inline-flex;
+                gap: $spacing-sm;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li{
+                    a, span{
+                        display: inline-block;
+                        @include fluid-spacing(padding, $spacing-sm $spacing-md, $spacing-sm $spacing-md);
+                        background-color: #fff;
+                        border: 2px solid $color-border;
+                        border-radius: 8px;
+                        text-decoration: none;
+                        font-family: $font-jp;
+                        @include fluid-font($font-size-sm, $font-size-base);
+                        color: #333;
+                        transition: all 0.3s ease;
+                        font-weight: 500;
+                        min-width: 44px;
+                        text-align: center;
+
+                        &:hover{
+                            background-color: $color-main;
+                            color: #fff;
+                            border-color: $color-main;
+                            transform: translateY(-2px);
+                            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                        }
+                    }
+
+                    .current{
+                        background-color: $color-main;
+                        color: #fff;
+                        border-color: $color-main;
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    }
+                }
+            }
+        }
+
+        // 空の状態
+        .pf-p-works__empty{
+            text-align: center;
+            padding: 4rem 2rem;
+
+            p{
+                font-family: $font-jp;
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+                color: #666;
+            }
+
+            .pf-c-btn{
+                display: inline-block;
+                padding: 1rem 2rem;
+                background-color: $color-main;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 4px;
+                font-family: $font-jp;
+                font-size: 1.4rem;
+                transition: background-color 0.3s ease;
+
+                &:hover{
+                    background-color: color.adjust($color-main, $lightness: -10%);
+                }
+            }
+        }
+    }
+}
+
+// PC用（768px以上）
+@media screen and (min-width: 768px) {
+    main#page-works section.pf-p-works .pf-p-works__container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}

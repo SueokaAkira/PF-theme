@@ -1,0 +1,629 @@
+@use "common" as * ;
+@use "mixin" as * ;
+@use "sass:color";
+
+main{
+    // キービジュアル
+    section.pf-l-about__KV{
+        width: 80vw;
+        margin: 0 auto;
+
+        // div.pf-c-pageTitle{
+        //     width: 90vw;
+        // }
+        // KV画像入れ
+        div.pf-p-about__imgContainer{
+            width: 80vw;
+            margin: 0 auto;
+
+            // Slickスライダー
+            div.KV_slick-slider{
+                width: 70%;
+                max-width: 500px;
+                margin: 0 auto;
+
+                img{
+                    width: 100%;
+                    aspect-ratio: 4/3;
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+            }
+
+            // like_slick-slider
+            div.like_slick-slider{
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+
+                img{
+                    width: 100%;
+                    height: 250px;
+                    aspect-ratio: 4/3;
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+            }
+            }
+        }
+    // 導入文章
+    div.pf-p-introtext{
+        width: 90vw;
+        margin: 4rem auto;
+        p{
+            text-align: start;
+            margin: 2rem auto;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+        }
+        strong{
+            display: block;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+        }
+    }
+    // ナブボタン
+    nav.pf-p-about__navMenu{
+        position: relative;
+        top:7rem;
+        padding: 1rem 0; // 上下のパディングを増加
+        width: 90vw;
+        max-width: 90vw;
+        height: auto;
+        cursor: pointer;
+        margin: 0 auto;
+        gap: 1rem; // 要素間に間隔を追加
+        div.pf-clickcontainer-gray{
+            @include flex-center;
+            margin-top: 4rem;
+
+            strong.pf-clickanounce{
+                font-family: $font-jp;
+                font-size: 1.6rem;
+                background-image: url('../img/subtitleback.svg');
+                padding:1rem;
+                border-radius: 9999px;
+                border-radius: 50%;
+            }
+        }
+        ul.pf-p-about__navMenuList{
+            display: grid;
+            grid-template-columns: 1fr 1fr; // 2列に分割
+            gap: 1rem; // 要素間に間隔を追加
+            grid-template-rows: 1fr 1fr; // 2行に分割
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: auto;
+            width: auto;
+            gap: 0;
+            transition: all 0.6s ease;
+            overflow: visible;
+            vertical-align: center;
+
+            li.pf-p-about__navMenuListItem{
+                width: auto;
+                height: 16rem;
+                margin: 0;
+                @include flex-column;
+                transition: all 0.6s ease;
+                transform-origin: center center;
+                flex: 1;
+                min-width: 7rem; // 最小幅を設定
+                gap: 1rem; // 要素間に間隔を追加
+            &.grid1{
+                grid-column: 1 / -1;
+                justify-self: center;
+                align-self: center;
+
+            }
+            &.grid2{
+                grid-column: 1;
+                justify-self: center;
+                align-self: center;
+            }
+            &.grid3{
+                grid-column: 2;
+                justify-self: center;
+                align-self: center;
+            }
+
+                button{
+                    width: auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    border: none;
+                    border-radius: 50%;
+                    background-color: $color-main;
+                    cursor: pointer;
+                    transition: all 0.6s ease;
+                    color: #fff;
+                    user-select: none;
+                    width: 7rem;
+                    height:7rem;
+                    font-size: 1rem;
+                    aspect-ratio: 1 / 1;
+                    text-align: center;
+
+                    p{
+                        font-family: $font-jp;
+                        font-size: 0.9rem;
+                        font-weight: bold;
+                        color: #fff;
+                        margin: 0;
+                        line-height: 1;
+                        text-align: center;
+                    }
+                    span{
+                        font-family: $font-en;
+                        font-size: 0.7rem;
+                        color: #fff;
+                        line-height: 1;
+                        text-align: center;
+                        margin-top: 0.2rem;
+                    }
+
+                    &:hover{
+                        box-shadow: 0 4px 16px rgba(25, 118, 210, 0.3);
+                        transform: scale(1.1);
+                    }
+
+                    &.active{
+                        background-color: color.adjust($color-main, $lightness: -10%);
+                        box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
+                        transform: scale(1.05);
+
+                        p, span {
+                            color: #fff;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                ul{
+                    list-style: none;
+                    padding: 0;
+                    width: auto;
+
+                    li{
+                        margin: 0.5rem;
+                        text-align: start;
+                        font-size: 0.9rem;
+                        line-height: 1.2;
+                        list-style: square;
+                    }
+                }
+            }
+        }
+    }
+
+    // 各セクション
+    // 自己紹介セクション
+    section.pf-p-about__profile{
+        @include fluid-spacing(margin-top, $spacing-3xl, $spacing-3xl);
+
+        // セクションタイトル
+        hgroup.pf-c-sectTitle{
+            @extend .pf-c-sectTitle;
+            width: fit-content;
+            padding: 1.5rem 2rem;
+            margin: 0 auto;
+
+            .pf-c-sectTitle__jp {
+                @extend .pf-c-sectTitle__jp;
+                display: block;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+
+            .pf-c-sectTitle__en {
+                @extend .pf-c-sectTitle__en;
+                display: block;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+        }
+
+        // hgroupは顧問で指定
+        // サブセクション＝＝＝＝＝＝
+        // 概略
+        // hgroupは顧問で指定
+        // 概略中身
+        article.pf-p-subsection-profileProfile{
+            @include flex-column;
+            justify-content: center;
+            align-items: center;
+            gap:2rem;
+            // 東京駅画像
+            img{
+                width: 90vw;
+                margin: 0 auto;
+            }
+            p{
+                width: 90vw;
+            }
+        }
+        // 好き中身
+        article.pf-p-subsection-profileLike{
+            @include flex-column;
+            justify-content: center;
+            align-items: center;
+            gap:2rem;
+
+            // 好きなもの画像とテキストのコンテナ
+            div.pf-p-about__subsectionflex{
+                @include flex-column;
+                gap: 2rem;
+                width: 100%;
+            }
+        }
+        // 趣味中身
+        article.pf-p-subsection-profileHobby{
+            @include flex-column;
+            justify-content: center;
+            align-items: center;
+            gap:2rem;
+            // 好きなもの画像
+            div{
+                width: 90vw;
+            }
+            dl{
+                width: 90vw;
+
+                dt{
+                    font-weight:bold;
+                }
+            }
+        }
+    }
+    // スキルセクション
+    section.pf-p-about__skill{
+        @include fluid-spacing(margin-top, $spacing-3xl, $spacing-3xl);
+
+        // セクションタイトル
+        hgroup.pf-c-sectTitle{
+            @extend .pf-c-sectTitle;
+            width: fit-content;
+            padding: 1.5rem 2rem;
+            margin: 0 auto;
+
+            .pf-c-sectTitle__jp {
+                @extend .pf-c-sectTitle__jp;
+                display: block;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+
+            .pf-c-sectTitle__en {
+                @extend .pf-c-sectTitle__en;
+                display: block;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+        }
+        // 強み
+        article.pf-p-subsection-profileStrength{
+            @include flex-column;
+            justify-content: center;
+            align-items: center;
+            gap:2rem;
+            // 3分割
+            div{
+                width: 90vw;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+
+                dl{
+                    margin-top: 2rem;
+                    dt{
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                    dd{
+                        margin-top: 2rem;
+                    }
+                }
+            }
+        }
+        // ツール
+        article.pf-p-subsection-profileTools{
+            @include flex-column;
+            justify-content: center;
+            align-items: center;
+            gap:2rem;
+            // 3分割
+
+            div.iconbox{
+                width: 90vw;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+
+                ul{
+                    padding: 0;
+                    list-style: none;
+                    @include flex-row;
+                    li img{
+                        width: 7rem;
+                    }
+                }
+            }
+        }
+        // その他
+        article.pf-p-subsection-profileOthers{
+            @include flex-column;
+            justify-content: center;
+            align-items: center;
+            gap:2rem;
+            // 3分割
+            div.iconbox{
+                width: 90vw;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+
+                ul{
+                    padding: 0;
+                    list-style: none;
+                    @include flex-row;
+                    li img{
+                        width: 7rem;
+                    }
+                }
+            }
+        }
+    }
+    // 経歴セクション
+    section.pf-p-about__career{
+        @include fluid-spacing(margin-top, $spacing-3xl, $spacing-3xl);
+
+        // セクションタイトル
+        hgroup.pf-c-sectTitle{
+            @extend .pf-c-sectTitle;
+            width: fit-content;
+            padding: 1.5rem 2rem;
+            margin: 0 auto;
+
+            .pf-c-sectTitle__jp {
+                @extend .pf-c-sectTitle__jp;
+                display: block;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+
+            .pf-c-sectTitle__en {
+                @extend .pf-c-sectTitle__en;
+                display: block;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+        }
+        // 経歴中身
+        article.pf-p-subsection-profileHistory{
+            @include flex-column;
+            justify-content: center;
+            align-items: center;
+            gap:2rem;
+
+            div{
+                width: 90vw;
+            }
+            dl{
+                width: 90vw;
+                dt{
+                    font-weight:bold;
+                }
+            }
+        }
+        // 志望理由
+        article.pf-p-subsection-profileReason{
+            margin-top: 2rem;
+            width: 90vw;
+            margin: 2rem;
+
+            div.reason_textcontent{
+                margin-top: 2rem;
+            }
+        }
+        // 展望
+        article.pf-p-subsection-profileVision{
+            margin-top: 2rem auto 0 auto;
+            @include flex-column;
+
+            div.vision_textcontent{
+                margin-top: 2rem ;
+                width: 90vw;
+
+                strong{
+                    display: block;
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+}
+
+// PC用（768px以上）
+@media screen and (min-width: 768px) {
+    main div.pf-p-introtext p{
+        font-size: 1.4rem;
+        line-height: 2rem;
+        text-align: center;
+    }
+
+    main div.pf-p-introtext strong{
+        display: block;
+        margin-top: 4rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        text-align: center;
+    }
+
+    main nav.pf-p-about__navMenu div.pf-clickcontainer-gray{
+        @include flex-center;
+        margin-top: 4rem;
+    }
+
+    main nav.pf-p-about__navMenu div.pf-clickcontainer-gray strong.pf-clickanounce{
+        font-family: $font-jp;
+        font-size: 1.6rem;
+        padding:1rem;
+        border-radius: 9999px;
+    }
+    // セクション内容
+    main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex{
+        @include flex-space-around;
+        flex-direction: row;
+        gap: 3rem;
+        width: 80vw;
+    }
+
+    main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col{
+        width: 50%;
+
+        div.KV_slick-slider,
+        div.like_slick-slider{
+            width: 70%;
+            max-width: 500px;
+            margin: 0 auto;
+
+            img{
+                width: 100%;
+                height: 300px;
+                aspect-ratio: 4/3;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+        }
+    }
+
+    main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div img{
+        width: 100%;
+        height: 300px;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    main div.pf-p-about__content section.pf-p-about__profile article dl.pf-p__about__hobbygrid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        width: 90vw;
+    }
+
+    main div.pf-p-about__content section.pf-p-about__profile article dl.pf-p__about__hobbygrid div{
+        width: auto;
+        place-items: center;
+    }
+
+    main div.pf-p-about__content section.pf-p-about__profile article dl.pf-p__about__hobbygrid div dt{
+        width: 50%;
+    }
+
+    main div.pf-p-about__content section.pf-p-about__profile article dl.pf-p__about__hobbygrid div dd{
+        width: 50%;
+    }
+
+    main div.pf-p-about__content section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex{
+        display: flex;
+        flex-direction: row-reverse !important;
+        gap: 3rem;
+        width: 80vw;
+    }
+
+    main div.pf-p-about__content section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col{
+        width: 50%;
+
+        div.KV_slick-slider,
+        div.like_slick-slider{
+            width: 100%;
+            margin: 0 auto;
+
+            img{
+                width: 100%;
+                height: auto;
+                aspect-ratio: 4/3;
+                object-fit: contain;
+                border-radius: 8px;
+            }
+        }
+    }
+
+    main div.pf-p-about__content section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div img{
+        width: 100%;
+        height: 300px;
+        aspect-ratio: 4/3;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+    main div.pf-p-about__content section.pf-p-about__profile article.pf-p-subsection-profileHobby{
+        margin-bottom: 8rem;
+    }
+
+
+    // 経歴の二から無配置
+    article.pf-p-subsection-profileHistory div.history_2col{
+        display: flex !important;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 3rem;
+        width: 80vw;
+        dl{
+            width: 50%;
+        }
+        img{
+            width: 50%;
+        }
+    }
+main section.pf-p-about__career article.pf-p-subsection-profileReason {
+        display: flex !important;
+        flex-direction: column;;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        width: 80vw;
+        margin: 0 auto;
+    }
+main section.pf-p-about__career article.pf-p-subsection-profileVision{
+    display: flex !important;
+        flex-direction: column;;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        width: 80vw;
+        margin: 0 auto;
+
+        div.vision_textcontent{
+            margin-top: 0;
+            width: 100%;
+            strong{
+                display: block;
+                margin-top: 2rem;
+                text-align: center;
+            }
+        }
+}
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"name": "htdocs",
+			"path": "../../../.."
+		},
+		{
+			"name": "WPPF",
+			"path": "../../.."
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveSassCompile.settings.formats": [
+
+
+
+
+			{
+				"format": "expanded",
+				"extensionName": ".css",
+				"savePath": "/assets/css",
+				"savePathReplacementPairs": null
+			}
+		]
+	}
+}

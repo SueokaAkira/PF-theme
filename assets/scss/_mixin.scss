@@ -1,0 +1,163 @@
+
+@use "sass:math";
+@use "sass:meta";
+
+// mixin（共通で使うコード）
+// フレックスボックスのmixin
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @content;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @content;
+}
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @content;
+}
+@mixin flex-space-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @content;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  @content;
+}
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+// レスポンシブmixin
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// ブレイクポイントの定義
+$breakpoint-sp: 375px; // スマホ
+$breakpoint-md: 768px; // タブレット
+$breakpoint-lg: 1024px; // デスクトップ
+$breakpoint-pc: 1440px; // 大画面
+// 下限+1px
+$breakpoint-sp-up: $breakpoint-sp + 1px;
+$breakpoint-md-up: $breakpoint-md + 1px;
+$breakpoint-lg-up: $breakpoint-lg + 1px;
+$breakpoint-pc-up: $breakpoint-pc + 1px;
+
+// 〜375px
+@mixin mq-sp {
+  @media (max-width: $breakpoint-sp) {
+    @content;
+  }
+}
+// 376px〜768px
+@mixin mq-spmd {
+  @media (min-width: $breakpoint-sp-up) and (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+// 768以下（SP+中間）
+@mixin mq-bpsp {
+  @include mq-sp { @content; }
+  @include mq-spmd { @content; }
+    @content;
+}
+
+// 768px〜1024px
+@mixin mq-md {
+  @media (min-width: $breakpoint-md-up) and (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+// 1024px〜1440px
+@mixin mq-lg {
+  @media (min-width: $breakpoint-lg-up) and (max-width: $breakpoint-pc) {
+    @content;
+  }
+}
+// 1440px以上
+@mixin mq-pc {
+  @media (min-width: $breakpoint-pc-up) {
+    @content;
+  }
+}
+
+// 768px以上（タブレット+デスクトップ+大画面）
+@mixin mq-bppc {
+  @include mq-md { @content; }
+  @include mq-lg { @content; }
+  @include mq-pc { @content; }
+}
+
+
+
+
+// レスポンシブテキストサイズのmixin
+// フィグマのデザインカンプを参考に、最小サイズと最大サイズを指定して、画面幅に応じてテキストサイズを自動調整する、フィグマはSPを375px、PCを1440pxでデザインしている。ブレイクポイントを768pxに設定する。smallタグは12px(1.2rem)固定にする
+
+@mixin fluid-font($min-size, $max-size) {
+    // 最小画面幅以下の場合のサイズ指定
+    font-size: $min-size;
+    
+    // 最小画面幅以上、最大画面幅以下の場合のサイズ指定
+    @media (min-width: $breakpoint-sp-up) and (max-width: $breakpoint-pc) {
+        font-size: calc(#{$min-size} + (#{strip-unit($max-size)} - #{strip-unit($min-size)}) * ((100vw - #{$breakpoint-sp}) / (#{strip-unit($breakpoint-pc)} - #{strip-unit($breakpoint-sp)})));
+    }
+    
+    // 最大画面幅以上の場合のサイズ指定
+    @media (min-width: $breakpoint-pc-up) {
+        font-size: $max-size;
+    }
+}
+
+// 数値から単位を除去する関数
+@function strip-unit($number) {
+    @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
+        @return math.div($number, $number * 0 + 1);
+    }
+    @return $number;
+}
+
+// レスポンシブ余白のmixin
+@mixin fluid-spacing($property, $min-size, $max-size) {
+    #{$property}: $min-size;
+    
+    @media (min-width: $breakpoint-sp-up) and (max-width: $breakpoint-pc) {
+        #{$property}: calc(#{$min-size} + (#{strip-unit($max-size)} - #{strip-unit($min-size)}) * ((100vw - #{$breakpoint-sp}) / (#{strip-unit($breakpoint-pc)} - #{strip-unit($breakpoint-sp)})));
+    }
+    
+    @media (min-width: $breakpoint-pc-up) {
+        #{$property}: $max-size;
+    }
+}
+
+// その他＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// ボックスシャドウのmixin
+@mixin box-shadow($shadow-color) {
+  box-shadow: 0 4px 6px -1px $shadow-color, 0 2px 4px -1px $shadow-color;
+}
+
+// 見出し用　テキストを黒で縁取りする
+@mixin text-outline($color: rgb(165, 162, 162), $size: .1rem) {
+  color: white;
+  text-shadow:
+    $size $size 0 $color,
+    (-$size) $size 0 $color,
+    $size (-$size) 0 $color,
+    (-$size) (-$size) 0 $color,
+    $size 0 0 $color,
+    (-$size) 0 0 $color,
+    0 $size 0 $color,
+    0 (-$size) 0 $color;
+    @content;
+}
+
+

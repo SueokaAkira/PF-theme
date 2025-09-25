@@ -1,0 +1,10 @@
+@use "common" as * ; //共通CSS
+@use "mixin" as * ; //mixin
+@use "header" as * ; //ヘッダー
+@use "footer" as * ; //フッター
+@use "home" as * ; //トップページ
+@use "works" as * ; //作品一覧
+@use "detail" as * ; //作品詳細
+@use "about" as * ; //アバウト
+
+
