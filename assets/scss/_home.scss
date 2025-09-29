@@ -84,8 +84,8 @@ main#home{
         }
     }
 
-    // タブレット以上（768px以上）
-    @include mq-bppc {
+    // デスクトップ（768px以上）
+    @include mq-desktop {
         section.pf-p-topKV{
             width: 100vw;
             height: 100vh;
@@ -143,10 +143,11 @@ main#home{
             @include fluid-spacing(margin-top, $spacing-3xl, $spacing-3xl);
 
             // 768px以上で1行3枚
-            @include mq-bppc {
+            @include mq-desktop {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 2rem;
                 width: 90%;
+                min-width: 900px;
             }
 
             // カードそれぞれ
@@ -159,6 +160,7 @@ main#home{
                 flex-direction: column;
                 height: 100%;
                 background-color: #fff;
+                min-width: 280px;
 
                 &:hover{
                     transform: translateY(-5px);
@@ -198,19 +200,25 @@ main#home{
 
                         // カードタイトル
                         .pf-p-works__itemTitle{
-                            font-family: $font-jp;
-                            @include fluid-font($font-size-heading-mobile, $font-size-heading-desktop);
+                            font-family: $font-jp-text;
+                            @include fluid-font($font-size-xxs, $font-size-xs);
                             @include fluid-spacing(margin, 0 0 $spacing-sm 0, 0 0 $spacing-sm 0);
                             color: #333;
+                            line-height: 1.4;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            font-weight: normal;
                         }
 
                         // 作品概要
                         .pf-p-works__itemText{
                             font-family: $font-jp-text;
-                            @include fluid-font($font-size-sm, $font-size-base);
+                            @include fluid-font($font-size-xs, $font-size-sm);
                             margin: 0;
                             color: #666;
                             line-height: 1.6;
+                            font-weight: bold;
                         }
                     }
                 }
@@ -352,15 +360,11 @@ main#home{
     }
 }
 
-// PC用のメディアクエリ（768px以上）
-@media screen and (min-width: 768px) {
+// デスクトップ用のメディアクエリ（768px以上）
+@include mq-desktop {
     main{
         // 制作物セクション
         section.pf-p-topWorks{
-            display: flex;
-            flex-direction: column;
-            align-items: normal;
-            height: auto;
             background-color: $color-border;
             @include fluid-spacing(padding-bottom, $spacing-3xl, $spacing-3xl);
             max-width: 1200px;
@@ -373,15 +377,9 @@ main#home{
 
         // アバウトセクション
         section.pf-p-topAbout{
-            display: flex;
-            flex-direction: column;
-            align-items: normal;
-            height: auto;
-            margin: 0 auto;
             @include fluid-spacing(padding-bottom, $spacing-3xl, $spacing-3xl);
 
             div.pf-p-about__container{
-                width: auto;
                 @include flex-center;
                 flex-direction: row;
                 gap: 2rem;
@@ -393,17 +391,12 @@ main#home{
                 div.pf-p-about__text{
                     width: 60%;
                     text-align: center;
-
                 }
             }
         }
 
         // コンタクトセクション
         section.pf-p-topContact{
-            display: flex;
-            flex-direction: column;
-            align-items: normal;
-            height: auto;
             background-color: $color-border;
             @include fluid-spacing(padding-bottom, $spacing-3xl, $spacing-3xl);
             max-width: 1200px;
@@ -432,8 +425,8 @@ main#home{
     }
 }
 
-// レスポンシブ対応
-@media screen and (max-width: 767px) {
+// モバイル対応
+@include mq-mobile {
     main section h2[class*="__title"] {
         width: fit-content;
         min-height: 6rem;
@@ -442,7 +435,7 @@ main#home{
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     // モバイルでのセクションタイトルの調整
     main section .pf-c-sectTitle {
         min-width: 18rem;
@@ -450,11 +443,33 @@ main#home{
         margin-top: 4rem;
         padding: 1rem 1.5rem;
     }
-    
+
     // モバイルでのコンテナ幅調整
     .pf-l-container {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
+    }
+
+    // モバイルでの制作物カードのタイトル調整
+    .pf-p-works__itemTitle {
+        font-size: $font-size-xxs !important;
+        line-height: 1.3 !important;
+        max-height: 2.6rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: normal !important;
+    }
+
+    // モバイルでの制作物カードのテキスト調整
+    .pf-p-works__itemText {
+        font-size: $font-size-xs !important;
+        line-height: 1.5 !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-weight: bold !important;
     }
 }
 

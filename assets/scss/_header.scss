@@ -20,7 +20,7 @@ header.pf-l-header {
     height: auto;
     flex-shrink: 0;
     
-    @include mq-bppc {
+    @include mq-desktop {
       margin-right: 2rem;
     }
 

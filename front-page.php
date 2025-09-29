@@ -36,7 +36,7 @@
                     <?php
                     // 'pickup'タグが設定された制作物を3件取得
                     $pickup_tag = get_term_by('name', 'pickup', 'post_tag');
-                    
+
                     if ($pickup_tag) {
                         // 'pickup'タグが存在する場合
                         $args = array(
@@ -51,7 +51,7 @@
                             'posts_per_page' => 3,
                         );
                     }
-                    
+
                     $the_query = new WP_Query($args);
                     if ($the_query->have_posts()) :
                         while ($the_query->have_posts()) :
@@ -69,11 +69,13 @@
                                         <?php the_title(); ?>
                                     </h3>
                                     <p class="pf-p-works__itemText">
-                                        <?php if (get_field('description')) : ?>
-                                            <?php the_field('description'); ?>
-                                        <?php else : ?>
-                                            <?php the_excerpt(); ?>
-                                        <?php endif; ?>
+                                        <?php
+                                        if (function_exists('get_field') && get_field('description')) {
+                                            echo esc_html(get_field('description'));
+                                        } else {
+                                            echo esc_html(has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 30, '...'));
+                                        }
+                                        ?>
                                     </p>
                                 </div>
                             </a>
@@ -102,9 +104,8 @@
                     <div class="pf-p-about__text">
                         <h3 class="pf-p-about__textName">末岡　哲</h3>
                         <p class="pf-p-about__textDesc">
-                            フロントエンドエンジニアとして活動しています。<br>
-                            ユーザー体験を重視したデザインと、パフォーマンスを意識したコーディングを心がけています。<br>
-                            新しい技術の習得と、より良いユーザー体験の提供を目指して日々学習を続けています。
+                            2025年4月から、公共職業訓練校であるインタープランITスクール新宿校へ入校。<br>
+                            WEBデザインに関する包括的な知識の習得に励んでいます。
                         </p>
                     </div>
                 </div>
