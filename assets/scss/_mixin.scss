@@ -53,7 +53,8 @@ $breakpoint-mobile: 768px; // モバイル/デスクトップ境界
 
 // デスクトップ（768px以上）
 @mixin mq-desktop {
-  @media (min-width: $breakpoint-mobile + 1px) {
+  // Avoid arithmetic in media queries to prevent parser issues
+  @media (min-width: 769px) {
     @content;
   }
 }
@@ -65,25 +66,17 @@ $breakpoint-mobile: 768px; // モバイル/デスクトップ境界
 // 768pxを境界としてモバイルとデスクトップで異なるフォントサイズを適用
 
 @mixin fluid-font($min-size, $max-size) {
-    // モバイル（768px以下）
-    font-size: $min-size;
-    
-    // デスクトップ（768px以上）
-    @include mq-desktop {
-        font-size: $max-size;
-    }
+  // すべてをメディアクエリ内に入れて、呼び出し側のルールに直の宣言を出さない
+  @include mq-mobile { font-size: $min-size; }
+  @include mq-desktop { font-size: $max-size; }
 }
 
 
 // レスポンシブ余白のmixin
 @mixin fluid-spacing($property, $min-size, $max-size) {
-    // モバイル（768px以下）
-    #{$property}: $min-size;
-    
-    // デスクトップ（768px以上）
-    @include mq-desktop {
-        #{$property}: $max-size;
-    }
+  // すべてをメディアクエリ内に入れて、呼び出し側のルールに直の宣言を出さない
+  @include mq-mobile { #{$property}: $min-size; }
+  @include mq-desktop { #{$property}: $max-size; }
 }
 
 // その他＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝

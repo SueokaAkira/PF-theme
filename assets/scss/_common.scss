@@ -130,10 +130,13 @@ html {
     font-family: $font-en,$font-jp-text, sans-serif;
     // font-size: フルードタイポグラフィ
     @include fluid-font(1.2rem, 1.6rem); // 基本フォントサイズ12px(1.2rem)~16px(1.6rem)
-    /* 標準のフォントウェイト */
-    font-weight: 400;
-    /* 英語フォントだと行間１、５、日本語は1．７くらいがおすすめ */
-    line-height: 1.7;
+    /* mixinの後の宣言は&でラップして将来のSass仕様に対応 */
+    & {
+      /* 標準のフォントウェイト */
+      font-weight: 400;
+      /* 英語フォントだと行間１、５、日本語は1．７くらいがおすすめ */
+      line-height: 1.7;
+    }
   }
     a {
       color: $color-textmain;
@@ -256,21 +259,25 @@ div.pf-c-pageTitle {
 
 .pf-c-sectTitle__jp {
   @include fluid-font($font-size-heading-mobile, $font-size-heading-desktop);
-  font-weight: 400;
-  color: $color-textmain;
-  letter-spacing: .1em;
-  padding-top: .8rem;
-  text-align: center;
-  vertical-align: baseline;
+  & {
+    font-weight: 400;
+    color: $color-textmain;
+    letter-spacing: .1em;
+    padding-top: .8rem;
+    text-align: center;
+    vertical-align: baseline;
+  }
 }
 
 .pf-c-sectTitle__en {
   font-family: $font-en;
   @include fluid-font($font-size-2xl, 3.6rem);
-  letter-spacing: .1em;
-  text-align: center;
-  line-height: 1.5rem;
-  color: $color-textmain;
+  & {
+    letter-spacing: .1em;
+    text-align: center;
+    line-height: 1.5rem;
+    color: $color-textmain;
+  }
 }
 
 
@@ -451,18 +458,22 @@ hgroup.pf-c-subsectionTitle{
 
   h3.pf-c-subsection_titleJp{
     @include fluid-font($font-size-lg, $font-size-xl);
-    font-weight: 400;
-    font-family: $font-jp;
-    letter-spacing: .1em;
-    margin-bottom: 0.5rem;
+    & {
+      font-weight: 400;
+      font-family: $font-jp;
+      letter-spacing: .1em;
+      margin-bottom: 0.5rem;
+    }
 
   }
   span.pf-c-subsection_titleEn{
     @include fluid-font($font-size-lg, $font-size-xl);
-    font-weight: 400;
-    font-family: $font-en;
-    letter-spacing: 0;
-    margin-top: 0.5rem;
+    & {
+      font-weight: 400;
+      font-family: $font-en;
+      letter-spacing: 0;
+      margin-top: 0.5rem;
+    }
   }
 
 }

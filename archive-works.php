@@ -83,7 +83,7 @@
                             <?php endif; ?>
                         </div>
                         <!-- 作品タイトル -->
-                        <div>
+                        <div class="cardtextbox">
                             <h3 class="pf-p-works__itemTitle"><?php the_title(); ?></h3>
                             <!-- 作品概要 -->
                             <p class="pf-p-works__itemText">

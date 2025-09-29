@@ -52,9 +52,9 @@ main#home{
             h2.pf-p-topKV__title{
                 font-family: $font-en;
                 @include fluid-font($font-size-title-mobile, $font-size-title-desktop);
-                color: $color-main;
+                & { color: $color-main; }
                 @include fluid-spacing(margin, $spacing-2xl auto 0, $spacing-2xl auto 0);
-                text-align: center;
+                & { text-align: center; }
             }
 
             p.pf-p-topKV__copy{
@@ -67,7 +67,7 @@ main#home{
                 font-family: $font-jp;
                 @include fluid-font($font-size-body-mobile, $font-size-body-desktop);
                 @include fluid-spacing(margin, $spacing-2xl auto 0, $spacing-2xl auto 0);
-                text-align: center;
+                & { text-align: center; }
             }
         }
         div.pf-ctacontainer-gray{
@@ -79,7 +79,7 @@ main#home{
                 font-size: 1.6rem;
                 background-color: $color-border;
                 @include fluid-spacing(padding, $spacing-sm, $spacing-sm);
-                border-radius: 9999px;
+                & { border-radius: 9999px; }
             }
         }
     }
@@ -192,33 +192,39 @@ main#home{
                     // カードテキスト部分
                     > div{
                         @include fluid-spacing(padding, $spacing-md, $spacing-md);
-                        flex: 1;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        min-height: 0;
+                        & {
+                          flex: 1;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          min-height: 0;
+                        }
 
                         // カードタイトル
                         .pf-p-works__itemTitle{
                             font-family: $font-jp-text;
                             @include fluid-font($font-size-xxs, $font-size-xs);
                             @include fluid-spacing(margin, 0 0 $spacing-sm 0, 0 0 $spacing-sm 0);
-                            color: #333;
-                            line-height: 1.4;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            white-space: nowrap;
-                            font-weight: normal;
+                            & {
+                              color: #333;
+                              line-height: 1.4;
+                              overflow: hidden;
+                              text-overflow: ellipsis;
+                              white-space: nowrap;
+                              font-weight: normal;
+                            }
                         }
 
                         // 作品概要
                         .pf-p-works__itemText{
                             font-family: $font-jp-text;
                             @include fluid-font($font-size-xs, $font-size-sm);
-                            margin: 0;
-                            color: #666;
-                            line-height: 1.6;
-                            font-weight: bold;
+                            & {
+                              margin: 0;
+                              color: #666;
+                              line-height: 1.6;
+                              font-weight: bold;
+                            }
                         }
                     }
                 }
@@ -262,10 +268,12 @@ main#home{
         div.pf-p-about__container{
             @include flex-column;
             @include fluid-spacing(margin-top, $spacing-3xl, $spacing-3xl);
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            & {
+              width: 100%;
+              max-width: 800px;
+              margin-left: auto;
+              margin-right: auto;
+            }
 
             // 自分写真
             img.pf-p-about__img{
@@ -291,9 +299,9 @@ main#home{
                 p.pf-p-about__textDesc{
                     font-family: $font-jp-text;
                     @include fluid-font($font-size-body-mobile, $font-size-body-desktop);
-                    line-height: 1.7rem;
+                    & { line-height: 1.7rem; }
                     @include fluid-spacing(margin-top, $spacing-2xl, $spacing-2xl);
-                    text-align: center;
+                    & { text-align: center; }
                 }
             }
         }
@@ -343,18 +351,22 @@ main#home{
             p.pf-p-contact{
                 font-family: $font-jp;
                 @include fluid-font($font-size-body-mobile, $font-size-body-desktop);
-                line-height: 1.7rem;
-                @include fluid-spacing(margin-bottom, $spacing-2xl, $spacing-2xl);
-                text-align: center;
+                & {
+                  line-height: 1.7rem;
+                  @include fluid-spacing(margin-bottom, $spacing-2xl, $spacing-2xl);
+                  text-align: center;
+                }
             }
             a.pf-p-contactLink{
                 display: inline-block;
                 font-family: $font-jp-text;
                 @include fluid-font($font-size-body-mobile, $font-size-body-desktop);
-                line-height: 1.7rem;
-                color: $color-textmain;
-                margin: 0 auto;
-                text-align: center;
+                & {
+                  line-height: 1.7rem;
+                  color: $color-textmain;
+                  margin: 0 auto;
+                  text-align: center;
+                }
             }
         }
     }
@@ -467,6 +479,7 @@ main#home{
         line-height: 1.5 !important;
         display: -webkit-box;
         -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         font-weight: bold !important;

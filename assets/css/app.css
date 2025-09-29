@@ -66,7 +66,11 @@ a {
 .pf-l-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+}
+@media (max-width: 768px) {
+  .pf-l-container {
+    padding: 0 2rem;
+  }
 }
 @media (min-width: 769px) {
   .pf-l-container {
@@ -82,16 +86,23 @@ html {
 }
 html body {
   font-family: "patrick hand", cursive, "rounded mplus 1c", sans-serif, sans-serif;
-  font-size: 1.2rem;
-  /* 標準のフォントウェイト */
-  font-weight: 400;
-  /* 英語フォントだと行間１、５、日本語は1．７くらいがおすすめ */
-  line-height: 1.7;
+  /* mixinの後の宣言は&でラップして将来のSass仕様に対応 */
+}
+@media (max-width: 768px) {
+  html body {
+    font-size: 1.2rem;
+  }
 }
 @media (min-width: 769px) {
   html body {
     font-size: 1.6rem;
   }
+}
+html body {
+  /* 標準のフォントウェイト */
+  font-weight: 400;
+  /* 英語フォントだと行間１、５、日本語は1．７くらいがおすすめ */
+  line-height: 1.7;
 }
 html a {
   color: #333333;
@@ -192,8 +203,17 @@ div.pf-c-pageTitle span.pf-c-pageTitleen {
   border-radius: 8px;
 }
 
+@media (max-width: 768px) {
+  .pf-c-sectTitle__jp, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__jp, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__jp, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__jp {
+    font-size: 2.4rem;
+  }
+}
+@media (min-width: 769px) {
+  .pf-c-sectTitle__jp, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__jp, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__jp, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__jp {
+    font-size: 3.6rem;
+  }
+}
 .pf-c-sectTitle__jp, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__jp, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__jp, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__jp {
-  font-size: 2.4rem;
   font-weight: 400;
   color: #333333;
   letter-spacing: 0.1em;
@@ -201,24 +221,25 @@ div.pf-c-pageTitle span.pf-c-pageTitleen {
   text-align: center;
   vertical-align: baseline;
 }
-@media (min-width: 769px) {
-  .pf-c-sectTitle__jp, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__jp, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__jp, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__jp {
-    font-size: 3.6rem;
-  }
-}
 
 .pf-c-sectTitle__en, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__en, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__en, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__en {
   font-family: "patrick hand", cursive;
-  font-size: 2.4rem;
-  letter-spacing: 0.1em;
-  text-align: center;
-  line-height: 1.5rem;
-  color: #333333;
+}
+@media (max-width: 768px) {
+  .pf-c-sectTitle__en, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__en, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__en, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__en {
+    font-size: 2.4rem;
+  }
 }
 @media (min-width: 769px) {
   .pf-c-sectTitle__en, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__en, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__en, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__en {
     font-size: 3.6rem;
   }
+}
+.pf-c-sectTitle__en, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__en, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__en, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__en {
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 1.5rem;
+  color: #333333;
 }
 
 div.pf-c-detailItem__title {
@@ -385,29 +406,37 @@ hgroup.pf-c-subsectionTitle {
   background-size: contain;
   line-height: 2rem;
 }
-hgroup.pf-c-subsectionTitle h3.pf-c-subsection_titleJp {
-  font-size: 1.8rem;
-  font-weight: 400;
-  font-family: "sawarabi gothic", sans-serif;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
+@media (max-width: 768px) {
+  hgroup.pf-c-subsectionTitle h3.pf-c-subsection_titleJp {
+    font-size: 1.8rem;
+  }
 }
 @media (min-width: 769px) {
   hgroup.pf-c-subsectionTitle h3.pf-c-subsection_titleJp {
     font-size: 2rem;
   }
 }
-hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
-  font-size: 1.8rem;
+hgroup.pf-c-subsectionTitle h3.pf-c-subsection_titleJp {
   font-weight: 400;
-  font-family: "patrick hand", cursive;
-  letter-spacing: 0;
-  margin-top: 0.5rem;
+  font-family: "sawarabi gothic", sans-serif;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 768px) {
+  hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
+    font-size: 1.8rem;
+  }
 }
 @media (min-width: 769px) {
   hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
     font-size: 2rem;
   }
+}
+hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
+  font-weight: 400;
+  font-family: "patrick hand", cursive;
+  letter-spacing: 0;
+  margin-top: 0.5rem;
 }
 
 /* TOPに戻るボタン */
@@ -511,6 +540,37 @@ hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
     left: 1rem;
   }
 }
+/* ============================
+  カーソル追従（トレースキャット）
+============================ */
+.pf-c-cursorFollower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background-image: url("../img/tracecat.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 2000;
+  transform: translate3d(-100px, -100px, 0);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  will-change: transform, opacity;
+}
+
+@media screen and (max-width: 767px) {
+  .pf-c-cursorFollower {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-c-cursorFollower {
+    transition: none;
+  }
+}
 /* ヘッダー */
 header.pf-l-header {
   background-color: #ffffff;
@@ -547,7 +607,7 @@ header.pf-l-header h1.pf-l-header__logo a img {
 header.pf-l-header h1.pf-l-header__logo a span {
   display: block;
   width: auto;
-  color: #ffffff;
+  color: #333333;
 }
 header.pf-l-header button.pf-l-header__navBtn {
   width: 44px;
@@ -569,7 +629,7 @@ header.pf-l-header button.pf-l-header__navBtn span, header.pf-l-header button.pf
   position: absolute;
   top: 50%;
   left: 50%;
-  translate: -50% -50%;
+  transform: translate(-50%, -50%);
 }
 header.pf-l-header button.pf-l-header__navBtn::before {
   top: calc(50% - 9px);
@@ -623,13 +683,13 @@ header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose::before, he
   position: absolute;
   left: 50%;
   top: 50%;
-  translate: -50% -50%;
+  transform: translate(-50%, -50%);
 }
 header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose::before {
-  rotate: -45deg;
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose::after {
-  rotate: 45deg;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 header.pf-l-header nav.pf-l-header__nav p.pf-l-header__navLogo {
   width: 11rem;
@@ -773,9 +833,13 @@ header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__
   }
   header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem a span.pf-l-header__navItemJp {
     color: #333333;
-    font-size: 1.8rem;
     line-height: 100%;
     white-space: nowrap;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 768px) {
+  header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem a span.pf-l-header__navItemJp {
+    font-size: 1.8rem;
   }
 }
 @media screen and (min-width: 768px) and (min-width: 769px) {
@@ -785,9 +849,13 @@ header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__
 }
 @media screen and (min-width: 768px) {
   header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem a span.pf-l-header__navItemEn {
-    font-size: 1.4rem;
     line-height: 1.3;
     white-space: nowrap;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 768px) {
+  header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem a span.pf-l-header__navItemEn {
+    font-size: 1.4rem;
   }
 }
 @media screen and (min-width: 768px) and (min-width: 769px) {
@@ -796,8 +864,10 @@ header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__
   }
 }
 /* ====フッター＝＝＝＝ */
-footer.pf-l-footer {
-  margin-top: 6rem;
+@media (max-width: 768px) {
+  footer.pf-l-footer {
+    margin-top: 6rem;
+  }
 }
 @media (min-width: 769px) {
   footer.pf-l-footer {
@@ -981,7 +1051,11 @@ footer.pf-l-footer div.pf-l-footer__brand small.pf-l-footer__copyright {
   opacity: 0;
   color: transparent;
   font-family: "patrick hand", cursive;
-  font-size: 4.8rem;
+}
+@media (max-width: 768px) {
+  .handwriting-animation .handwriting-text {
+    font-size: 4.8rem;
+  }
 }
 @media (min-width: 769px) {
   .handwriting-animation .handwriting-text {
@@ -1019,14 +1093,23 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner {
 }
 main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
   font-family: "patrick hand", cursive;
-  font-size: 4.8rem;
-  color: #1976d2;
-  margin: 4rem auto 0;
-  text-align: center;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
+    font-size: 4.8rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
     font-size: 8rem;
+  }
+}
+main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
+  color: #1976d2;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
+    margin: 4rem auto 0;
   }
 }
 @media (min-width: 769px) {
@@ -1034,14 +1117,25 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
     margin: 4rem auto 0;
   }
 }
+main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
+  text-align: center;
+}
 main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
   font-family: "patrick hand", cursive;
-  font-size: 1.6rem;
-  margin: 4rem auto 0 auto;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
+    font-size: 1.6rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
     font-size: 2.4rem;
+  }
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
+    margin: 4rem auto 0 auto;
   }
 }
 @media (min-width: 769px) {
@@ -1052,13 +1146,20 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
 main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
   width: 80%;
   font-family: "sawarabi gothic", sans-serif;
-  font-size: 1.4rem;
-  margin: 4rem auto 0;
-  text-align: center;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
+    font-size: 1.4rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
     font-size: 1.6rem;
+  }
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
+    margin: 4rem auto 0;
   }
 }
 @media (min-width: 769px) {
@@ -1066,11 +1167,18 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
     margin: 4rem auto 0;
   }
 }
+main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
+  text-align: center;
+}
 main#home section.pf-p-topKV div.pf-ctacontainer-gray {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 4rem;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topKV div.pf-ctacontainer-gray {
+    margin-top: 4rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topKV div.pf-ctacontainer-gray {
@@ -1081,13 +1189,19 @@ main#home section.pf-p-topKV div.pf-ctacontainer-gray strong.pf-scrollannounce {
   font-family: "patrick hand", cursive;
   font-size: 1.6rem;
   background-color: #e0e0e0;
-  padding: 1rem;
-  border-radius: 9999px;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topKV div.pf-ctacontainer-gray strong.pf-scrollannounce {
+    padding: 1rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topKV div.pf-ctacontainer-gray strong.pf-scrollannounce {
     padding: 1rem;
   }
+}
+main#home section.pf-p-topKV div.pf-ctacontainer-gray strong.pf-scrollannounce {
+  border-radius: 9999px;
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topKV {
@@ -1105,6 +1219,10 @@ main#home section.pf-p-topKV div.pf-ctacontainer-gray strong.pf-scrollannounce {
   }
   main#home section.pf-p-topKV div.pf-p-topKV__inner div.pf-ctacontainer-gray strong.pf-scrollannounce {
     display: block;
+  }
+}
+@media (min-width: 769px) and (max-width: 768px) {
+  main#home section.pf-p-topKV div.pf-p-topKV__inner div.pf-ctacontainer-gray strong.pf-scrollannounce {
     padding: 1rem 2rem;
   }
 }
@@ -1136,7 +1254,11 @@ main#home section.pf-p-topWorks div.pf-p-works__container {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: 6rem;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topWorks div.pf-p-works__container {
+    margin-top: 6rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topWorks div.pf-p-works__container {
@@ -1185,33 +1307,39 @@ main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__it
   object-fit: cover;
   aspect-ratio: 4/3;
 }
-main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div {
-  padding: 1.5rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 0;
+@media (max-width: 768px) {
+  main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div {
+    padding: 1.5rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div {
     padding: 1.5rem;
   }
 }
+main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+}
 main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemTitle {
   font-family: "rounded mplus 1c", sans-serif;
-  font-size: 1rem;
-  margin: 0 0 1rem 0;
-  color: #333;
-  line-height: 1.4;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-weight: normal;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemTitle {
+    font-size: 1rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemTitle {
     font-size: 1.2rem;
+  }
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemTitle {
+    margin: 0 0 1rem 0;
   }
 }
 @media (min-width: 769px) {
@@ -1219,25 +1347,43 @@ main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__it
     margin: 0 0 1rem 0;
   }
 }
+main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemTitle {
+  color: #333;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: normal;
+}
 main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemText {
   font-family: "rounded mplus 1c", sans-serif;
-  font-size: 1.2rem;
-  margin: 0;
-  color: #666;
-  line-height: 1.6;
-  font-weight: bold;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemText {
+    font-size: 1.2rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemText {
     font-size: 1.4rem;
   }
 }
+main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemText {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+  font-weight: bold;
+}
 main#home section.pf-p-topWorks div.pf-c-ctaContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-top: 4rem;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topWorks div.pf-c-ctaContainer {
+    margin-top: 4rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topWorks div.pf-c-ctaContainer {
@@ -1265,16 +1411,22 @@ main#home section.pf-p-topAbout div.pf-p-about__container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 6rem;
-  width: 100%;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topAbout div.pf-p-about__container {
+    margin-top: 6rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topAbout div.pf-p-about__container {
     margin-top: 6rem;
   }
+}
+main#home section.pf-p-topAbout div.pf-p-about__container {
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 main#home section.pf-p-topAbout div.pf-p-about__container img.pf-p-about__img {
   width: 100%;
@@ -1286,8 +1438,12 @@ main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 4rem;
   width: 100%;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
+    margin-top: 4rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
@@ -1296,9 +1452,13 @@ main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
 }
 main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text h3.pf-p-about__textName {
   font-family: "sawarabi gothic", sans-serif;
-  font-size: 2.4rem;
   text-align: center;
   margin: 0;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text h3.pf-p-about__textName {
+    font-size: 2.4rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text h3.pf-p-about__textName {
@@ -1307,35 +1467,48 @@ main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text h
 }
 main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
   font-family: "rounded mplus 1c", sans-serif;
-  font-size: 1.4rem;
-  line-height: 1.7rem;
-  margin-top: 4rem;
-  text-align: center;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
+    font-size: 1.4rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
     font-size: 1.6rem;
   }
 }
+main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
+  line-height: 1.7rem;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
+    margin-top: 4rem;
+  }
+}
 @media (min-width: 769px) {
   main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
     margin-top: 4rem;
   }
+}
+main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
+  text-align: center;
 }
 main#home section.pf-p-topAbout div.pf-c-ctaContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-top: 4rem;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topAbout div.pf-c-ctaContainer {
+    margin-top: 4rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topAbout div.pf-c-ctaContainer {
     margin-top: 4rem;
   }
-}
-main#home section.pf-p-topContact {
-  margin-top: 8rem;
 }
 main#home section.pf-p-topContact h2.pf-p-topContact__title {
   width: fit-content;
@@ -1353,6 +1526,11 @@ main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__en 
   padding: 0;
   line-height: 1.2;
 }
+@media (max-width: 768px) {
+  main#home section.pf-p-topContact {
+    margin-top: 8rem;
+  }
+}
 @media (min-width: 769px) {
   main#home section.pf-p-topContact {
     margin-top: 8rem;
@@ -1366,12 +1544,20 @@ main#home section.pf-p-topContact div.pf-p-contactContainer {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-top: 6rem;
-  margin-bottom: 6rem;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topContact div.pf-p-contactContainer {
+    margin-top: 6rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topContact div.pf-p-contactContainer {
     margin-top: 6rem;
+  }
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topContact div.pf-p-contactContainer {
+    margin-bottom: 6rem;
   }
 }
 @media (min-width: 769px) {
@@ -1381,14 +1567,24 @@ main#home section.pf-p-topContact div.pf-p-contactContainer {
 }
 main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
   font-family: "sawarabi gothic", sans-serif;
-  font-size: 1.4rem;
-  line-height: 1.7rem;
-  margin-bottom: 4rem;
-  text-align: center;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
+    font-size: 1.4rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
     font-size: 1.6rem;
+  }
+}
+main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
+  line-height: 1.7rem;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
+    margin-bottom: 4rem;
   }
 }
 @media (min-width: 769px) {
@@ -1399,24 +1595,34 @@ main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
 main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
   display: inline-block;
   font-family: "rounded mplus 1c", sans-serif;
-  font-size: 1.4rem;
-  line-height: 1.7rem;
-  color: #333333;
-  margin: 0 auto;
-  text-align: center;
+}
+@media (max-width: 768px) {
+  main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
+    font-size: 1.4rem;
+  }
 }
 @media (min-width: 769px) {
   main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
     font-size: 1.6rem;
   }
 }
+main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
+  line-height: 1.7rem;
+  color: #333333;
+  margin: 0 auto;
+  text-align: center;
+}
 
 @media (min-width: 769px) {
   main section.pf-p-topWorks {
     background-color: #e0e0e0;
-    padding-bottom: 6rem;
     max-width: 1200px;
     margin: 0 auto;
+  }
+}
+@media (min-width: 769px) and (max-width: 768px) {
+  main section.pf-p-topWorks {
+    padding-bottom: 6rem;
   }
 }
 @media (min-width: 769px) and (min-width: 769px) {
@@ -1428,6 +1634,8 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
   main section.pf-p-topWorks div.pf-p-works__container {
     width: 80%;
   }
+}
+@media (min-width: 769px) and (max-width: 768px) {
   main section.pf-p-topAbout {
     padding-bottom: 6rem;
   }
@@ -1454,9 +1662,13 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
   }
   main section.pf-p-topContact {
     background-color: #e0e0e0;
-    padding-bottom: 6rem;
     max-width: 1200px;
     margin: 0 auto;
+  }
+}
+@media (min-width: 769px) and (max-width: 768px) {
+  main section.pf-p-topContact {
+    padding-bottom: 6rem;
   }
 }
 @media (min-width: 769px) and (min-width: 769px) {
@@ -1469,21 +1681,33 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
     width: 80%;
   }
   main section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
-    margin-top: 8rem;
-    font-size: 1.8rem;
     font-weight: bold;
-    line-height: 3rem;
     text-align: center;
   }
 }
-@media (min-width: 769px) and (min-width: 769px) {
+@media (min-width: 769px) and (max-width: 768px) {
   main section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
     margin-top: 8rem;
   }
 }
 @media (min-width: 769px) and (min-width: 769px) {
   main section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
+    margin-top: 8rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 768px) {
+  main section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
     font-size: 1.8rem;
+  }
+}
+@media (min-width: 769px) and (min-width: 769px) {
+  main section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 768px) {
+  main section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
+    line-height: 3rem;
   }
 }
 @media (min-width: 769px) and (min-width: 769px) {
@@ -1493,21 +1717,33 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
 }
 @media (min-width: 769px) {
   main section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
-    margin-top: 8rem;
-    margin-bottom: 8rem;
     font-family: "patrick hand", cursive;
-    font-size: 2.4rem;
     font-weight: bold;
   }
 }
-@media (min-width: 769px) and (min-width: 769px) {
+@media (min-width: 769px) and (max-width: 768px) {
   main section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
     margin-top: 8rem;
   }
 }
 @media (min-width: 769px) and (min-width: 769px) {
   main section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
+    margin-top: 8rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 768px) {
+  main section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
     margin-bottom: 8rem;
+  }
+}
+@media (min-width: 769px) and (min-width: 769px) {
+  main section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
+    margin-bottom: 8rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 768px) {
+  main section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
+    font-size: 2.4rem;
   }
 }
 @media (min-width: 769px) and (min-width: 769px) {
@@ -1548,6 +1784,7 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
     line-height: 1.5 !important;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     font-weight: bold !important;
@@ -1589,13 +1826,21 @@ main#page-works section.pf-p-worksFilter .filter-btn.active {
 }
 main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
   font-family: "sawarabi gothic", sans-serif;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
   text-align: center;
+}
+@media (max-width: 768px) {
+  main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
+    font-size: 2rem;
+  }
 }
 @media (min-width: 769px) {
   main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
     font-size: 2.4rem;
+  }
+}
+@media (max-width: 768px) {
+  main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
+    margin-bottom: 1.5rem;
   }
 }
 @media (min-width: 769px) {
@@ -1614,21 +1859,29 @@ main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-wor
 }
 main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list li a {
   display: inline-block;
-  padding: 1rem 2rem;
   background-color: #fff;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   text-decoration: none;
   font-family: "sawarabi gothic", sans-serif;
-  font-size: 1.4rem;
   color: #333;
   transition: all 0.3s ease;
   cursor: pointer;
   font-weight: 500;
 }
+@media (max-width: 768px) {
+  main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list li a {
+    padding: 1rem 2rem;
+  }
+}
 @media (min-width: 769px) {
   main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list li a {
     padding: 1rem 2rem;
+  }
+}
+@media (max-width: 768px) {
+  main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list li a {
+    font-size: 1.4rem;
   }
 }
 @media (min-width: 769px) {
@@ -1660,8 +1913,10 @@ main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-wor
   font-size: 1.4rem;
   color: #999;
 }
-main#page-works section.pf-p-works {
-  margin: 6rem auto;
+@media (max-width: 768px) {
+  main#page-works section.pf-p-works {
+    margin: 6rem auto;
+  }
 }
 @media (min-width: 769px) {
   main#page-works section.pf-p-works {
@@ -1689,9 +1944,13 @@ main#page-works section.pf-p-works .pf-p-works__container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  margin: 6rem auto;
   max-width: 1200px;
   padding: 0 2rem;
+}
+@media (max-width: 768px) {
+  main#page-works section.pf-p-works .pf-p-works__container {
+    margin: 6rem auto;
+  }
 }
 @media (min-width: 769px) {
   main#page-works section.pf-p-works .pf-p-works__container {
@@ -1711,25 +1970,26 @@ main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item {
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
 }
 main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item a {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   text-decoration: none;
   color: inherit;
   height: 100%;
+  padding: 4rem 0;
+  background-color: #AACEFA;
 }
 main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item .pf-p-works__thmbnail {
   width: 100%;
   flex: 1;
   overflow: hidden;
   min-height: 0;
+  background-color: #ffffff;
 }
 main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item .pf-p-works__thmbnail img {
   width: 100%;
@@ -1737,51 +1997,52 @@ main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item .pf-
   object-fit: cover;
   aspect-ratio: 4/3;
 }
-main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div {
+main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div.cardtextbox {
   padding: 1.5rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 0.5;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   min-height: 0;
 }
-main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__itemTitle {
+main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div.cardtextbox h3.pf-p-works__itemTitle {
   font-family: "sawarabi gothic", sans-serif;
-  font-size: 2.4rem;
+  padding: 4rem 2rem;
   margin: 0 0 1rem 0;
   color: #333;
 }
+@media (max-width: 768px) {
+  main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div.cardtextbox h3.pf-p-works__itemTitle {
+    font-size: 2.4rem;
+  }
+}
 @media (min-width: 769px) {
-  main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__itemTitle {
+  main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div.cardtextbox h3.pf-p-works__itemTitle {
     font-size: 3.6rem;
   }
 }
-main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__customTitle {
-  font-family: "sawarabi gothic", sans-serif;
-  font-size: 1.4rem;
-  margin: 0 0 1rem 0;
-  color: #666;
-}
-@media (min-width: 769px) {
-  main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__customTitle {
-    font-size: 1.6rem;
-  }
-}
-main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__itemText {
+main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div.cardtextbox p.pf-p-works__itemText {
   font-family: "rounded mplus 1c", sans-serif;
-  font-size: 1.4rem;
   margin: 0;
   color: #666;
   line-height: 1.6;
 }
+@media (max-width: 768px) {
+  main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div.cardtextbox p.pf-p-works__itemText {
+    font-size: 1.4rem;
+  }
+}
 @media (min-width: 769px) {
-  main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__itemText {
+  main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div.cardtextbox p.pf-p-works__itemText {
     font-size: 1.6rem;
   }
 }
 main#page-works section.pf-p-works .pf-p-pagination {
-  margin: 6rem auto;
   text-align: center;
+}
+@media (max-width: 768px) {
+  main#page-works section.pf-p-works .pf-p-pagination {
+    margin: 6rem auto;
+  }
 }
 @media (min-width: 769px) {
   main#page-works section.pf-p-works .pf-p-pagination {
@@ -1797,22 +2058,30 @@ main#page-works section.pf-p-works .pf-p-pagination .page-numbers {
 }
 main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#page-works section.pf-p-works .pf-p-pagination .page-numbers li span {
   display: inline-block;
-  padding: 1rem 1.5rem;
   background-color: #fff;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   text-decoration: none;
   font-family: "sawarabi gothic", sans-serif;
-  font-size: 1.4rem;
   color: #333;
   transition: all 0.3s ease;
   font-weight: 500;
   min-width: 44px;
   text-align: center;
 }
+@media (max-width: 768px) {
+  main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#page-works section.pf-p-works .pf-p-pagination .page-numbers li span {
+    padding: 1rem 1.5rem;
+  }
+}
 @media (min-width: 769px) {
   main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#page-works section.pf-p-works .pf-p-pagination .page-numbers li span {
     padding: 1rem 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#page-works section.pf-p-works .pf-p-pagination .page-numbers li span {
+    font-size: 1.4rem;
   }
 }
 @media (min-width: 769px) {
@@ -1995,9 +2264,13 @@ main section.pf-l-detail__KV div.pf-p-detailKVimg-container img {
   height: 50%;
 }
 main section.pf-p-detailContainer {
-  margin-top: 6rem;
   width: 90vw;
   margin: 0 auto;
+}
+@media (max-width: 768px) {
+  main section.pf-p-detailContainer {
+    margin-top: 6rem;
+  }
 }
 @media (min-width: 769px) {
   main section.pf-p-detailContainer {
@@ -2046,8 +2319,12 @@ main section.pf-p-detailContainer div.pf-p-detailTitle strong {
   font-family: "sawarabi gothic", sans-serif;
   font-weight: 500;
   text-align: center;
-  font-size: 2.4rem;
   margin: 0 auto;
+}
+@media (max-width: 768px) {
+  main section.pf-p-detailContainer div.pf-p-detailTitle strong {
+    font-size: 2.4rem;
+  }
 }
 @media (min-width: 769px) {
   main section.pf-p-detailContainer div.pf-p-detailTitle strong {
@@ -2069,7 +2346,11 @@ main section.pf-p-detailContainer div.pf-p-detailTerm div {
 main section.pf-p-detailContainer div.pf-p-detailTerm div p {
   font-family: "sawarabi gothic", sans-serif;
   font-weight: 500;
-  font-size: 1.4rem;
+}
+@media (max-width: 768px) {
+  main section.pf-p-detailContainer div.pf-p-detailTerm div p {
+    font-size: 1.4rem;
+  }
 }
 @media (min-width: 769px) {
   main section.pf-p-detailContainer div.pf-p-detailTerm div p {
@@ -2079,7 +2360,11 @@ main section.pf-p-detailContainer div.pf-p-detailTerm div p {
 main section.pf-p-detailContainer div.pf-p-detailTerm div p span {
   font-family: "rounded mplus 1c", sans-serif;
   font-weight: 400;
-  font-size: 1.4rem;
+}
+@media (max-width: 768px) {
+  main section.pf-p-detailContainer div.pf-p-detailTerm div p span {
+    font-size: 1.4rem;
+  }
 }
 @media (min-width: 769px) {
   main section.pf-p-detailContainer div.pf-p-detailTerm div p span {
@@ -2112,8 +2397,12 @@ main section.pf-p-detailContainer div.pf-p-detailPurpose {
 }
 main section.pf-p-detailContainer div.pf-p-detailPurpose p {
   font-family: "rounded mplus 1c", sans-serif;
-  font-size: 1.4rem;
   text-align: center;
+}
+@media (max-width: 768px) {
+  main section.pf-p-detailContainer div.pf-p-detailPurpose p {
+    font-size: 1.4rem;
+  }
 }
 @media (min-width: 769px) {
   main section.pf-p-detailContainer div.pf-p-detailPurpose p {
@@ -2128,8 +2417,12 @@ main section.pf-p-detailContainer div.pf-p-detailTarget {
 }
 main section.pf-p-detailContainer div.pf-p-detailTarget p {
   font-family: "rounded mplus 1c", sans-serif;
-  font-size: 1.4rem;
   text-align: center;
+}
+@media (max-width: 768px) {
+  main section.pf-p-detailContainer div.pf-p-detailTarget p {
+    font-size: 1.4rem;
+  }
 }
 @media (min-width: 769px) {
   main section.pf-p-detailContainer div.pf-p-detailTarget p {
@@ -2144,8 +2437,12 @@ main section.pf-p-detailContainer div.pf-p-detailDesignIntent {
 }
 main section.pf-p-detailContainer div.pf-p-detailDesignIntent p {
   font-family: "rounded mplus 1c", sans-serif;
-  font-size: 1.4rem;
   text-align: center;
+}
+@media (max-width: 768px) {
+  main section.pf-p-detailContainer div.pf-p-detailDesignIntent p {
+    font-size: 1.4rem;
+  }
 }
 @media (min-width: 769px) {
   main section.pf-p-detailContainer div.pf-p-detailDesignIntent p {
@@ -2363,8 +2660,10 @@ main nav.pf-p-about__navMenu ul.pf-p-about__navMenuList li.pf-p-about__navMenuLi
   line-height: 1.2;
   list-style: square;
 }
-main section.pf-p-about__profile {
-  margin-top: 6rem;
+@media (max-width: 768px) {
+  main section.pf-p-about__profile {
+    margin-top: 6rem;
+  }
 }
 @media (min-width: 769px) {
   main section.pf-p-about__profile {
@@ -2493,8 +2792,10 @@ main section.pf-p-about__profile article.pf-p-subsection-profileHobby dl {
 main section.pf-p-about__profile article.pf-p-subsection-profileHobby dl dt {
   font-weight: bold;
 }
-main section.pf-p-about__skill {
-  margin-top: 6rem;
+@media (max-width: 768px) {
+  main section.pf-p-about__skill {
+    margin-top: 6rem;
+  }
 }
 @media (min-width: 769px) {
   main section.pf-p-about__skill {
@@ -2595,8 +2896,10 @@ main section.pf-p-about__skill article.pf-p-subsection-profileOthers div.iconbox
 main section.pf-p-about__skill article.pf-p-subsection-profileOthers div.iconbox ul li img {
   width: 7rem;
 }
-main section.pf-p-about__career {
-  margin-top: 6rem;
+@media (max-width: 768px) {
+  main section.pf-p-about__career {
+    margin-top: 6rem;
+  }
 }
 @media (min-width: 769px) {
   main section.pf-p-about__career {

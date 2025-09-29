@@ -64,7 +64,7 @@ header.pf-l-header {
       position: absolute;
       top: 50%;
       left: 50%;
-      translate: -50% -50%;
+      transform: translate(-50%, -50%);
     }
     &::before {
     top: calc(50% - 9px);
@@ -119,15 +119,15 @@ header.pf-l-header {
       position: absolute;
       left: 50%;
       top: 50%;
-      translate: -50% -50%;
+      transform: translate(-50%, -50%);
     }
 
     &::before {
-      rotate: -45deg;
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
     /* ×の線を斜めに回転 */
     &::after {
-      rotate: 45deg;
+      transform: translate(-50%, -50%) rotate(45deg);
     }
     /* ×の線を反対の斜めに回転 */
     }
