@@ -100,7 +100,7 @@
                     <span class="pf-c-sectTitle__en">About</span>
                 </h2>
                 <div class="pf-p-about__container">
-                    <img src="<?= get_template_directory_uri(); ?>/assets/img/detailKV.webp" alt="自分の画像" class="pf-p-about__img">
+                    <img src="<?= get_template_directory_uri(); ?>/assets/img/sup_self.png" alt="自分の画像" class="pf-p-about__img">
                     <div class="pf-p-about__text">
                         <h3 class="pf-p-about__textName">末岡　哲</h3>
                         <p class="pf-p-about__textDesc">
@@ -127,7 +127,7 @@
                         お仕事のご相談やご質問がございましたら、<br>
                         お気軽にお問い合わせください。
                     </p>
-                    <a href="mailto:example@example.com" class="pf-p-contactLink">Email</a>
+                    <a href="mailto:example@example.com" class="pf-p-contactLink"><strong>Email:a.sueoka72@gmail.com</strong></a>
                 </div>
             </div>
         </section>

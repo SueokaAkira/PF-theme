@@ -87,6 +87,10 @@ html {
 html body {
   font-family: "patrick hand", cursive, "rounded mplus 1c", sans-serif, sans-serif;
   font-size: 1.2rem;
+  /* 標準のフォントウェイト */
+  font-weight: 400;
+  /* 英語フォントだと行間１、５、日本語は1．７くらいがおすすめ */
+  line-height: 1.7;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   html body {
@@ -97,12 +101,6 @@ html body {
   html body {
     font-size: 1.6rem;
   }
-}
-html body {
-  /* 標準のフォントウェイト */
-  font-weight: 400;
-  /* 英語フォントだと行間１、５、日本語は1．７くらいがおすすめ */
-  line-height: 1.7;
 }
 html a {
   color: #333333;
@@ -205,18 +203,6 @@ div.pf-c-pageTitle span.pf-c-pageTitleen {
 
 .pf-c-sectTitle__jp, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__jp, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__jp, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__jp {
   font-size: 2.4rem;
-}
-@media (min-width: 376px) and (max-width: 1440px) {
-  .pf-c-sectTitle__jp, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__jp, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__jp, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__jp {
-    font-size: calc(2.4rem + (3.6 - 2.4) * (100vw - 375px) / (1440 - 375));
-  }
-}
-@media (min-width: 1441px) {
-  .pf-c-sectTitle__jp, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__jp, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__jp, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__jp {
-    font-size: 3.6rem;
-  }
-}
-.pf-c-sectTitle__jp, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__jp, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__jp, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__jp {
   font-weight: 400;
   color: #333333;
   letter-spacing: 0.1em;
@@ -224,10 +210,24 @@ div.pf-c-pageTitle span.pf-c-pageTitleen {
   text-align: center;
   vertical-align: baseline;
 }
+@media (min-width: 376px) and (max-width: 1440px) {
+  .pf-c-sectTitle__jp, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__jp, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__jp, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__jp {
+    font-size: calc(2.4rem + (3.6 - 2.4) * (100vw - 375px) / (1440 - 375));
+  }
+}
+@media (min-width: 1441px) {
+  .pf-c-sectTitle__jp, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__jp, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__jp, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__jp {
+    font-size: 3.6rem;
+  }
+}
 
 .pf-c-sectTitle__en, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__en, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__en, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__en {
   font-family: "patrick hand", cursive;
   font-size: 2.4rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 1.5rem;
+  color: #757575;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   .pf-c-sectTitle__en, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__en, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__en, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__en {
@@ -238,12 +238,6 @@ div.pf-c-pageTitle span.pf-c-pageTitleen {
   .pf-c-sectTitle__en, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__en, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__en, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__en {
     font-size: 3.6rem;
   }
-}
-.pf-c-sectTitle__en, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__en, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__en, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__en, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__en {
-  letter-spacing: 0.1em;
-  text-align: center;
-  line-height: 1.5rem;
-  color: #757575;
 }
 
 div.pf-c-detailItem__title {
@@ -299,7 +293,8 @@ div.pf-c-detailItem__title span.pf-c-detailItem__titleEn {
 .pf-c-pageTitle__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /* PC状態の時は画像大きめの設定 */
@@ -347,7 +342,8 @@ body {
 .pf-p-topKv {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media screen and (min-width: 768px) {
@@ -412,25 +408,27 @@ hgroup.pf-c-subsectionTitle {
 }
 hgroup.pf-c-subsectionTitle h3.pf-c-subsection_titleJp {
   font-size: 1.8rem;
-}
-@media (min-width: 376px) and (max-width: 1440px) {
-  hgroup.pf-c-subsectionTitle h3.pf-c-subsection_titleJp {
-    font-size: calc(1.8rem + (2 - 1.8) * (100vw - 375px) / (1440 - 375));
-  }
-}
-@media (min-width: 1441px) {
-  hgroup.pf-c-subsectionTitle h3.pf-c-subsection_titleJp {
-    font-size: 2rem;
-  }
-}
-hgroup.pf-c-subsectionTitle h3.pf-c-subsection_titleJp {
   font-weight: 400;
   font-family: "sawarabi gothic", sans-serif;
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
 }
+@media (min-width: 376px) and (max-width: 1440px) {
+  hgroup.pf-c-subsectionTitle h3.pf-c-subsection_titleJp {
+    font-size: calc(1.8rem + (2 - 1.8) * (100vw - 375px) / (1440 - 375));
+  }
+}
+@media (min-width: 1441px) {
+  hgroup.pf-c-subsectionTitle h3.pf-c-subsection_titleJp {
+    font-size: 2rem;
+  }
+}
 hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
   font-size: 1.8rem;
+  font-weight: 400;
+  font-family: "patrick hand", cursive;
+  letter-spacing: 0;
+  margin-top: 0.5rem;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
@@ -441,12 +439,6 @@ hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
   hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
     font-size: 2rem;
   }
-}
-hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
-  font-weight: 400;
-  font-family: "patrick hand", cursive;
-  letter-spacing: 0;
-  margin-top: 0.5rem;
 }
 
 /* TOPに戻るボタン */
@@ -525,7 +517,8 @@ hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
 .pf-c-scrollProgress .pf-c-scrollProgress__indicator .pf-c-scrollProgress__img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
 }
 .pf-c-scrollProgress .pf-c-scrollProgress__indicator:hover {
@@ -595,7 +588,9 @@ header.pf-l-header h1.pf-l-header__logo a span {
 header.pf-l-header button.pf-l-header__navBtn {
   width: 44px;
   height: 44px;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: none;
   background: none;
   /* 全てのプロパティの値を破棄する */
@@ -636,15 +631,13 @@ header.pf-l-header nav.pf-l-header__nav {
   visibility: hidden;
   transform: translateY(-20px);
   transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  /* 閉じるボタンSP用 のbutton */
 }
 body.is-nav-open header.pf-l-header nav.pf-l-header__nav {
   /* bodyにis-nav-openというクラスが追加されたときに表示する */
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-}
-header.pf-l-header nav.pf-l-header__nav {
-  /* 閉じるボタンSP用 のbutton */
 }
 header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose {
   /* 右上での位置調整 */
@@ -654,9 +647,13 @@ header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose {
   width: 44px;
   height: 44px;
   /* スタイルリセット */
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: none;
   background: none;
+  /* ×の線を斜めに回転 */
+  /* ×の線を反対の斜めに回転 */
 }
 header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose::before, header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose::after {
   content: "";
@@ -671,14 +668,8 @@ header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose::before, he
 header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose::before {
   rotate: -45deg;
 }
-header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose {
-  /* ×の線を斜めに回転 */
-}
 header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose::after {
   rotate: 45deg;
-}
-header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose {
-  /* ×の線を反対の斜めに回転 */
 }
 header.pf-l-header nav.pf-l-header__nav p.pf-l-header__navLogo {
   width: 11rem;
@@ -1089,6 +1080,9 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner {
 main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
   font-family: "patrick hand", cursive;
   font-size: 4.8rem;
+  color: #1976d2;
+  margin: 4rem auto 0;
+  text-align: center;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
@@ -1100,10 +1094,6 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
     font-size: 8rem;
   }
 }
-main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
-  color: #1976d2;
-  margin: 4rem auto 0;
-}
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
     margin: calc(4rem auto 0 + (4rem auto 0 - 4rem auto 0) * (100vw - 375px) / (1440 - 375));
@@ -1114,12 +1104,10 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
     margin: 4rem auto 0;
   }
 }
-main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
-  text-align: center;
-}
 main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
   font-family: "patrick hand", cursive;
   font-size: 1.6rem;
+  margin: 4rem auto 0 auto;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
@@ -1130,9 +1118,6 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
   main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
     font-size: 2.4rem;
   }
-}
-main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
-  margin: 4rem auto 0 auto;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
@@ -1148,6 +1133,8 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
   width: 80%;
   font-family: "sawarabi gothic", sans-serif;
   font-size: 1.4rem;
+  margin: 4rem auto 0;
+  text-align: center;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
@@ -1159,9 +1146,6 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
     font-size: 1.6rem;
   }
 }
-main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
-  margin: 4rem auto 0;
-}
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
     margin: calc(4rem auto 0 + (4rem auto 0 - 4rem auto 0) * (100vw - 375px) / (1440 - 375));
@@ -1171,9 +1155,6 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
   main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
     margin: 4rem auto 0;
   }
-}
-main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__desc {
-  text-align: center;
 }
 main#home section.pf-p-topKV div.pf-ctacontainer-gray {
   display: flex;
@@ -1196,6 +1177,7 @@ main#home section.pf-p-topKV div.pf-ctacontainer-gray strong.pf-scrollannounce {
   font-size: 1.6rem;
   background-color: #e0e0e0;
   padding: 1rem;
+  border-radius: 9999px;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topKV div.pf-ctacontainer-gray strong.pf-scrollannounce {
@@ -1206,9 +1188,6 @@ main#home section.pf-p-topKV div.pf-ctacontainer-gray strong.pf-scrollannounce {
   main#home section.pf-p-topKV div.pf-ctacontainer-gray strong.pf-scrollannounce {
     padding: 1rem;
   }
-}
-main#home section.pf-p-topKV div.pf-ctacontainer-gray strong.pf-scrollannounce {
-  border-radius: 9999px;
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   main#home section.pf-p-topKV {
@@ -1298,6 +1277,7 @@ main#home section.pf-p-topKV div.pf-ctacontainer-gray strong.pf-scrollannounce {
   }
 }
 main#home section.pf-p-topWorks h2.pf-p-topWorks__title {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 1.5rem 2rem;
 }
@@ -1383,11 +1363,17 @@ main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__it
 main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a .pf-p-works__thmbnail img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   aspect-ratio: 4/3;
 }
 main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div {
   padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div {
@@ -1399,29 +1385,25 @@ main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__it
     padding: 1.5rem;
   }
 }
-main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 0;
-}
 main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemTitle {
   font-family: "sawarabi gothic", sans-serif;
-  font-size: 2.4rem;
+  font-size: 1.4rem;
+  margin: 0 0 1rem 0;
+  color: #333;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemTitle {
-    font-size: calc(2.4rem + (3.6 - 2.4) * (100vw - 375px) / (1440 - 375));
+    font-size: calc(1.4rem + (1.6 - 1.4) * (100vw - 375px) / (1440 - 375));
   }
 }
 @media (min-width: 1441px) {
   main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemTitle {
-    font-size: 3.6rem;
+    font-size: 1.6rem;
   }
-}
-main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemTitle {
-  margin: 0 0 1rem 0;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemTitle {
@@ -1433,12 +1415,12 @@ main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__it
     margin: 0 0 1rem 0;
   }
 }
-main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemTitle {
-  color: #333;
-}
 main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemText {
   font-family: "rounded mplus 1c", sans-serif;
   font-size: 1.4rem;
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemText {
@@ -1449,11 +1431,6 @@ main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__it
   main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemText {
     font-size: 1.6rem;
   }
-}
-main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item a > div .pf-p-works__itemText {
-  margin: 0;
-  color: #666;
-  line-height: 1.6;
 }
 main#home section.pf-p-topWorks div.pf-c-ctaContainer {
   display: flex;
@@ -1473,6 +1450,7 @@ main#home section.pf-p-topWorks div.pf-c-ctaContainer {
   }
 }
 main#home section.pf-p-topAbout h2.pf-p-topAbout__title {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 1.5rem 2rem;
 }
@@ -1494,6 +1472,10 @@ main#home section.pf-p-topAbout div.pf-p-about__container {
   justify-content: center;
   align-items: center;
   margin-top: 6rem;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topAbout div.pf-p-about__container {
@@ -1504,12 +1486,6 @@ main#home section.pf-p-topAbout div.pf-p-about__container {
   main#home section.pf-p-topAbout div.pf-p-about__container {
     margin-top: 6rem;
   }
-}
-main#home section.pf-p-topAbout div.pf-p-about__container {
-  width: 100%;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 }
 main#home section.pf-p-topAbout div.pf-p-about__container img.pf-p-about__img {
   width: 100%;
@@ -1522,6 +1498,7 @@ main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
   justify-content: center;
   align-items: center;
   margin-top: 4rem;
+  width: 100%;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
@@ -1533,12 +1510,11 @@ main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
     margin-top: 4rem;
   }
 }
-main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
-  width: 100%;
-}
 main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text h3.pf-p-about__textName {
   font-family: "sawarabi gothic", sans-serif;
   font-size: 2.4rem;
+  text-align: center;
+  margin: 0;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text h3.pf-p-about__textName {
@@ -1550,13 +1526,12 @@ main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text h
     font-size: 3.6rem;
   }
 }
-main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text h3.pf-p-about__textName {
-  text-align: center;
-  margin: 0;
-}
 main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
   font-family: "rounded mplus 1c", sans-serif;
   font-size: 1.4rem;
+  line-height: 1.7rem;
+  margin-top: 4rem;
+  text-align: center;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
@@ -1568,10 +1543,6 @@ main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p
     font-size: 1.6rem;
   }
 }
-main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
-  line-height: 1.7rem;
-  margin-top: 4rem;
-}
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
     margin-top: calc(4rem + (4 - 4) * (100vw - 375px) / (1440 - 375));
@@ -1581,9 +1552,6 @@ main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p
   main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
     margin-top: 4rem;
   }
-}
-main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
-  text-align: center;
 }
 main#home section.pf-p-topAbout div.pf-c-ctaContainer {
   display: flex;
@@ -1602,7 +1570,11 @@ main#home section.pf-p-topAbout div.pf-c-ctaContainer {
     margin-top: 4rem;
   }
 }
+main#home section.pf-p-topContact {
+  margin-top: 8rem;
+}
 main#home section.pf-p-topContact h2.pf-p-topContact__title {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 1.5rem 2rem;
 }
@@ -1617,9 +1589,6 @@ main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__en 
   margin: 0;
   padding: 0;
   line-height: 1.2;
-}
-main#home section.pf-p-topContact {
-  margin-top: 8rem;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topContact {
@@ -1640,6 +1609,7 @@ main#home section.pf-p-topContact div.pf-p-contactContainer {
   align-items: center;
   margin: 0 auto;
   margin-top: 6rem;
+  margin-bottom: 6rem;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topContact div.pf-p-contactContainer {
@@ -1650,9 +1620,6 @@ main#home section.pf-p-topContact div.pf-p-contactContainer {
   main#home section.pf-p-topContact div.pf-p-contactContainer {
     margin-top: 6rem;
   }
-}
-main#home section.pf-p-topContact div.pf-p-contactContainer {
-  margin-bottom: 6rem;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topContact div.pf-p-contactContainer {
@@ -1667,6 +1634,9 @@ main#home section.pf-p-topContact div.pf-p-contactContainer {
 main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
   font-family: "sawarabi gothic", sans-serif;
   font-size: 1.4rem;
+  line-height: 1.7rem;
+  margin-bottom: 4rem;
+  text-align: center;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
@@ -1677,10 +1647,6 @@ main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
   main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
     font-size: 1.6rem;
   }
-}
-main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
-  line-height: 1.7rem;
-  margin-bottom: 4rem;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
@@ -1692,13 +1658,14 @@ main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
     margin-bottom: 4rem;
   }
 }
-main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
-  text-align: center;
-}
 main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
   display: inline-block;
   font-family: "rounded mplus 1c", sans-serif;
   font-size: 1.4rem;
+  line-height: 1.7rem;
+  color: #333333;
+  margin: 0 auto;
+  text-align: center;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
@@ -1709,12 +1676,6 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
   main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
     font-size: 1.6rem;
   }
-}
-main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
-  line-height: 1.7rem;
-  color: #333333;
-  margin: 0 auto;
-  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -1882,6 +1843,7 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
 }
 @media screen and (max-width: 767px) {
   main section h2[class*=__title] {
+    width: -moz-fit-content;
     width: fit-content;
     min-height: 6rem;
     margin-top: 4rem;
@@ -1898,6 +1860,22 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
   .pf-l-container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+  .pf-p-works__itemTitle {
+    font-size: 1.2rem !important;
+    line-height: 1.3 !important;
+    max-height: 2.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .pf-p-works__itemText {
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 main#page-works section.pf-l-works__hero {
@@ -1919,6 +1897,9 @@ main#page-works section.pf-l-works__hero div.pf-p-work__KVimgContainer img {
 }
 main#page-works section.pf-p-worksFilter {
   margin: 4rem auto;
+  padding: 2rem 0;
+  background-color: #f8f9fa;
+  border-radius: 8px;
 }
 main#page-works section.pf-p-worksFilter .filter-btn {
   transition: all 0.3s ease;
@@ -1931,14 +1912,11 @@ main#page-works section.pf-p-worksFilter .filter-btn.active {
   background-color: #1976d2;
   color: white;
 }
-main#page-works section.pf-p-worksFilter {
-  padding: 2rem 0;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-}
 main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
   font-family: "sawarabi gothic", sans-serif;
   font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
@@ -1950,9 +1928,6 @@ main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
     font-size: 2.4rem;
   }
 }
-main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
-  margin-bottom: 1.5rem;
-}
 @media (min-width: 376px) and (max-width: 1440px) {
   main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
     margin-bottom: calc(1.5rem + (1.5 - 1.5) * (100vw - 375px) / (1440 - 375));
@@ -1962,9 +1937,6 @@ main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
   main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
     margin-bottom: 1.5rem;
   }
-}
-main#page-works section.pf-p-worksFilter .pf-p-worksFilter__title {
-  text-align: center;
 }
 main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list {
   display: flex;
@@ -1978,6 +1950,16 @@ main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-wor
 main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list li a {
   display: inline-block;
   padding: 1rem 2rem;
+  background-color: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: "sawarabi gothic", sans-serif;
+  font-size: 1.4rem;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 500;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list li a {
@@ -1989,14 +1971,6 @@ main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-wor
     padding: 1rem 2rem;
   }
 }
-main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list li a {
-  background-color: #fff;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  text-decoration: none;
-  font-family: "sawarabi gothic", sans-serif;
-  font-size: 1.4rem;
-}
 @media (min-width: 376px) and (max-width: 1440px) {
   main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list li a {
     font-size: calc(1.4rem + (1.6 - 1.4) * (100vw - 375px) / (1440 - 375));
@@ -2006,12 +1980,6 @@ main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-wor
   main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list li a {
     font-size: 1.6rem;
   }
-}
-main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list li a {
-  color: #333;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  font-weight: 500;
 }
 main#page-works section.pf-p-worksFilter .pf-p-worksFilter__categories .pf-p-worksFilter_list li a:hover {
   background-color: #1976d2;
@@ -2051,6 +2019,7 @@ main#page-works section.pf-p-works {
   }
 }
 main#page-works section.pf-p-works hgroup.pf-c-sectTitle {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 1.5rem 2rem;
   margin: 0 auto;
@@ -2072,6 +2041,8 @@ main#page-works section.pf-p-works .pf-p-works__container {
   grid-template-columns: 1fr;
   gap: 2rem;
   margin: 6rem auto;
+  max-width: 1200px;
+  padding: 0 2rem;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#page-works section.pf-p-works .pf-p-works__container {
@@ -2083,9 +2054,6 @@ main#page-works section.pf-p-works .pf-p-works__container {
     margin: 6rem auto;
   }
 }
-main#page-works section.pf-p-works .pf-p-works__container {
-  max-width: 1200px;
-}
 main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -2093,9 +2061,6 @@ main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item.filt
   opacity: 0;
   transform: scale(0.95);
   pointer-events: none;
-}
-main#page-works section.pf-p-works .pf-p-works__container {
-  padding: 0 2rem;
 }
 main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item {
   border: 2px solid #e0e0e0;
@@ -2125,7 +2090,8 @@ main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item .pf-
 main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item .pf-p-works__thmbnail img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   aspect-ratio: 4/3;
 }
 main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div {
@@ -2139,6 +2105,8 @@ main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > di
 main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__itemTitle {
   font-family: "sawarabi gothic", sans-serif;
   font-size: 2.4rem;
+  margin: 0 0 1rem 0;
+  color: #333;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__itemTitle {
@@ -2150,13 +2118,11 @@ main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > di
     font-size: 3.6rem;
   }
 }
-main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__itemTitle {
-  margin: 0 0 1rem 0;
-  color: #333;
-}
 main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__customTitle {
   font-family: "sawarabi gothic", sans-serif;
   font-size: 1.4rem;
+  margin: 0 0 1rem 0;
+  color: #666;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__customTitle {
@@ -2167,14 +2133,13 @@ main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > di
   main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__customTitle {
     font-size: 1.6rem;
   }
-}
-main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__customTitle {
-  margin: 0 0 1rem 0;
-  color: #666;
 }
 main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__itemText {
   font-family: "rounded mplus 1c", sans-serif;
   font-size: 1.4rem;
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__itemText {
@@ -2186,13 +2151,9 @@ main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > di
     font-size: 1.6rem;
   }
 }
-main#page-works section.pf-p-works .pf-p-works__container .pf-p-works__item > div .pf-p-works__itemText {
-  margin: 0;
-  color: #666;
-  line-height: 1.6;
-}
 main#page-works section.pf-p-works .pf-p-pagination {
   margin: 6rem auto;
+  text-align: center;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#page-works section.pf-p-works .pf-p-pagination {
@@ -2204,9 +2165,6 @@ main#page-works section.pf-p-works .pf-p-pagination {
     margin: 6rem auto;
   }
 }
-main#page-works section.pf-p-works .pf-p-pagination {
-  text-align: center;
-}
 main#page-works section.pf-p-works .pf-p-pagination .page-numbers {
   display: inline-flex;
   gap: 1rem;
@@ -2217,6 +2175,17 @@ main#page-works section.pf-p-works .pf-p-pagination .page-numbers {
 main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#page-works section.pf-p-works .pf-p-pagination .page-numbers li span {
   display: inline-block;
   padding: 1rem 1.5rem;
+  background-color: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: "sawarabi gothic", sans-serif;
+  font-size: 1.4rem;
+  color: #333;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 44px;
+  text-align: center;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#page-works section.pf-p-works .pf-p-pagination .page-numbers li span {
@@ -2228,14 +2197,6 @@ main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#pag
     padding: 1rem 1.5rem;
   }
 }
-main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#page-works section.pf-p-works .pf-p-pagination .page-numbers li span {
-  background-color: #fff;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  text-decoration: none;
-  font-family: "sawarabi gothic", sans-serif;
-  font-size: 1.4rem;
-}
 @media (min-width: 376px) and (max-width: 1440px) {
   main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#page-works section.pf-p-works .pf-p-pagination .page-numbers li span {
     font-size: calc(1.4rem + (1.6 - 1.4) * (100vw - 375px) / (1440 - 375));
@@ -2245,13 +2206,6 @@ main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#pag
   main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#page-works section.pf-p-works .pf-p-pagination .page-numbers li span {
     font-size: 1.6rem;
   }
-}
-main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a, main#page-works section.pf-p-works .pf-p-pagination .page-numbers li span {
-  color: #333;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  min-width: 44px;
-  text-align: center;
 }
 main#page-works section.pf-p-works .pf-p-pagination .page-numbers li a:hover, main#page-works section.pf-p-works .pf-p-pagination .page-numbers li span:hover {
   background-color: #1976d2;
@@ -2310,7 +2264,8 @@ main#page-works section.pf-p-works .pf-p-works__empty .pf-c-btn:hover {
   width: 100%;
   height: auto;
   aspect-ratio: 4/3;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -2381,7 +2336,8 @@ main#page-works section.pf-p-works .pf-p-works__empty .pf-c-btn:hover {
 .pf-modal-overlay .pf-modal-content .pf-modal-image {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   border-radius: 8px;
 }
 
@@ -2399,7 +2355,8 @@ main#page-works section.pf-p-works .pf-p-works__empty .pf-c-btn:hover {
 .pf-p-detail__iconBox .tool-item .tool-icon {
   width: 32px;
   height: 32px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   border-radius: 4px;
   border: 1px solid #ddd;
 }
@@ -2429,6 +2386,8 @@ main section.pf-l-detail__KV div.pf-p-detailKVimg-container img {
 }
 main section.pf-p-detailContainer {
   margin-top: 6rem;
+  width: 90vw;
+  margin: 0 auto;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main section.pf-p-detailContainer {
@@ -2440,11 +2399,8 @@ main section.pf-p-detailContainer {
     margin-top: 6rem;
   }
 }
-main section.pf-p-detailContainer {
-  width: 90vw;
-  margin: 0 auto;
-}
 main section.pf-p-detailContainer hgroup.pf-c-sectTitle {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 1.5rem 2rem;
   margin: 0 auto;
@@ -2488,6 +2444,7 @@ main section.pf-p-detailContainer div.pf-p-detailTitle strong {
   font-weight: 500;
   text-align: center;
   font-size: 2.4rem;
+  margin: 0 auto;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main section.pf-p-detailContainer div.pf-p-detailTitle strong {
@@ -2498,9 +2455,6 @@ main section.pf-p-detailContainer div.pf-p-detailTitle strong {
   main section.pf-p-detailContainer div.pf-p-detailTitle strong {
     font-size: 3.6rem;
   }
-}
-main section.pf-p-detailContainer div.pf-p-detailTitle strong {
-  margin: 0 auto;
 }
 main section.pf-p-detailContainer div.pf-p-detailTerm {
   display: flex;
@@ -2571,6 +2525,7 @@ main section.pf-p-detailContainer div.pf-p-detailPurpose {
 main section.pf-p-detailContainer div.pf-p-detailPurpose p {
   font-family: "rounded mplus 1c", sans-serif;
   font-size: 1.4rem;
+  text-align: center;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main section.pf-p-detailContainer div.pf-p-detailPurpose p {
@@ -2581,9 +2536,6 @@ main section.pf-p-detailContainer div.pf-p-detailPurpose p {
   main section.pf-p-detailContainer div.pf-p-detailPurpose p {
     font-size: 1.6rem;
   }
-}
-main section.pf-p-detailContainer div.pf-p-detailPurpose p {
-  text-align: center;
 }
 main section.pf-p-detailContainer div.pf-p-detailTarget {
   display: flex;
@@ -2594,6 +2546,7 @@ main section.pf-p-detailContainer div.pf-p-detailTarget {
 main section.pf-p-detailContainer div.pf-p-detailTarget p {
   font-family: "rounded mplus 1c", sans-serif;
   font-size: 1.4rem;
+  text-align: center;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main section.pf-p-detailContainer div.pf-p-detailTarget p {
@@ -2604,9 +2557,6 @@ main section.pf-p-detailContainer div.pf-p-detailTarget p {
   main section.pf-p-detailContainer div.pf-p-detailTarget p {
     font-size: 1.6rem;
   }
-}
-main section.pf-p-detailContainer div.pf-p-detailTarget p {
-  text-align: center;
 }
 main section.pf-p-detailContainer div.pf-p-detailDesignIntent {
   display: flex;
@@ -2617,6 +2567,7 @@ main section.pf-p-detailContainer div.pf-p-detailDesignIntent {
 main section.pf-p-detailContainer div.pf-p-detailDesignIntent p {
   font-family: "rounded mplus 1c", sans-serif;
   font-size: 1.4rem;
+  text-align: center;
 }
 @media (min-width: 376px) and (max-width: 1440px) {
   main section.pf-p-detailContainer div.pf-p-detailDesignIntent p {
@@ -2627,9 +2578,6 @@ main section.pf-p-detailContainer div.pf-p-detailDesignIntent p {
   main section.pf-p-detailContainer div.pf-p-detailDesignIntent p {
     font-size: 1.6rem;
   }
-}
-main section.pf-p-detailContainer div.pf-p-detailDesignIntent p {
-  text-align: center;
 }
 main div.pf-p-detailPagination {
   display: flex;
@@ -2681,7 +2629,8 @@ main section.pf-l-about__KV div.pf-p-about__imgContainer div.KV_slick-slider {
 main section.pf-l-about__KV div.pf-p-about__imgContainer div.KV_slick-slider img {
   width: 300px;
   height: 200px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 8px;
 }
 main section.pf-l-about__KV div.pf-p-about__imgContainer div.like_slick-slider {
@@ -2693,7 +2642,8 @@ main section.pf-l-about__KV div.pf-p-about__imgContainer div.like_slick-slider i
   width: 100%;
   height: 250px;
   aspect-ratio: 4/3;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 8px;
 }
 main div.pf-p-introtext {
@@ -2793,7 +2743,9 @@ main nav.pf-p-about__navMenu ul.pf-p-about__navMenuList li.pf-p-about__navMenuLi
   cursor: pointer;
   transition: all 0.6s ease;
   color: #fff;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   width: 7rem;
   height: 7rem;
   font-size: 1rem;
@@ -2856,6 +2808,7 @@ main section.pf-p-about__profile {
   }
 }
 main section.pf-p-about__profile hgroup.pf-c-sectTitle {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 1.5rem 2rem;
   margin: 0 auto;
@@ -2915,7 +2868,8 @@ main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-ab
 main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider div img {
   width: 280px;
   height: 180px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 8px;
 }
 main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-prev,
@@ -2991,6 +2945,7 @@ main section.pf-p-about__skill {
   }
 }
 main section.pf-p-about__skill hgroup.pf-c-sectTitle {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 1.5rem 2rem;
   margin: 0 auto;
@@ -3098,6 +3053,7 @@ main section.pf-p-about__career {
   }
 }
 main section.pf-p-about__career hgroup.pf-c-sectTitle {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 1.5rem 2rem;
   margin: 0 auto;
@@ -3204,7 +3160,8 @@ main section.pf-p-about__career article.pf-p-subsection-profileVision div.vision
   main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider img {
     width: 450px;
     height: 320px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     border-radius: 8px;
   }
   main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider .slick-prev,
@@ -3246,7 +3203,8 @@ main section.pf-p-about__career article.pf-p-subsection-profileVision div.vision
   main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div img {
     width: 450px;
     height: 320px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     border-radius: 8px;
   }
   main div.pf-p-about__content section.pf-p-about__profile article dl.pf-p__about__hobbygrid {
@@ -3284,14 +3242,16 @@ main section.pf-p-about__career article.pf-p-subsection-profileVision div.vision
     width: 100%;
     height: auto;
     aspect-ratio: 4/3;
-    object-fit: contain;
+    -o-object-fit: contain;
+       object-fit: contain;
     border-radius: 8px;
   }
   main div.pf-p-about__content section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div img {
     width: 100%;
     height: 300px;
     aspect-ratio: 4/3;
-    object-fit: contain;
+    -o-object-fit: contain;
+       object-fit: contain;
     border-radius: 8px;
   }
   main div.pf-p-about__content section.pf-p-about__profile article.pf-p-subsection-profileHobby {
@@ -3347,6 +3307,4 @@ main section.pf-p-about__career article.pf-p-subsection-profileVision div.vision
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/*# sourceMappingURL=app.css.map */
+}/*# sourceMappingURL=app.css.map */
