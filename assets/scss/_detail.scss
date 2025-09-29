@@ -136,6 +136,7 @@
     }
 }
 
+// メインコンテンツ
 main{
     section.pf-l-detail__KV{
         width: 100vw;
@@ -188,13 +189,12 @@ main{
 
         // 共通ボックス
         div.detail-itembox{
-            border: 1px solid $color-border;
             padding-bottom: 4rem;
             margin: 1rem auto;
 
             // 項目名
             div.pf-c-detailItem__title{
-                background-image: url('../img/subtitleback.svg');
+                background-image: url('../img/ホバー背景.webp');
                 background-repeat: no-repeat;
                 background-position: center center;
                 background-size: contain;
@@ -333,3 +333,4 @@ main{
         }
     }
 }
+

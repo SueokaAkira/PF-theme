@@ -273,57 +273,201 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // スクロール位置に応じてプログレスを更新
+    let lastSection = 0;
     function updateScrollProgress() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const viewportHeight = window.innerHeight;
-      
-      // ページの高さを4分割
-      const sectionHeight = documentHeight / 4;
-      
-      // 現在のセクションを計算
-      let currentSection = Math.floor(scrollTop / sectionHeight) + 1;
-      
-      // セクション番号を1-4の範囲に制限
-      currentSection = Math.max(1, Math.min(4, currentSection));
-      
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const docEl = document.documentElement;
+      const body = document.body;
+      const fullHeight = Math.max(docEl.scrollHeight, body.scrollHeight);
+      const documentHeight = Math.max(0, fullHeight - window.innerHeight);
+
+      let currentSection = 1;
+      if (documentHeight > 0) {
+        const progress = scrollTop / documentHeight; // 0.0 - 1.0
+        // 0-1 を 4分割にマッピング。末尾は必ず4にクランプ
+        currentSection = Math.min(4, Math.floor(progress * 4) + 1);
+      }
+
+      if (currentSection === lastSection) return; // 変更ない場合は何もしない
+      lastSection = currentSection;
+
       // すべてのインジケーターからactiveクラスを削除
-      indicators.forEach(indicator => {
-        indicator.classList.remove('active');
-      });
+      indicators.forEach(indicator => indicator.classList.remove('active'));
       
       // 現在のセクションのインジケーターにactiveクラスを追加
       const activeIndicator = scrollProgress.querySelector(`[data-section="${currentSection}"]`);
-      if (activeIndicator) {
-        activeIndicator.classList.add('active');
-      }
+      if (activeIndicator) activeIndicator.classList.add('active');
     }
     
-    // スクロールイベントリスナー（デバウンス処理）
+    // スクロールイベントリスナー（デバウンス）
     let progressTimeout;
     window.addEventListener('scroll', () => {
       clearTimeout(progressTimeout);
       progressTimeout = setTimeout(updateScrollProgress, 10);
-    });
+    }, { passive: true });
     
     // 初期化時に実行
     updateScrollProgress();
     
-    // インジケータークリック時の処理
+    // インジケータークリック（重ね表示領域全体を4分割）
+    function scrollToSection(targetSection) {
+      const docEl = document.documentElement;
+      const body = document.body;
+      const fullHeight = Math.max(docEl.scrollHeight, body.scrollHeight);
+      const documentHeight = Math.max(0, fullHeight - window.innerHeight);
+      const sectionHeight = documentHeight / 4;
+      const clampedSection = Math.max(1, Math.min(4, targetSection));
+      const targetScrollTop = Math.max(0, Math.min(documentHeight, (clampedSection - 1) * sectionHeight));
+
+      // 先にUI更新（アクティブ切替）
+      indicators.forEach(ind => ind.classList.remove('active'));
+      const activeIndicator = scrollProgress.querySelector(`[data-section="${clampedSection}"]`);
+      if (activeIndicator) activeIndicator.classList.add('active');
+      lastSection = clampedSection;
+
+      window.scrollTo({
+        top: targetScrollTop,
+        behavior: 'smooth'
+      });
+    }
+
+    // 重ねられたコンテナ全体のクリックで分割判定
+    scrollProgress.addEventListener('click', (e) => {
+      const rect = scrollProgress.getBoundingClientRect();
+      const y = e.clientY - rect.top; // 0 ～ height
+      const zone = Math.floor((y / rect.height) * 4) + 1; // 1 ～ 4
+      scrollToSection(zone);
+    });
+
+    // 既存の個別インジケータークリックも維持（キーボード操作等に備えて）
     indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-        const targetSection = index + 1;
-        const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const sectionHeight = documentHeight / 4;
-        const targetScrollTop = (targetSection - 1) * sectionHeight;
-        
-        window.scrollTo({
-          top: targetScrollTop,
-          behavior: 'smooth'
-        });
+      indicator.addEventListener('click', (ev) => {
+        ev.stopPropagation(); // コンテナのクリック処理と競合しないように
+        scrollToSection(index + 1);
       });
     });
   }
+
+  // ============================
+  // マウスカーソル追従（トレースキャット）
+  // ============================
+  (function initCursorFollower(){
+    try {
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+      if (isMobile) return; // モバイルでは無効
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 既に要素が存在する場合は再生成しない
+      if (document.querySelector('.pf-c-cursorFollower')) return;
+
+      const follower = document.createElement('div');
+      follower.className = 'pf-c-cursorFollower';
+      // Fallback inline styles in case CSS isn't compiled yet
+      try {
+        const style = follower.style;
+        style.position = 'fixed';
+        style.left = '0';
+        style.top = '0';
+        style.width = '40px';
+        style.height = '40px';
+        // Resolve theme URL dynamically from header logo to support subdirectory installs
+        let themeImgBase = '';
+        const headerLogo = document.querySelector('header.pf-l-header img[src*="/assets/img/logo"]');
+        if (headerLogo && headerLogo.src) {
+          // Get directory like xxx/wp-content/themes/PF-theme/assets/img/
+          const src = headerLogo.src;
+          const idx = src.lastIndexOf('/assets/img/');
+          if (idx !== -1) {
+            themeImgBase = src.substring(0, idx + '/assets/img/'.length);
+          }
+        }
+        const traceCatUrl = themeImgBase
+          ? themeImgBase + 'tracecat.png'
+          : (window.location.origin + '/wp-content/themes/PF-theme/assets/img/tracecat.png');
+        style.backgroundImage = `url('${traceCatUrl}')`;
+        style.backgroundRepeat = 'no-repeat';
+        style.backgroundPosition = 'center center';
+        style.backgroundSize = 'contain';
+        style.pointerEvents = 'none';
+        style.zIndex = '2000';
+        style.transform = 'translate3d(-100px, -100px, 0)';
+        style.opacity = '0';
+        style.transition = 'opacity .2s ease';
+      } catch(_) {}
+      document.body.appendChild(follower);
+
+      // スムーズフォロー用の状態
+      let targetX = -100, targetY = -100; // 目標位置（初期は画面外）
+      let currentX = targetX, currentY = targetY; // 実際の描画位置
+      let rafId = null;
+      let isPointerInside = false;
+
+      const size = 40; // CSSの幅高さと揃える
+      const half = size / 2;
+      const ease = 0.18; // 追従速度（0-1）
+
+      // アニメーションループ
+      function animate() {
+        // 緩やかに追従
+        currentX += (targetX - currentX) * ease;
+        currentY += (targetY - currentY) * ease;
+        follower.style.transform = `translate3d(${currentX - half}px, ${currentY - half}px, 0)`;
+        rafId = requestAnimationFrame(animate);
+      }
+
+      // 直接追従（低モーション時）
+      function jumpToTarget(x, y) {
+        follower.style.transform = `translate3d(${x - half}px, ${y - half}px, 0)`;
+      }
+
+      // 初期起動
+      if (!reduceMotion) {
+        rafId = requestAnimationFrame(animate);
+      }
+
+      // イベント
+      window.addEventListener('mousemove', (e) => {
+        targetX = e.clientX;
+        targetY = e.clientY;
+        if (reduceMotion) {
+          jumpToTarget(targetX, targetY);
+        }
+        if (!isPointerInside) {
+          isPointerInside = true;
+          follower.style.opacity = '1';
+        }
+      }, { passive: true });
+
+      window.addEventListener('mouseenter', () => {
+        isPointerInside = true;
+        follower.style.opacity = '1';
+      });
+
+      window.addEventListener('mouseleave', () => {
+        isPointerInside = false;
+        follower.style.opacity = '0';
+      });
+
+      // ビューポートサイズ変化でモバイルになったら停止・隠す
+      const mq = window.matchMedia('(max-width: 767px)');
+      mq.addEventListener('change', (ev) => {
+        if (ev.matches) {
+          // モバイルになった
+          follower.style.display = 'none';
+          if (rafId) cancelAnimationFrame(rafId);
+          rafId = null;
+        } else {
+          // PCに戻った
+          follower.style.display = '';
+          if (!reduceMotion && !rafId) rafId = requestAnimationFrame(animate);
+        }
+      });
+
+    } catch (err) {
+      console.warn('Cursor follower init failed:', err);
+    }
+  })();
   } catch (error) {
     console.error('JavaScript error:', error);
   }

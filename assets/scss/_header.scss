@@ -19,7 +19,7 @@ header.pf-l-header {
     width: 20rem;
     height: auto;
     flex-shrink: 0;
-    
+
     @include mq-desktop {
       margin-right: 2rem;
     }
@@ -35,6 +35,7 @@ header.pf-l-header {
       span{
         display: block;
         width: auto;
+        color: $color-textmain; // 共通の本文色に合わせる（必要なら任意色に変更可）
       }
     }
   }
@@ -50,6 +51,7 @@ header.pf-l-header {
     /* all: unset; */
     position: relative;
     color: $color-main;
+
 
     span,
     &::before,
@@ -211,11 +213,11 @@ header.pf-l-header {
     padding: 0 1.6rem;
     background: none;
   }
-  
+
   header.pf-l-header button.pf-l-header__navBtn {
     display: none;
   }
-  
+
   header.pf-l-header nav.pf-l-header__nav {
     position: static;
     width: auto;
@@ -230,11 +232,11 @@ header.pf-l-header {
     visibility: visible;
     transition: none;
   }
-  
+
   header.pf-l-header nav.pf-l-header__nav button.pf-l-header__navClose {
     display: none;
   }
-  
+
   header.pf-l-header nav.pf-l-header__nav p.pf-l-header__navLogo {
     display: none;
   }
@@ -256,7 +258,7 @@ header.pf-l-header {
     align-items: center;
     white-space: nowrap;
   }
-  
+
   header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem:nth-child(odd),
   header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem:nth-child(even) {
     background-image: none;
@@ -275,7 +277,7 @@ header.pf-l-header {
     text-align: center;
     white-space: nowrap;
   }
-  
+
   header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem a::before,
   header.pf-l-header nav.pf-l-header__nav ul.pf-l-header__navList li.pf-l-header__navLItem a::after {
     height: 100%;

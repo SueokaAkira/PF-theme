@@ -511,6 +511,37 @@ hgroup.pf-c-subsectionTitle span.pf-c-subsection_titleEn {
     left: 1rem;
   }
 }
+/* ============================
+  カーソル追従（トレースキャット）
+============================ */
+.pf-c-cursorFollower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background-image: url("../img/tracecat.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 2000;
+  transform: translate3d(-100px, -100px, 0);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  will-change: transform, opacity;
+}
+
+@media screen and (max-width: 767px) {
+  .pf-c-cursorFollower {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-c-cursorFollower {
+    transition: none;
+  }
+}
 /* ヘッダー */
 header.pf-l-header {
   background-color: #ffffff;
@@ -547,7 +578,7 @@ header.pf-l-header h1.pf-l-header__logo a img {
 header.pf-l-header h1.pf-l-header__logo a span {
   display: block;
   width: auto;
-  color: #ffffff;
+  color: #333333;
 }
 header.pf-l-header button.pf-l-header__navBtn {
   width: 44px;

@@ -8,6 +8,25 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "portfolio"
+		"liveServer.settings.multiRootWorkspaceName": "portfolio",
+		"liveSassCompile.settings.formats": [
+			{
+				"format": "expanded",
+				"extensionName": ".css",
+				"savePath": "/assets/css"
+			}
+		],
+		"liveSassCompile.settings.generateMap": true,
+		"liveSassCompile.settings.autoprefix": [],
+		"liveSassCompile.settings.excludeList": [
+			"**/node_modules/**",
+			"**/_*.scss"
+		],
+		"liveSassCompile.settings.includeItems": [
+			"assets/scss/app.scss"
+		],
+		"liveSassCompile.settings.savePathReplacementPairs": {
+			"assets/scss/": "/assets/css/"
+		}
 	}
 }

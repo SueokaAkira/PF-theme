@@ -7,12 +7,9 @@
                 <h2 class="pf-c-pageTitlejp">
                     -詳細-
                 </h2>
-                <span class="pf-c-pageTitleen"></span>
+                <span class="pf-c-pageTitleen">
                     detail
                 </span>
-            </div>
-            <div class="pf-p-detailKVimg-container">
-                <img src="<?= get_template_directory_uri(); ?>/assets/img/detailKV.webp" alt="おもちゃと猫">
             </div>
         </section>
         <!-- 各作品詳細内容 -->
@@ -74,94 +71,98 @@
                     </div>
                 </div>
 
-                <!-- 制作期間 -->
-                <div class="pf-p-detailTerm detail-itembox">
-                    <!-- 項目名:制作期間-->
-                    <div class="pf-c-detailItem__title">
-                        <h3 class="pf-c-detailItem__titleJp">
-                            制作期間
-                        </h3>
-                        <span class="pf-c-detailItem__titleEn">
-                            term
-                        </span>
+                <div class="pc-gridbox">
+                    <!-- 制作期間 -->
+                    <div class="pf-p-detailTerm detail-itembox">
+                        <!-- 項目名:制作期間-->
+                        <div class="pf-c-detailItem__title">
+                            <h3 class="pf-c-detailItem__titleJp">
+                                制作期間
+                            </h3>
+                            <span class="pf-c-detailItem__titleEn">
+                                term
+                            </span>
+                        </div>
+                        <!-- ここに制作期間を記述 -->
+                        <div>
+                            <p>デザイン：
+                                <span><?php the_field('term-design'); ?></span>
+                            </p>
+                            <p>コーディング:
+                                <span><?php the_field('term-code'); ?></span>
+                            </p>
+                        </div>
                     </div>
-                    <!-- ここに制作期間を記述 -->
-                    <div>
-                        <p>デザイン：
-                            <span><?php the_field('term-design'); ?></span>
-                        </p>
-                        <p>コーディング:
-                            <span><?php the_field('term-code'); ?></span>
-                        </p>
-                    </div>
-                </div>
-                <!-- ツール -->
-                <div class="pf-p-detailTool detail-itembox">
-                    <!-- 項目名:ツール-->
-                    <div class="pf-c-detailItem__title">
-                        <h3 class="pf-c-detailItem__titleJp">
-                            使用ツール
-                        </h3>
-                        <span class="pf-c-detailItem__titleEn">
-                            tool
-                        </span>
-                    </div>
-                    <!-- ここにツールを記述 カスタムフィールド-->
-                    <?php
-                    $tools = get_field('tools'); // 制作物ACF関係フィールドに値が入っている場合個々を＄toolsに格納し＄toolとして出力後、IDを使ってアイキャッチを取得、アイキャッチがあれば出力　ループ
-                    if( $tools ): ?>
-                    <div class="pf-p-detail__iconBox">
-                        <?php foreach( $tools as $tool ): ?>
+                    <!-- ツール -->
+                    <div class="pf-p-detailTool detail-itembox">
+                        <!-- 項目名:ツール-->
+                        <div class="pf-c-detailItem__title">
+                            <h3 class="pf-c-detailItem__titleJp">
+                                使用ツール
+                            </h3>
+                            <span class="pf-c-detailItem__titleEn">
+                                tool
+                            </span>
+                        </div>
+                        <!-- ここにツールを記述 カスタムフィールド-->
                         <?php
-                            // アイキャッチを取得
-                            $thumbnail = get_the_post_thumbnail( $tool->ID, 'thumbnail' );
-                            if( $thumbnail ) echo $thumbnail;
-                        ?>
-                        <?php endforeach; ?>
+                        $tools = get_field('tools'); // 制作物ACF関係フィールドに値が入っている場合個々を＄toolsに格納し＄toolとして出力後、IDを使ってアイキャッチを取得、アイキャッチがあれば出力　ループ
+                        if( $tools ): ?>
+                        <div class="pf-p-detail__iconBox">
+                            <?php foreach( $tools as $tool ): ?>
+                            <?php
+                                // アイキャッチを取得
+                                $thumbnail = get_the_post_thumbnail( $tool->ID, 'thumbnail' );
+                                if( $thumbnail ) echo $thumbnail;
+                            ?>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
                     </div>
-                    <?php endif; ?>
-                </div>
-                <!-- 目的 カスタムフィールド-->
-                <div class="pf-p-detailPurpose detail-itembox">
-                    <!-- 項目名:目的-->
+                    <!-- 目的 カスタムフィールド-->
+                    <div class="pf-p-detailPurpose detail-itembox">
+                        <!-- 項目名:目的-->
+                        <div class="pf-c-detailItem__title">
+                            <h3 class="pf-c-detailItem__titleJp">
+                                目的
+                            </h3>
+                            <span class="pf-c-detailItem__titleEn">
+                                purpose
+                            </span>
+                        </div>
+                        <!-- 目的カスタムフィールドの内容を挿入 -->
+                        <p><?php the_field('purpose'); ?></p>
+                    </div>
+                    <!-- 対象 -->
+                    <div class="pf-p-detailTarget detail-itembox">
+                        <!-- 項目名:対象-->
+                        <div class="pf-c-detailItem__title">
+                            <h3 class="pf-c-detailItem__titleJp">
+                                対象
+                            </h3>
+                            <span class="pf-c-detailItem__titleEn">
+                                terget
+                            </span>
+                        </div>
+                        <!-- ターゲットカスタムフィールド-->
+                        <p><?php the_field('target'); ?></p>
+                    </div>
+                    <!-- URL -->
+                    <div class="pf-p-detailUrl detail-itembox">
+                        <!-- 項目名:URL-->
                     <div class="pf-c-detailItem__title">
-                        <h3 class="pf-c-detailItem__titleJp">
-                            目的
-                        </h3>
-                        <span class="pf-c-detailItem__titleEn">
-                            purpose
-                        </span>
+                            <h3 class="pf-c-detailItem__titleJp">
+                                掲載URL
+                            </h3>
+                            <span class="pf-c-detailItem__titleEn">
+                                url
+                            </span>
+                        </div>
+                        <!-- URL カスタムフィールド-->
+                        <p><?php the_field('works-url1'); ?></p>
+                        <p><?php the_field('works-url2'); ?></p>
+                        <p><?php the_field('works-url3'); ?></p>
                     </div>
-                    <!-- 目的カスタムフィールドの内容を挿入 -->
-                    <p><?php the_field('purpose'); ?></p>
-                </div>
-                <!-- 対象 -->
-                <div class="pf-p-detailTarget detail-itembox">
-                    <!-- 項目名:対象-->
-                    <div class="pf-c-detailItem__title">
-                        <h3 class="pf-c-detailItem__titleJp">
-                            対象
-                        </h3>
-                        <span class="pf-c-detailItem__titleEn">
-                            terget
-                        </span>
-                    </div>
-                    <!-- ターゲットカスタムフィールド-->
-                    <p><?php the_field('target'); ?></p>
-                </div>
-                <!-- 設計意図 -->
-                <div class="pf-p-detailDesignIntent detail-itembox">
-                    <!-- 項目名:設計意図-->
-                    <div class="pf-c-detailItem__title">
-                        <h3 class="pf-c-detailItem__titleJp">
-                            設計意図
-                        </h3>
-                        <span class="pf-c-detailItem__titleEn">
-                            design intent
-                        </span>
-                    </div>
-                    <!-- 設計意図 カスタムフィールド-->
-                    <p><?php the_field('design-intent'); ?></p>
                 </div>
                 <!-- 投稿ページのフッター（カテゴリ設定用） -->
                 <footer class="post_footer">
