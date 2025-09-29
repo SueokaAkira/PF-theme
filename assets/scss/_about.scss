@@ -18,13 +18,12 @@ main{
 
             // Slickスライダー
             div.KV_slick-slider{
-                width: 70%;
-                max-width: 500px;
+                width: 300px;
                 margin: 0 auto;
 
                 img{
-                    width: 100%;
-                    aspect-ratio: 4/3;
+                    width: 300px;
+                    height: 200px;
                     object-fit: cover;
                     border-radius: 8px;
                 }
@@ -79,11 +78,12 @@ main{
 
             strong.pf-clickanounce{
                 font-family: $font-jp;
-                font-size: 1.6rem;
-                background-image: url('../img/subtitleback.svg');
-                padding:1rem;
+                font-size: 1.4rem;
+                background-color: $color-border;
+                padding: 0.8rem 1.5rem;
                 border-radius: 9999px;
-                border-radius: 50%;
+                white-space: nowrap;
+                text-align: center;
             }
         }
         ul.pf-p-about__navMenuList{
@@ -258,6 +258,81 @@ main{
                 @include flex-column;
                 gap: 2rem;
                 width: 100%;
+                
+                // スライダーコンテナ
+                div.slider-1col{
+                    width: 280px;
+                    margin: 0 auto;
+                    
+                    div.like_slick-slider{
+                        width: 100%;
+                        
+                        // スライド画像
+                        div{
+                            img{
+                                width: 280px;
+                                height: 180px;
+                                object-fit: cover;
+                                border-radius: 8px;
+                            }
+                        }
+                        
+                        // スリックの矢印ボタン
+                        .slick-prev,
+                        .slick-next{
+                            z-index: 10;
+                            width: 40px;
+                            height: 40px;
+                            
+                            &:before{
+                                font-size: 20px;
+                                color: $color-main;
+                            }
+                        }
+                        
+                        .slick-prev{
+                            left: 10px;
+                        }
+                        
+                        .slick-next{
+                            right: 10px;
+                        }
+                        
+                        // ドットナビゲーション
+                        .slick-dots{
+                            bottom: -40px;
+                            
+                            li{
+                                button:before{
+                                    color: $color-main;
+                                    font-size: 12px;
+                                }
+                                
+                                &.slick-active button:before{
+                                    color: $color-main;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                // テキストコンテンツ
+                dl.like_textContent{
+                    width: 100%;
+                    max-width: 500px;
+                    margin: 0 auto;
+                    
+                    dt{
+                        font-weight: bold;
+                        margin-bottom: 0.5rem;
+                        color: $color-textmain;
+                    }
+                    
+                    dd{
+                        margin-bottom: 1.5rem;
+                        line-height: 1.6;
+                    }
+                }
             }
         }
         // 趣味中身
@@ -475,8 +550,11 @@ main{
     main nav.pf-p-about__navMenu div.pf-clickcontainer-gray strong.pf-clickanounce{
         font-family: $font-jp;
         font-size: 1.6rem;
-        padding:1rem;
+        background-color: $color-border;
+        padding: 1rem 2rem;
         border-radius: 9999px;
+        white-space: nowrap;
+        text-align: center;
     }
     // セクション内容
     main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex{
@@ -487,28 +565,62 @@ main{
     }
 
     main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col{
-        width: 50%;
+        width: 450px;
 
         div.KV_slick-slider,
         div.like_slick-slider{
-            width: 70%;
-            max-width: 500px;
+            width: 100%;
             margin: 0 auto;
 
             img{
-                width: 100%;
-                height: 300px;
-                aspect-ratio: 4/3;
+                width: 450px;
+                height: 320px;
                 object-fit: cover;
                 border-radius: 8px;
+            }
+            
+            // スリックの矢印ボタン（PC用）
+            .slick-prev,
+            .slick-next{
+                z-index: 10;
+                width: 50px;
+                height: 50px;
+                
+                &:before{
+                    font-size: 24px;
+                    color: $color-main;
+                }
+            }
+            
+            .slick-prev{
+                left: -30px;
+            }
+            
+            .slick-next{
+                right: -30px;
+            }
+            
+            // ドットナビゲーション（PC用）
+            .slick-dots{
+                bottom: -50px;
+                
+                li{
+                    button:before{
+                        color: $color-main;
+                        font-size: 14px;
+                    }
+                    
+                    &.slick-active button:before{
+                        color: $color-main;
+                    }
+                }
             }
         }
     }
 
     main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div img{
-        width: 100%;
-        height: 300px;
-        aspect-ratio: 4/3;
+        width: 450px;
+        height: 320px;
         object-fit: cover;
         border-radius: 8px;
     }

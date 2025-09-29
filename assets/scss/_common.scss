@@ -253,11 +253,15 @@ div.pf-c-pageTitle {
   min-width: 20rem;
   min-height: 8rem;
   text-align: center;
-  display: table;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 8rem;
   margin-left: auto;
   margin-right: auto;
   background-color: $color-sectionbg;
+  border-radius: 8px;
 }
 
 .pf-c-sectTitle__jp {
@@ -276,6 +280,7 @@ div.pf-c-pageTitle {
   letter-spacing: .1em;
   text-align: center;
   line-height: 1.5rem;
+  color: $color-textsub;
 }
 
 

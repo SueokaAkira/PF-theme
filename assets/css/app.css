@@ -192,11 +192,15 @@ div.pf-c-pageTitle span.pf-c-pageTitleen {
   min-width: 20rem;
   min-height: 8rem;
   text-align: center;
-  display: table;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 8rem;
   margin-left: auto;
   margin-right: auto;
   background-color: #f5f5f5;
+  border-radius: 8px;
 }
 
 .pf-c-sectTitle__jp, main section.pf-p-about__profile hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__skill hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-about__career hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main section.pf-p-detailContainer hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#page-works section.pf-p-works hgroup.pf-c-sectTitle .pf-c-sectTitle__jp, main#home section.pf-p-topWorks h2.pf-p-topWorks__title .pf-c-sectTitle__jp, main#home section.pf-p-topAbout h2.pf-p-topAbout__title .pf-c-sectTitle__jp, main#home section.pf-p-topContact h2.pf-p-topContact__title .pf-c-sectTitle__jp {
@@ -239,6 +243,7 @@ div.pf-c-pageTitle span.pf-c-pageTitleen {
   letter-spacing: 0.1em;
   text-align: center;
   line-height: 1.5rem;
+  color: #757575;
 }
 
 div.pf-c-detailItem__title {
@@ -1109,6 +1114,9 @@ main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
     margin: 4rem auto 0;
   }
 }
+main#home section.pf-p-topKV div.pf-p-topKV__inner h2.pf-p-topKV__title {
+  text-align: center;
+}
 main#home section.pf-p-topKV div.pf-p-topKV__inner p.pf-p-topKV__copy {
   font-family: "patrick hand", cursive;
   font-size: 1.6rem;
@@ -1309,7 +1317,8 @@ main#home section.pf-p-topWorks div.pf-p-works__container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  width: 80%;
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
   margin-top: 6rem;
 }
@@ -1327,18 +1336,21 @@ main#home section.pf-p-topWorks div.pf-p-works__container {
   main#home section.pf-p-topWorks div.pf-p-works__container {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    width: 90%;
   }
 }
 @media (min-width: 1025px) and (max-width: 1440px) {
   main#home section.pf-p-topWorks div.pf-p-works__container {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    width: 90%;
   }
 }
 @media (min-width: 1441px) {
   main#home section.pf-p-topWorks div.pf-p-works__container {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    width: 90%;
   }
 }
 main#home section.pf-p-topWorks div.pf-p-works__container article.pf-p-works__item {
@@ -1493,8 +1505,16 @@ main#home section.pf-p-topAbout div.pf-p-about__container {
     margin-top: 6rem;
   }
 }
+main#home section.pf-p-topAbout div.pf-p-about__container {
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
 main#home section.pf-p-topAbout div.pf-p-about__container img.pf-p-about__img {
   width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
   display: flex;
@@ -1512,6 +1532,9 @@ main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
   main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
     margin-top: 4rem;
   }
+}
+main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text {
+  width: 100%;
 }
 main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text h3.pf-p-about__textName {
   font-family: "sawarabi gothic", sans-serif;
@@ -1558,6 +1581,9 @@ main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p
   main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
     margin-top: 4rem;
   }
+}
+main#home section.pf-p-topAbout div.pf-p-about__container div.pf-p-about__text p.pf-p-about__textDesc {
+  text-align: center;
 }
 main#home section.pf-p-topAbout div.pf-c-ctaContainer {
   display: flex;
@@ -1606,7 +1632,8 @@ main#home section.pf-p-topContact {
   }
 }
 main#home section.pf-p-topContact div.pf-p-contactContainer {
-  width: 80%;
+  width: 100%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1665,6 +1692,9 @@ main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
     margin-bottom: 4rem;
   }
 }
+main#home section.pf-p-topContact div.pf-p-contactContainer p.pf-p-contact {
+  text-align: center;
+}
 main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
   display: inline-block;
   font-family: "rounded mplus 1c", sans-serif;
@@ -1684,6 +1714,7 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
   line-height: 1.7rem;
   color: #333333;
   margin: 0 auto;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -1855,6 +1886,18 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
     min-height: 6rem;
     margin-top: 4rem;
     padding: 1rem 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  main section .pf-c-sectTitle, main#home section.pf-p-topWorks h2.pf-p-topWorks__title, main#home section.pf-p-topAbout h2.pf-p-topAbout__title, main#home section.pf-p-topContact h2.pf-p-topContact__title {
+    min-width: 18rem;
+    min-height: 6rem;
+    margin-top: 4rem;
+    padding: 1rem 1.5rem;
+  }
+  .pf-l-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 main#page-works section.pf-l-works__hero {
@@ -2632,13 +2675,12 @@ main section.pf-l-about__KV div.pf-p-about__imgContainer {
   margin: 0 auto;
 }
 main section.pf-l-about__KV div.pf-p-about__imgContainer div.KV_slick-slider {
-  width: 70%;
-  max-width: 500px;
+  width: 300px;
   margin: 0 auto;
 }
 main section.pf-l-about__KV div.pf-p-about__imgContainer div.KV_slick-slider img {
-  width: 100%;
-  aspect-ratio: 4/3;
+  width: 300px;
+  height: 200px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -2688,11 +2730,12 @@ main nav.pf-p-about__navMenu div.pf-clickcontainer-gray {
 }
 main nav.pf-p-about__navMenu div.pf-clickcontainer-gray strong.pf-clickanounce {
   font-family: "sawarabi gothic", sans-serif;
-  font-size: 1.6rem;
-  background-image: url("../img/subtitleback.svg");
-  padding: 1rem;
+  font-size: 1.4rem;
+  background-color: #e0e0e0;
+  padding: 0.8rem 1.5rem;
   border-radius: 9999px;
-  border-radius: 50%;
+  white-space: nowrap;
+  text-align: center;
 }
 main nav.pf-p-about__navMenu ul.pf-p-about__navMenuList {
   display: grid;
@@ -2861,6 +2904,60 @@ main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-ab
   align-items: center;
   gap: 2rem;
   width: 100%;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col {
+  width: 280px;
+  margin: 0 auto;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider {
+  width: 100%;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider div img {
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-prev,
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-next {
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-prev:before,
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-next:before {
+  font-size: 20px;
+  color: #1976d2;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-prev {
+  left: 10px;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-next {
+  right: 10px;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-dots {
+  bottom: -40px;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-dots li button:before {
+  color: #1976d2;
+  font-size: 12px;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-dots li.slick-active button:before {
+  color: #1976d2;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex dl.like_textContent {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex dl.like_textContent dt {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333333;
+}
+main section.pf-p-about__profile article.pf-p-subsection-profileLike div.pf-p-about__subsectionflex dl.like_textContent dd {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 main section.pf-p-about__profile article.pf-p-subsection-profileHobby {
   display: flex;
@@ -3081,8 +3178,11 @@ main section.pf-p-about__career article.pf-p-subsection-profileVision div.vision
   main nav.pf-p-about__navMenu div.pf-clickcontainer-gray strong.pf-clickanounce {
     font-family: "sawarabi gothic", sans-serif;
     font-size: 1.6rem;
-    padding: 1rem;
+    background-color: #e0e0e0;
+    padding: 1rem 2rem;
     border-radius: 9999px;
+    white-space: nowrap;
+    text-align: center;
   }
   main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex {
     display: flex;
@@ -3093,26 +3193,59 @@ main section.pf-p-about__career article.pf-p-subsection-profileVision div.vision
     width: 80vw;
   }
   main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col {
-    width: 50%;
+    width: 450px;
   }
   main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider,
   main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider {
-    width: 70%;
-    max-width: 500px;
+    width: 100%;
     margin: 0 auto;
   }
   main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider img,
   main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider img {
-    width: 100%;
-    height: 300px;
-    aspect-ratio: 4/3;
+    width: 450px;
+    height: 320px;
     object-fit: cover;
     border-radius: 8px;
   }
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider .slick-prev,
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider .slick-next,
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-prev,
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-next {
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+  }
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider .slick-prev:before,
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider .slick-next:before,
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-prev:before,
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-next:before {
+    font-size: 24px;
+    color: #1976d2;
+  }
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider .slick-prev,
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-prev {
+    left: -30px;
+  }
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider .slick-next,
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-next {
+    right: -30px;
+  }
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider .slick-dots,
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-dots {
+    bottom: -50px;
+  }
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider .slick-dots li button:before,
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-dots li button:before {
+    color: #1976d2;
+    font-size: 14px;
+  }
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.KV_slick-slider .slick-dots li.slick-active button:before,
+  main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div.like_slick-slider .slick-dots li.slick-active button:before {
+    color: #1976d2;
+  }
   main div.pf-p-about__content section.pf-p-about__profile article div.pf-p-about__subsectionflex div.slider-1col div img {
-    width: 100%;
-    height: 300px;
-    aspect-ratio: 4/3;
+    width: 450px;
+    height: 320px;
     object-fit: cover;
     border-radius: 8px;
   }

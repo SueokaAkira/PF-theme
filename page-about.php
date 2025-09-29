@@ -32,7 +32,7 @@
                 こちらでは、私の興味関心や経歴、キャリア志向について、知っていただければ幸いです。
             </p>
             <strong>
-                以下のボタンをクリックまたは、セクションをスライドして、各コンテンツをご覧いただけると幸いです！
+                以下のボタンをクリックして、各コンテンツをご覧いただけると幸いです！
             </strong>
         </div>
         <!-- ページ内リンクボタンナブ -->
@@ -40,7 +40,7 @@
                 <!-- ↓CLICK↓ -->
                 <div class="pf-clickcontainer-gray">
                     <strong class="pf-clickanounce">
-                        ↓下のボタンクリックで各内容をご覧ください!↓
+                        ↓下のボタンクリックで各内容をご覧ください！↓
                     </strong>
                 </div>
             <ul class="pf-p-about__navMenuList">
@@ -275,6 +275,7 @@
                             <li><img src="<?= get_template_directory_uri(); ?>/assets/img/ITパスポート.png" alt="ITパスポート"></li>
                             <li><img src="<?= get_template_directory_uri(); ?>/assets/img/ビジネスコンプライアンス®検定　上級　(2024年度)_image 1.png" alt="ビジネスコンプライアンス検定上級"></li>
                             <li><img src="<?= get_template_directory_uri(); ?>/assets/img/TOEIC.png" alt="TOEIC570点"></li>
+                            <li><img src="<?= get_template_directory_uri(); ?>/assets/img/Ｗｅｂクリエイター能力認定試験.png" alt="Ｗｅｂクリエイター能力認定試験"></li>
                         </ul>
                     </div>
                 </article>

@@ -54,6 +54,7 @@ main#home{
                 @include fluid-font($font-size-title-mobile, $font-size-title-desktop);
                 color: $color-main;
                 @include fluid-spacing(margin, $spacing-2xl auto 0, $spacing-2xl auto 0);
+                text-align: center;
             }
 
             p.pf-p-topKV__copy{
@@ -136,7 +137,8 @@ main#home{
             display: grid;
             grid-template-columns: 1fr;
             gap: $spacing-lg;
-            width: 80%;
+            width: 100%;
+            max-width: 1000px;
             margin: 0 auto;
             @include fluid-spacing(margin-top, $spacing-3xl, $spacing-3xl);
 
@@ -144,6 +146,7 @@ main#home{
             @include mq-bppc {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 2rem;
+                width: 90%;
             }
 
             // カードそれぞれ
@@ -251,16 +254,23 @@ main#home{
         div.pf-p-about__container{
             @include flex-column;
             @include fluid-spacing(margin-top, $spacing-3xl, $spacing-3xl);
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
 
             // 自分写真
             img.pf-p-about__img{
                 width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
             }
 
             // テキストコンテナ
             div.pf-p-about__text{
                 @include flex-column;
                 @include fluid-spacing(margin-top, $spacing-2xl, $spacing-2xl);
+                width: 100%;
 
                 // 名前
                 h3.pf-p-about__textName{
@@ -275,6 +285,7 @@ main#home{
                     @include fluid-font($font-size-body-mobile, $font-size-body-desktop);
                     line-height: 1.7rem;
                     @include fluid-spacing(margin-top, $spacing-2xl, $spacing-2xl);
+                    text-align: center;
                 }
             }
         }
@@ -314,7 +325,8 @@ main#home{
 
         // コンテナ
         div.pf-p-contactContainer{
-            width: 80%;
+            width: 100%;
+            max-width: 600px;
             @include flex-column;
             margin: 0 auto;
             @include fluid-spacing(margin-top, $spacing-3xl, $spacing-3xl);
@@ -325,6 +337,7 @@ main#home{
                 @include fluid-font($font-size-body-mobile, $font-size-body-desktop);
                 line-height: 1.7rem;
                 @include fluid-spacing(margin-bottom, $spacing-2xl, $spacing-2xl);
+                text-align: center;
             }
             a.pf-p-contactLink{
                 display: inline-block;
@@ -333,6 +346,7 @@ main#home{
                 line-height: 1.7rem;
                 color: $color-textmain;
                 margin: 0 auto;
+                text-align: center;
             }
         }
     }
@@ -425,6 +439,22 @@ main#home{
         min-height: 6rem;
         margin-top: 4rem;
         padding: 1rem 1.5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    // モバイルでのセクションタイトルの調整
+    main section .pf-c-sectTitle {
+        min-width: 18rem;
+        min-height: 6rem;
+        margin-top: 4rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    // モバイルでのコンテナ幅調整
+    .pf-l-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 }
 
