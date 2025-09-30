@@ -3294,44 +3294,36 @@ main section.pf-p-about__career article.pf-p-subsection-profileVision div.vision
     transform: translateY(0);
   }
 }
-body.page-template-page-forcat,
-body.page-template-page-forcat-php {
-  background: #fdfcf8;
-  font-family: "Courier New", monospace;
-  /* 1画面レイアウト: スクロールさせず1ビュー内に収める */
-  overflow: hidden;
-}
-body.page-template-page-forcat main#primary,
-body.page-template-page-forcat-php main#primary {
+main.site-main {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-body.page-template-page-forcat main#primary section.l-container,
-body.page-template-page-forcat-php main#primary section.l-container {
+main.site-main section.l-container {
   text-align: center;
   padding: 3rem 1rem;
 }
-body.page-template-page-forcat main#primary section.l-container h3,
-body.page-template-page-forcat-php main#primary section.l-container h3 {
+main.site-main section.l-container h3 {
   font-weight: bolder;
   color: #333;
   text-align: center;
 }
-body.page-template-page-forcat main#primary section.l-container div.output,
-body.page-template-page-forcat-php main#primary section.l-container div.output {
+main.site-main section.l-container div.output {
   margin-top: 2rem;
   font-size: 1.4rem;
   line-height: 2rem;
   min-height: 5rem;
   white-space: pre-wrap;
   color: #333;
+  text-align: center;
 }
-body.page-template-page-forcat main#primary section.l-container div#message,
-body.page-template-page-forcat-php main#primary section.l-container div#message {
+main.site-main section.l-container div#message {
+  font-family: "sawarabi gothic", sans-serif;
   margin-top: 2rem;
   font-size: 1.6rem;
   font-weight: bolder;
-  color: #0000ff;
+  color: #1212dc;
+  text-align: center;
 }/*# sourceMappingURL=app.css.map */

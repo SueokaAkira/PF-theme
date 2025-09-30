@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Cat Keyboard Page
+ * Template Name: For Cat Page
  */
 get_header();
 ?>

@@ -3,44 +3,41 @@
 @use "sass:color";
 
 
-body.page-template-page-forcat,
-body.page-template-page-forcat-php {
-  background: #fdfcf8;
-  font-family: "Courier New", monospace;
-  /* 1画面レイアウト: スクロールさせず1ビュー内に収める */
-  overflow: hidden;
+main.site-main{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  main#primary{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  section.l-container{
+    text-align: center;
+    padding: 3rem 1rem;
 
-    section.l-container{
+    h3{
+      font-weight: bolder;
+      color: #333;
       text-align: center;
-      padding: 3rem 1rem;
+    }
 
-      h3{
-        font-weight: bolder;
-        color: #333;
-        text-align: center;
-      }
+    div.output{
+      margin-top: 2rem;
+      font-size: 1.4rem;
+      line-height: 2rem;
+      min-height: 5rem;
+      white-space: pre-wrap;
+      color: #333;
+      text-align: center;
+    }
 
-      div.output{
-        margin-top: 2rem;
-        font-size: 1.4rem;
-        line-height: 2rem;
-        min-height: 5rem;
-        white-space: pre-wrap;
-        color: #333;
-      }
-
-      div#message{
-        margin-top: 2rem;
-        font-size: 1.6rem;
-        font-weight:bolder;
-        color: #0000ff;
-      }
+    div#message{
+      font-family: $font-jp;
+      margin-top: 2rem;
+      font-size: 1.6rem;
+      font-weight:bolder;
+      color: #1212dc;
+      text-align: center;
     }
   }
 }
+
