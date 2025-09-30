@@ -19,6 +19,8 @@ function initHandwritingAnimation() {
     console.log('main#homeのHTML内容（最初の500文字）:', mainHome.innerHTML.substring(0, 500));
   }
 
+
+
   // フロントページでない場合は実行しない
   if (!isFrontPage) {
     console.log('フロントページではないため、アニメーションをスキップします');
@@ -99,6 +101,45 @@ function initHandwritingAnimation() {
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOMContentLoaded イベントが発生しました');
   try {
+    // ============================
+    // page-forcat 用（おまけページ）: 1キーでも押されたら即出力
+    // ============================
+    (function initForCatPage(){
+      try {
+        // 判定はbodyクラスではなく、要素の存在で行う（確実に動かすため）
+        const outputEl = document.getElementById('output');
+        const messageEl = document.getElementById('message');
+        if (!outputEl || !messageEl) return; // 対象ページでなければ終了
+
+        const catMessages = [
+          'いつまでやってるの？',
+          'ぬくもりてぃー',
+          'どしたん？話聞こか？',
+          '何見てる？',
+          'チュールを要求します。',
+          '今日はご機嫌♪',
+          'なでろー！',
+          'ここ押すと消える？',
+          'ごはんだして？役目でしょ？',
+          '今日のミーティング代わろうか？',
+          'ここは俺に任せて先に行け！',
+        ];
+
+        function randomMsg(){
+          return catMessages[Math.floor(Math.random() * catMessages.length)];
+        }
+
+        // 最初のキーから即表示。以降のキーでも都度更新。
+        document.addEventListener('keydown', (e) => {
+          // 押されたキーの表示（装飾用、不要なら消せます）
+          outputEl.textContent = e.key === ' ' ? 'space' : e.key;
+          messageEl.textContent = randomMsg();
+        });
+      } catch (err) {
+        console.warn('ForCat init failed:', err);
+      }
+    })();
+
     // グローバルナビゲーション
     const navOpen = document.querySelector('.pf-l-header__navBtn');
     const navClose = document.querySelector('.pf-l-header__navClose');

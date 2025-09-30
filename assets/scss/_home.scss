@@ -232,6 +232,10 @@ main#home{
             @include flex-center;
             margin: 0 auto;
             @include fluid-spacing(margin-top, $spacing-2xl, $spacing-2xl);
+            // もっと見るボタンの文字サイズを小さく
+            a.pf-c-btn{
+                font-size: clamp(1.4rem, 1.2vw, 2.0rem);
+            }
         }
     }
     // 私についてセクション
@@ -373,9 +377,15 @@ main#home{
         // 制作物セクション
         section.pf-p-topWorks{
             background-color: $color-border;
+            @include fluid-spacing(padding-top, $spacing-3xl, $spacing-3xl);
             @include fluid-spacing(padding-bottom, $spacing-3xl, $spacing-3xl);
             max-width: 1200px;
             margin: 0 auto;
+            
+            // タイトル直下に余白
+            h2.pf-p-topWorks__title{
+                @include fluid-spacing(margin-bottom, $spacing-2xl, $spacing-2xl);
+            }
 
             div.pf-p-works__container{
                 width: 80%;
@@ -405,9 +415,15 @@ main#home{
         // コンタクトセクション
         section.pf-p-topContact{
             background-color: $color-border;
+            @include fluid-spacing(padding-top, $spacing-3xl, $spacing-3xl);
             @include fluid-spacing(padding-bottom, $spacing-3xl, $spacing-3xl);
             max-width: 1200px;
             margin: 0 auto;
+
+            // タイトル直下に余白
+            h2.pf-p-topContact__title{
+                @include fluid-spacing(margin-bottom, $spacing-2xl, $spacing-2xl);
+            }
 
             div.pf-p-contactContainer{
                 width: 80%;
@@ -436,17 +452,17 @@ main#home{
 @include mq-mobile {
     main section h2[class*="__title"] {
         width: fit-content;
-        min-height: 6rem;
+        /* タイトル背景が見えるよう高さを拡大 */
+        min-height: clamp(12rem, 18vw, 24rem);
         margin-top: 4rem;
         padding: 1rem 1.5rem;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     // モバイルでのセクションタイトルの調整
     main section .pf-c-sectTitle {
-        min-width: 18rem;
-        min-height: 6rem;
+        /* 共通のセクションタイトルサイズに揃える */
+        min-width: clamp(24rem, 40vw, 48rem);
+        min-height: clamp(12rem, 18vw, 24rem);
         margin-top: 4rem;
         padding: 1rem 1.5rem;
     }

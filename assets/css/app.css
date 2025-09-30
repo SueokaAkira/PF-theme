@@ -177,14 +177,20 @@ html a:hover {
   opacity: 1;
 }
 
+/* CTAコンテナ内のボタン（もっと見る以外も同一サイズに統一） */
+.pf-c-ctaContainer a.pf-c-btn {
+  font-size: clamp(1.4rem, 1.2vw, 2rem);
+}
+
 div.pf-c-pageTitle {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 20rem;
+  width: clamp(24rem, 50vw, 48rem);
+  min-height: clamp(12rem, 20vw, 24rem);
   height: auto;
-  background-image: url("../img/titleback1.svg");
+  background-image: url("../img/titlebackcat.webp");
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -220,8 +226,8 @@ div.pf-c-pageTitle span.pf-c-pageTitleen {
 
 /* セクションタイトル 見出し */
 .pf-c-sectTitle, main section.pf-p-about__profile hgroup.pf-c-sectTitle, main section.pf-p-about__skill hgroup.pf-c-sectTitle, main section.pf-p-about__career hgroup.pf-c-sectTitle, main section.pf-p-detailContainer hgroup.pf-c-sectTitle, main#page-works section.pf-p-works hgroup.pf-c-sectTitle, main#home section.pf-p-topWorks h2.pf-p-topWorks__title, main#home section.pf-p-topAbout h2.pf-p-topAbout__title, main#home section.pf-p-topContact h2.pf-p-topContact__title {
-  min-width: 20rem;
-  min-height: 8rem;
+  min-width: clamp(24rem, 40vw, 48rem);
+  min-height: clamp(12rem, 18vw, 24rem);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -230,7 +236,10 @@ div.pf-c-pageTitle span.pf-c-pageTitleen {
   margin-top: 8rem;
   margin-left: auto;
   margin-right: auto;
-  background-color: #f5f5f5;
+  background-image: url("../img/sectitlebackcat.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
   border-radius: 8px;
 }
 
@@ -431,7 +440,9 @@ hgroup.pf-c-subsectionTitle {
   justify-content: center;
   align-items: center;
   margin: 4rem auto 0 auto;
-  background-image: url("../img/subtitleback.svg");
+  min-width: clamp(22rem, 36vw, 40rem);
+  min-height: clamp(10rem, 16vw, 20rem);
+  background-image: url("../img/sectitlebackcat.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -937,6 +948,23 @@ footer.pf-l-footer nav.pf-l-footer__nav ul.pf-l-footer__navList li.pf-l-footer__
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  /* ヘッダーと同様、ホバーで足跡背景を表示 */
+}
+footer.pf-l-footer nav.pf-l-footer__nav ul.pf-l-footer__navList li.pf-l-footer__navLItem a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/ホバー背景.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+footer.pf-l-footer nav.pf-l-footer__nav ul.pf-l-footer__navList li.pf-l-footer__navLItem a:hover::before {
+  opacity: 0.5;
 }
 footer.pf-l-footer nav.pf-l-footer__nav ul.pf-l-footer__navList li.pf-l-footer__navLItem a span.pf-l-footer__navItemJp {
   font-family: "sawarabi gothic", sans-serif;
@@ -1410,6 +1438,9 @@ main#home section.pf-p-topWorks div.pf-c-ctaContainer {
     margin-top: 4rem;
   }
 }
+main#home section.pf-p-topWorks div.pf-c-ctaContainer a.pf-c-btn {
+  font-size: clamp(1.4rem, 1.2vw, 2rem);
+}
 main#home section.pf-p-topAbout h2.pf-p-topAbout__title {
   width: fit-content;
   padding: 1.5rem 2rem;
@@ -1642,12 +1673,32 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
 }
 @media (min-width: 769px) and (max-width: 768px) {
   main section.pf-p-topWorks {
+    padding-top: 6rem;
+  }
+}
+@media (min-width: 769px) and (min-width: 769px) {
+  main section.pf-p-topWorks {
+    padding-top: 6rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 768px) {
+  main section.pf-p-topWorks {
     padding-bottom: 6rem;
   }
 }
 @media (min-width: 769px) and (min-width: 769px) {
   main section.pf-p-topWorks {
     padding-bottom: 6rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 768px) {
+  main section.pf-p-topWorks h2.pf-p-topWorks__title {
+    margin-bottom: 4rem;
+  }
+}
+@media (min-width: 769px) and (min-width: 769px) {
+  main section.pf-p-topWorks h2.pf-p-topWorks__title {
+    margin-bottom: 4rem;
   }
 }
 @media (min-width: 769px) {
@@ -1688,12 +1739,32 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
 }
 @media (min-width: 769px) and (max-width: 768px) {
   main section.pf-p-topContact {
+    padding-top: 6rem;
+  }
+}
+@media (min-width: 769px) and (min-width: 769px) {
+  main section.pf-p-topContact {
+    padding-top: 6rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 768px) {
+  main section.pf-p-topContact {
     padding-bottom: 6rem;
   }
 }
 @media (min-width: 769px) and (min-width: 769px) {
   main section.pf-p-topContact {
     padding-bottom: 6rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 768px) {
+  main section.pf-p-topContact h2.pf-p-topContact__title {
+    margin-bottom: 4rem;
+  }
+}
+@media (min-width: 769px) and (min-width: 769px) {
+  main section.pf-p-topContact h2.pf-p-topContact__title {
+    margin-bottom: 4rem;
   }
 }
 @media (min-width: 769px) {
@@ -1774,15 +1845,15 @@ main#home section.pf-p-topContact div.pf-p-contactContainer a.pf-p-contactLink {
 @media (max-width: 768px) {
   main section h2[class*=__title] {
     width: fit-content;
-    min-height: 6rem;
+    /* タイトル背景が見えるよう高さを拡大 */
+    min-height: clamp(12rem, 18vw, 24rem);
     margin-top: 4rem;
     padding: 1rem 1.5rem;
-    margin-left: auto;
-    margin-right: auto;
   }
   main section .pf-c-sectTitle, main#home section.pf-p-topWorks h2.pf-p-topWorks__title, main#home section.pf-p-topAbout h2.pf-p-topAbout__title, main#home section.pf-p-topContact h2.pf-p-topContact__title {
-    min-width: 18rem;
-    min-height: 6rem;
+    /* 共通のセクションタイトルサイズに揃える */
+    min-width: clamp(24rem, 40vw, 48rem);
+    min-height: clamp(12rem, 18vw, 24rem);
     margin-top: 4rem;
     padding: 1rem 1.5rem;
   }
@@ -3222,4 +3293,45 @@ main section.pf-p-about__career article.pf-p-subsection-profileVision div.vision
     opacity: 1;
     transform: translateY(0);
   }
+}
+body.page-template-page-forcat,
+body.page-template-page-forcat-php {
+  background: #fdfcf8;
+  font-family: "Courier New", monospace;
+  /* 1画面レイアウト: スクロールさせず1ビュー内に収める */
+  overflow: hidden;
+}
+body.page-template-page-forcat main#primary,
+body.page-template-page-forcat-php main#primary {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body.page-template-page-forcat main#primary section.l-container,
+body.page-template-page-forcat-php main#primary section.l-container {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+body.page-template-page-forcat main#primary section.l-container h3,
+body.page-template-page-forcat-php main#primary section.l-container h3 {
+  font-weight: bolder;
+  color: #333;
+  text-align: center;
+}
+body.page-template-page-forcat main#primary section.l-container div.output,
+body.page-template-page-forcat-php main#primary section.l-container div.output {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  min-height: 5rem;
+  white-space: pre-wrap;
+  color: #333;
+}
+body.page-template-page-forcat main#primary section.l-container div#message,
+body.page-template-page-forcat-php main#primary section.l-container div#message {
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  font-weight: bolder;
+  color: #0000ff;
 }/*# sourceMappingURL=app.css.map */

@@ -40,6 +40,23 @@ footer.pf-l-footer{
 
         a{
           @include flex-column;
+          position: relative;
+          /* ヘッダーと同様、ホバーで足跡背景を表示 */
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('../img/ホバー背景.webp');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            opacity: 0; // 初期は非表示
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+          }
+          &:hover::before {
+            opacity: 0.5; // hover時に半透明で表示
+          }
           span.pf-l-footer__navItemJp {
             font-family: $font-jp;
             font-size: 1.6rem;

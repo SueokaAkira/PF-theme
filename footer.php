@@ -21,6 +21,12 @@
                     </a>
                 </li>
                 <li class="pf-l-footer__navLItem">
+                    <a href="<?= get_permalink(get_page_by_path('forcat')); ?>">
+                        <span class="pf-l-footer__navItemJp">おまけ</span>
+                        <span class="pf-l-footer__navItemEn">omake</span>
+                    </a>
+                </li>
+                <li class="pf-l-footer__navLItem">
                     <a href="<?= home_url(); ?>#contact">
                         <span class="pf-l-footer__navItemJp">ご連絡先</span>
                         <span class="pf-l-footer__navItemEn">contact</span>

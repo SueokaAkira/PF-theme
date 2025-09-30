@@ -228,15 +228,24 @@ html {
   opacity: 1;
 }
 
+/* CTAコンテナ内のボタン（もっと見る以外も同一サイズに統一） */
+.pf-c-ctaContainer {
+  a.pf-c-btn {
+    font-size: clamp(1.4rem, 1.2vw, 2.0rem);
+  }
+}
+
 
 // ページタイトル　見出し
 div.pf-c-pageTitle {
   @include flex-column;
-  width: 20rem;
+  // 背景の猫シルエットがはっきり分かるようにサイズを拡大
+  width: clamp(24rem, 50vw, 48rem);
+  min-height: clamp(12rem, 20vw, 24rem);
   height: auto;
-  background-image: url('../img/titleback1.svg');
+  background-image: url('../img/titlebackcat.webp');
   background-position: center center;
-  background-size: contain;
+  background-size: contain; // 全体が見えるよう contain を維持
   background-repeat: no-repeat;
   margin: 4rem auto;
 
@@ -274,8 +283,9 @@ div.pf-c-pageTitle {
 
 /* セクションタイトル 見出し */
 .pf-c-sectTitle {
-  min-width: 20rem;
-  min-height: 8rem;
+  // 背景画像がはっきり見えるようサイズを拡大（レスポンシブ）
+  min-width: clamp(24rem, 40vw, 48rem);
+  min-height: clamp(12rem, 18vw, 24rem);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -284,7 +294,11 @@ div.pf-c-pageTitle {
   margin-top: 8rem;
   margin-left: auto;
   margin-right: auto;
-  background-color: $color-sectionbg;
+  // セクションタイトル背景を画像に変更（正：sectitlebackcat.webp）
+  background-image: url('../img/sectitlebackcat.webp');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
   border-radius: 8px;
 }
 
@@ -481,7 +495,11 @@ body {
 hgroup.pf-c-subsectionTitle{
   @include flex-column;
   margin: 4rem auto 0 auto;
-  background-image: url("../img/subtitleback.svg");
+  // 背景画像が見えるよう最小サイズを付与
+  min-width: clamp(22rem, 36vw, 40rem);
+  min-height: clamp(10rem, 16vw, 20rem);
+  // 正：sectitlebackcat.webp
+  background-image: url("../img/sectitlebackcat.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
