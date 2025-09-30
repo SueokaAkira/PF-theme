@@ -12,13 +12,44 @@
 
 * {
   margin: 0;
-  cursor: url(../img/cursolmouse.png), auto;
+  cursor: url('../img/mousecursol.png'), auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   html {
     interpolate-size: allow-keywords;
   }
+}
+
+/* ============================
+  背景アニメ（ネズミ）
+============================ */
+.pf-c-mouse {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  z-index: -1; // コンテンツより背面に配置
+  opacity: 0.7;
+  pointer-events: none; // おまけなので操作不可
+  will-change: transform;
+  transform: translate3d(-100px, -100px, 0);
+  transition: opacity .2s ease;
+  background-image: url('../img/backgroundmouse.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+// デスクトップのみ表示
+@media (max-width: 767px) {
+  .pf-c-mouse { display: none; }
+}
+
+// 低モーション配慮
+@media (prefers-reduced-motion: reduce) {
+  .pf-c-mouse { transition: none; }
 }
 
 body {
@@ -536,14 +567,14 @@ hgroup.pf-c-subsectionTitle{
 /* スクロールプログレスインジケーター */
 .pf-c-scrollProgress {
   position: fixed;
-  top: 10rem;
-  left: 2rem;
+  /* ヘッダー（8rem）の左下に固定 */
+  top: 8rem;
+  left: 0.5rem;
   transform: none;
   z-index: 1100; // ヘッダー(1000)より前面に
   display: block; // 重ね表示にするためブロック要素に
   width: 160px;  // インジケーターの表示枠
   height: 160px; // インジケーターの表示枠
-  position: fixed;
   cursor: pointer; // 領域全体をクリック可能に見せる
 
   .pf-c-scrollProgress__indicator {
@@ -578,19 +609,7 @@ hgroup.pf-c-subsectionTitle{
   }
 }
 
-/* PC表示時のプログレスインジケーター */
-@media screen and (min-width: 768px) {
-  .pf-c-scrollProgress {
-    left: 2rem;
-  }
-}
-
-/* モバイル表示時のプログレスインジケーター */
-@media screen and (max-width: 767px) {
-  .pf-c-scrollProgress {
-    left: 1rem;
-  }
-}
+/* 画面幅による位置変更は行わず、ヘッダー左下に固定 */
 
 /* ============================
   カーソル追従（トレースキャット）

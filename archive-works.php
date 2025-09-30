@@ -84,6 +84,9 @@
                         </div>
                         <!-- 作品タイトル -->
                         <div class="cardtextbox">
+                            <!-- カスタムフィールド：作品種別 -->
+                            <h3 class="pf-p-works__itemJunle"><?php the_field('works_type'); ?></h3>
+                            <!-- カスタムフィールド：作品タイトル -->
                             <h3 class="pf-p-works__itemTitle"><?php the_title(); ?></h3>
                             <!-- 作品概要 -->
                             <p class="pf-p-works__itemText">
@@ -91,6 +94,12 @@
                                     <?php the_field('description'); ?>
                                 <?php else : ?>
                                     制作物の簡単な説明文が入ります。
+                                <?php endif; ?>
+                            </p>
+                            <!-- カスタムフィールド：作品カテゴリ -->
+                            <p class="pf-p-works__itemcategory">
+                                <?php if (get_field('works_category')) : ?>
+                                    <?php the_field('works_category'); ?>
                                 <?php endif; ?>
                             </p>
                         </div>

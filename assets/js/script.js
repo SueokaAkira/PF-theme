@@ -1,45 +1,45 @@
 // 手書き風アニメーション初期化関数（グローバルスコープ）
 function initHandwritingAnimation() {
   console.log('手書き風アニメーション初期化を開始');
-  
+
   // 現在のページがフロントページかどうかを確認
   const isFrontPage = document.querySelector('main#home') !== null;
   const currentUrl = window.location.href;
   const isHomePage = currentUrl.includes('/') && !currentUrl.includes('/wp-admin') && !currentUrl.includes('/about') && !currentUrl.includes('/works');
-  
+
   console.log('ページ情報:');
   console.log('- main#home要素:', isFrontPage ? '見つかりました' : '見つかりません');
   console.log('- 現在のURL:', currentUrl);
   console.log('- フロントページ判定:', isHomePage);
   console.log('- bodyクラス:', document.body.className);
-  
+
   // main#homeの内容を確認
   if (isFrontPage) {
     const mainHome = document.querySelector('main#home');
     console.log('main#homeのHTML内容（最初の500文字）:', mainHome.innerHTML.substring(0, 500));
   }
-  
+
   // フロントページでない場合は実行しない
   if (!isFrontPage) {
     console.log('フロントページではないため、アニメーションをスキップします');
     console.log('フロントページにアクセスしてください: ' + window.location.origin);
     return;
   }
-  
+
   // より広範囲で要素を検索
   const handwritingElements = document.querySelectorAll('.handwriting-text');
   const heroTitle = document.querySelector('.pf-l-hero__title');
   const heroSection = document.querySelector('.pf-l-hero');
-  
+
   console.log('検索結果:');
   console.log('- .handwriting-text:', handwritingElements.length + '個');
   console.log('- .pf-l-hero__title:', heroTitle ? '見つかりました' : '見つかりません');
   console.log('- .pf-l-hero:', heroSection ? '見つかりました' : '見つかりません');
-  
+
   if (handwritingElements.length === 0) {
     console.log('手書き風アニメーション要素が見つかりません');
     console.log('ページ内のすべてのspan要素:', document.querySelectorAll('span').length + '個');
-    
+
     // より詳細なデバッグ情報
     const allSpans = document.querySelectorAll('span');
     console.log('すべてのspan要素のクラス名:');
@@ -48,7 +48,7 @@ function initHandwritingAnimation() {
         console.log(`関連 span[${index}]:`, span.className);
       }
     });
-    
+
     // main#home内の要素を確認
     const mainHome = document.querySelector('main#home');
     if (mainHome) {
@@ -56,14 +56,14 @@ function initHandwritingAnimation() {
       console.log('- section要素:', mainHome.querySelectorAll('section').length + '個');
       console.log('- h1要素:', mainHome.querySelectorAll('h1').length + '個');
       console.log('- span要素:', mainHome.querySelectorAll('span').length + '個');
-      
+
       // 各sectionのクラス名を確認
       const sections = mainHome.querySelectorAll('section');
       sections.forEach((section, index) => {
         console.log(`section[${index}]:`, section.className);
       });
     }
-    
+
     // ヒーローセクション内の要素を確認
     const heroSection = document.querySelector('.pf-l-hero');
     if (heroSection) {
@@ -73,22 +73,22 @@ function initHandwritingAnimation() {
     } else {
       console.log('ヒーローセクション(.pf-l-hero)が見つかりません');
     }
-    
+
     return;
   }
-  
+
   console.log('手書き風アニメーションを開始します', handwritingElements.length + '個の要素');
-  
+
   handwritingElements.forEach((element, index) => {
     const delay = index * 2000; // 2秒間隔で順次実行
-    
+
     setTimeout(() => {
       const text = element.getAttribute('data-text');
       console.log(`アニメーション開始: ${text}`);
-      
+
       // アニメーションクラスを追加
       element.classList.add('animate');
-      
+
       // テキストを表示（色はCSSで制御）
       element.style.opacity = '1';
     }, delay);
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // 画面幅変更時の処理
   function handleResize() {
     const isDesktop = window.innerWidth >= 768;
-    
+
     if (isDesktop && isMenuOpen) {
       // PC表示時はメニューを閉じる
       closeMenu();
@@ -176,53 +176,99 @@ document.addEventListener('DOMContentLoaded', function() {
   if (navMenu) {
     const tabButtons = navMenu.querySelectorAll('button[data-target]');
     const sections = document.querySelectorAll('section[id]');
-    
+
     if (tabButtons.length === 0 || sections.length === 0) {
       console.warn('Tab navigation elements not found');
       return;
     }
-    
+
     // 初期状態：最初のタブをアクティブにする
     if (tabButtons.length > 0) {
       const firstButton = tabButtons[0];
       const firstTarget = firstButton.getAttribute('data-target');
-      
+
       // すべてのセクションを非表示
       sections.forEach(section => {
         section.style.display = 'none';
       });
-      
+
       // 最初のセクションを表示
       const firstSection = document.getElementById(firstTarget);
       if (firstSection) {
         firstSection.style.display = 'block';
       }
-      
+
       // 最初のボタンをアクティブにする
       firstButton.classList.add('active');
     }
-    
-    // タブボタンのクリックイベント
+
+    // タブボタンのクリックイベント（フェード切り替え対応）
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const FADE_MS = 300;
+
+    function getVisibleSection() {
+      for (const sec of sections) {
+        const disp = window.getComputedStyle(sec).display;
+        if (disp !== 'none') return sec;
+      }
+      return null;
+    }
+
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
         const targetId = button.getAttribute('data-target');
-        
-        // すべてのボタンからアクティブクラスを削除
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // クリックされたボタンにアクティブクラスを追加
-        button.classList.add('active');
-        
-        // すべてのセクションを非表示
-        sections.forEach(section => {
-          section.style.display = 'none';
-        });
-        
-        // 対象のセクションを表示
         const targetSection = document.getElementById(targetId);
-        if (targetSection) {
+        if (!targetSection) return;
+
+        // すでに表示中なら何もしない
+        const current = getVisibleSection();
+        if (current === targetSection) return;
+
+        // ボタンのアクティブ状態
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        if (reduceMotion) {
+          // 即時切り替え
+          sections.forEach(section => { section.style.display = 'none'; });
           targetSection.style.display = 'block';
+          return;
         }
+
+        // フェードアウト → 非表示
+        if (current) {
+          current.style.transition = 'opacity 0.3s ease';
+          current.style.opacity = '1';
+          requestAnimationFrame(() => { current.style.opacity = '0'; });
+        }
+
+        // フェードイン準備
+        targetSection.style.display = 'block';
+        targetSection.style.transition = 'opacity 0.3s ease';
+        targetSection.style.opacity = '0';
+
+        // 先に他のセクションはdisplay:noneにする（対象とcurrentを除く）
+        sections.forEach(section => {
+          if (section !== targetSection && section !== current) {
+            section.style.display = 'none';
+            section.style.opacity = '';
+            section.style.transition = '';
+          }
+        });
+
+        // フェードイン実行
+        requestAnimationFrame(() => { targetSection.style.opacity = '1'; });
+
+        // 後処理（トランジション解除とcurrentを非表示）
+        setTimeout(() => {
+          if (current) {
+            current.style.display = 'none';
+            current.style.opacity = '';
+            current.style.transition = '';
+          }
+          targetSection.style.opacity = '';
+          targetSection.style.transition = '';
+        }, FADE_MS);
       });
     });
   }
@@ -234,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const viewportHeight = window.innerHeight;
-      
+
       // 100vhを超えた場合にボタンを表示
       if (scrollTop > viewportHeight) {
         scrollToTopBtn.classList.add('show');
@@ -242,17 +288,17 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollToTopBtn.classList.remove('show');
       }
     }
-    
+
     // スクロールイベントリスナー（デバウンス処理）
     let scrollTimeout;
     window.addEventListener('scroll', () => {
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(handleScroll, 10);
     });
-    
+
     // 初期化時に実行
     handleScroll();
-    
+
     // ボタンクリック時の処理
     scrollToTopBtn.addEventListener('click', () => {
       window.scrollTo({
@@ -266,12 +312,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const scrollProgress = document.querySelector('.pf-c-scrollProgress');
   if (scrollProgress) {
     const indicators = scrollProgress.querySelectorAll('.pf-c-scrollProgress__indicator');
-    
+
     if (indicators.length === 0) {
       console.warn('Scroll progress indicators not found');
       return;
     }
-    
+
     // スクロール位置に応じてプログレスを更新
     let lastSection = 0;
     function updateScrollProgress() {
@@ -293,22 +339,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // すべてのインジケーターからactiveクラスを削除
       indicators.forEach(indicator => indicator.classList.remove('active'));
-      
+
       // 現在のセクションのインジケーターにactiveクラスを追加
       const activeIndicator = scrollProgress.querySelector(`[data-section="${currentSection}"]`);
       if (activeIndicator) activeIndicator.classList.add('active');
     }
-    
+
     // スクロールイベントリスナー（デバウンス）
     let progressTimeout;
     window.addEventListener('scroll', () => {
       clearTimeout(progressTimeout);
       progressTimeout = setTimeout(updateScrollProgress, 10);
     }, { passive: true });
-    
+
     // 初期化時に実行
     updateScrollProgress();
-    
+
     // インジケータークリック（重ね表示領域全体を4分割）
     function scrollToSection(targetSection) {
       const docEl = document.documentElement;
@@ -404,7 +450,9 @@ document.addEventListener('DOMContentLoaded', function() {
       let isPointerInside = false;
 
       const size = 40; // CSSの幅高さと揃える
-      const half = size / 2;
+      // 右下に配置するためのオフセット（カーソル位置からのずらし量）
+      const offsetX = 10;
+      const offsetY = 10;
       const ease = 0.18; // 追従速度（0-1）
 
       // アニメーションループ
@@ -412,13 +460,15 @@ document.addEventListener('DOMContentLoaded', function() {
         // 緩やかに追従
         currentX += (targetX - currentX) * ease;
         currentY += (targetY - currentY) * ease;
-        follower.style.transform = `translate3d(${currentX - half}px, ${currentY - half}px, 0)`;
+        // カーソルの右下に配置
+        follower.style.transform = `translate3d(${currentX + offsetX}px, ${currentY + offsetY}px, 0)`;
         rafId = requestAnimationFrame(animate);
       }
 
       // 直接追従（低モーション時）
       function jumpToTarget(x, y) {
-        follower.style.transform = `translate3d(${x - half}px, ${y - half}px, 0)`;
+        // カーソルの右下に即時配置
+        follower.style.transform = `translate3d(${x + offsetX}px, ${y + offsetY}px, 0)`;
       }
 
       // 初期起動
@@ -435,13 +485,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (!isPointerInside) {
           isPointerInside = true;
-          follower.style.opacity = '1';
+          follower.style.opacity = '0.5';
         }
       }, { passive: true });
 
       window.addEventListener('mouseenter', () => {
         isPointerInside = true;
-        follower.style.opacity = '1';
+        follower.style.opacity = '0.5';
       });
 
       window.addEventListener('mouseleave', () => {
@@ -464,24 +514,114 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-    } catch (err) {
-      console.warn('Cursor follower init failed:', err);
-    }
-  })();
-  } catch (error) {
-    console.error('JavaScript error:', error);
+  } catch (err) {
+    console.warn('Cursor follower init failed:', err);
   }
+})();
 
+// ============================
+// 背景ネズミ（デスクトップのみ）
+// ============================
+(function initBackgroundMice(){
+  try {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isMobile || reduceMotion) return;
 
-  // ページ読み込み時にアニメーションを開始（複数回試行）
+    const NUM = 2; // 2匹
+    const mice = [];
+    const viewport = { w: window.innerWidth, h: window.innerHeight };
+    const headerHeight = 80; // ヘッダー固定高さ相当（8rem）
+
+    function createMouse(i){
+      const el = document.createElement('div');
+      el.className = 'pf-c-mouse';
+      // 画像指定がない場合は丸で代用（必要なら画像に差し替え）
+      Object.assign(el.style, {
+        borderRadius: '50%'
+      });
+      el.setAttribute('aria-label', 'mouse');
+      document.body.appendChild(el);
+      const speed = 1.2 + Math.random()*0.8; // 1.2~2.0 px/frame 基準
+      const angle = Math.random()*Math.PI*2;
+      return {
+        el,
+        x: Math.random()*(viewport.w-64)+32,
+        y: Math.random()*(viewport.h-headerHeight-64)+headerHeight+32,
+        vx: Math.cos(angle)*speed,
+        vy: Math.sin(angle)*speed,
+        baseSpeed: speed,
+        dashUntil: 0
+      };
+    }
+
+    // マウス座標は使用しない（自律移動のみ）
+
+    // 生成
+    for(let i=0;i<NUM;i++) mice.push(createMouse(i));
+
+    // クリック等のインタラクションは不要
+
+    // リサイズ対応
+    window.addEventListener('resize', ()=>{
+      viewport.w = window.innerWidth;
+      viewport.h = window.innerHeight;
+    });
+
+    // 更新ループ
+    const EASE = 0.98; // 慣性の減衰
+    const TURN = 0.04; // ランダムに向きを少し変える
+
+    function step(now){
+      mice.forEach(m => {
+        // ランダムに少し進路変更（自律移動）
+        m.vx += (Math.random()-0.5) * TURN;
+        m.vy += (Math.random()-0.5) * TURN;
+        // 速度を基準付近にクランプ
+        const speed = Math.hypot(m.vx, m.vy) || 1;
+        const target = m.baseSpeed;
+        m.vx = (m.vx/speed) * target;
+        m.vy = (m.vy/speed) * target;
+
+        // 壁でバウンド（ヘッダー下から）
+        m.x += m.vx;
+        m.y += m.vy;
+        m.vx *= EASE;
+        m.vy *= EASE;
+
+        if (m.x < 16){ m.x = 16; m.vx = Math.abs(m.vx); }
+        if (m.x > viewport.w - 16){ m.x = viewport.w - 16; m.vx = -Math.abs(m.vx); }
+        if (m.y < headerHeight + 16){ m.y = headerHeight + 16; m.vy = Math.abs(m.vy); }
+        if (m.y > viewport.h - 16){ m.y = viewport.h - 16; m.vy = -Math.abs(m.vy); }
+
+        // 反映
+        m.el.style.transform = `translate3d(${Math.round(m.x-16)}px, ${Math.round(m.y-16)}px, 0)`;
+      });
+      requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  } catch (err) {
+    console.warn('Background mice init failed:', err);
+  }
+})();
+
+} catch (error) {
+  console.error('JavaScript error:', error);
+}
+
+// ページ読み込み時にアニメーションを開始（複数回試行）
+setTimeout(() => {
+  initHandwritingAnimation();
+}, 500); // ページ読み込み後0.5秒後に開始
   setTimeout(() => {
     initHandwritingAnimation();
   }, 500); // ページ読み込み後0.5秒後に開始
-  
+
   setTimeout(() => {
     initHandwritingAnimation();
   }, 1500); // 1.5秒後にも試行
-  
+
   setTimeout(() => {
     initHandwritingAnimation();
   }, 3000); // 3秒後にも試行
@@ -494,7 +634,7 @@ window.addEventListener('load', function() {
   setTimeout(() => {
     initHandwritingAnimation();
   }, 1000);
-  
+
   setTimeout(() => {
     initHandwritingAnimation();
   }, 2000);

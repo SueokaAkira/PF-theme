@@ -194,7 +194,8 @@ main{
 
             // 項目名
             div.pf-c-detailItem__title{
-                background-image: url('../img/ホバー背景.webp');
+                /* 白の半透明レイヤーを重ねて足跡を薄く見せる */
+                background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('../img/ホバー背景.webp');
                 background-repeat: no-repeat;
                 background-position: center center;
                 background-size: contain;

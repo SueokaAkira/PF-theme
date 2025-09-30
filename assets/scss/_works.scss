@@ -143,7 +143,7 @@ main#page-works{
             grid-template-columns: 1fr;
             gap: $spacing-lg;
             @include fluid-spacing(margin, $spacing-3xl auto, $spacing-3xl auto);
-            max-width: 1200px;
+            align-items: center;
 
             // フィルタリング用のアニメーション
             .pf-p-works__item {
@@ -159,10 +159,16 @@ main#page-works{
 
             // カード
             .pf-p-works__item{
+                width: 100%;
                 border: 2px solid $color-border;
                 border-radius: 8px;
                 overflow: hidden;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
+                display: block;
+                // 固定高さ（サムネイルとテキストを1:1に分割）
+                height: 420px;
+                @include mq-desktop { height: 520px; }
+                background-color: #7fccff;
 
                 &:hover{
                     transform: translateY(-5px);
@@ -171,45 +177,53 @@ main#page-works{
 
                 a{
                     display: grid;
-                    grid-template-rows: 1fr 1fr;
+                    grid-template-rows: 1fr 1fr; // サムネ:テキスト = 1:1
                     text-decoration: none;
                     color: inherit;
                     height: 100%;
-                    padding: 4rem 0;
-                    background-color: #AACEFA;
                 }
 
                 // サムネ部分
-                .pf-p-works__thmbnail{
+                div.pf-p-works__thmbnail{
                     width: 100%;
-                    flex: 1; // 25%の高さ
                     overflow: hidden;
                     min-height: 0; // フレックスアイテムの最小高さを0に設定
-                    background-color: $color-bg;
+                    background-color: #7fccff;
+                    padding-top: 1rem; // 上余白 1rem（比率はグリッド1:1で維持）
 
                     img{
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
-                        aspect-ratio: 4/3; // 4:3の比率に変更
+                        display: block;
                     }
                 }
 
                 // カードテキスト部分（a直下のdiv）
                 > a > div.cardtextbox{
                     padding: 1.5rem;
-                    flex: 0.5; // 50%の高さ
                     display: grid;
-                    grid-template-rows: 1fr 1fr;
+                    grid-template-rows: auto auto;
                     min-height: 0; // フレックスアイテムの最小高さを0に設定
+
+                    // 作品種別
+                    h3.pf-p-works__itemJunle{
+                        font-family: $font-jp;
+                        @include fluid-font($font-size-sm, $font-size-base);
+                        padding: 1rem 1rem 0 1rem;
+                        margin: 0 0 1rem 0;
+                        color: #333;
+                        text-align: start;
+                    }
 
                     // カードタイトル
                     h3.pf-p-works__itemTitle{
                         font-family: $font-jp;
-                        @include fluid-font($font-size-heading-mobile, $font-size-heading-desktop);
-                        padding: 4rem 2rem;
+                        @include fluid-font($font-size-sm, $font-size-base);
+                        padding: 1rem;
                         margin: 0 0 1rem 0;
                         color: #333;
+                        text-align: start;
                     }
 
                     // 作品概要
@@ -217,8 +231,20 @@ main#page-works{
                         font-family: $font-jp-text;
                         @include fluid-font($font-size-sm, $font-size-base);
                         margin: 0;
+                        padding:  1rem;
                         color: #666;
                         line-height: 1.6;
+                        text-align: start
+                    }
+                    p.pf-p-works__itemcategory{
+                        font-family: $font-en-accent;
+                        font-style: italic;
+                        @include fluid-font($font-size-sm, $font-size-base);
+                        margin: 0;
+                        padding: 1rem;
+                        color: #666;
+                        line-height: 1.6;
+                        text-align: start
                     }
                 }
             }
