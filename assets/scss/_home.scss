@@ -156,7 +156,7 @@ main#home{
                 border-radius: 8px;
                 overflow: hidden;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
-                background-color: #fff;
+                background-color:#ffffff;
                 min-width: 280px;
                 // 固定高さ（サムネとテキストを1:1に分割）
                 height: 420px;
@@ -176,51 +176,69 @@ main#home{
 
                     // サムネ部分
                     .pf-p-works__thmbnail{
+                        width: 100%;
                         overflow: hidden;
+                        min-height: 0; // フレックスアイテムの最小高さを0に設定
+                        background-color: #ffffff;
                         padding-top: 1rem; // 上余白 1rem（比率はグリッド1:1で維持）
-                        background-color: $color-bg;
 
                         img{
                             width: 100%;
                             height: 100%;
                             object-fit: cover;
                             display: block;
+                            background-color: #ffffff;
                         }
                     }
 
                     // カードテキスト部分
                     > div{
-                        @include fluid-spacing(padding, $spacing-md, $spacing-md);
-                        display: grid;
-                        grid-auto-rows: min-content;
-                        align-content: center;
+                        padding: 1.5rem;
+                    display: grid;
+                    grid-template-rows: auto auto;
+                    min-height: 0; // フレックスアイテムの最小高さを0に設定
 
-                        // カードタイトル
-                        .pf-p-works__itemTitle{
-                            font-family: $font-jp-text;
-                            @include fluid-font($font-size-xxs, $font-size-xs);
-                            @include fluid-spacing(margin, 0 0 $spacing-sm 0, 0 0 $spacing-sm 0);
-                            & {
-                              color: #333;
-                              line-height: 1.4;
-                              overflow: hidden;
-                              text-overflow: ellipsis;
-                              white-space: nowrap;
-                              font-weight: normal;
-                            }
-                        }
+                    // 作品種別
+                    h3.pf-p-works__itemJunle{
+                        font-family: $font-jp;
+                        @include fluid-font($font-size-sm, $font-size-base);
+                        padding: 1rem 1rem 0 1rem;
+                        margin: 0 0 1rem 0;
+                        color: #333;
+                        text-align: start;
+                    }
 
-                        // 作品概要
-                        .pf-p-works__itemText{
-                            font-family: $font-jp-text;
-                            @include fluid-font($font-size-xs, $font-size-sm);
-                            & {
-                              margin: 0;
-                              color: #666;
-                              line-height: 1.6;
-                              font-weight: bold;
-                            }
-                        }
+                    // カードタイトル
+                    h3.pf-p-works__itemTitle{
+                        font-family: $font-jp;
+                        @include fluid-font($font-size-sm, $font-size-base);
+                        padding: 1rem;
+                        margin: 0 0 1rem 0;
+                        color: #333;
+                        text-align: start;
+                    }
+
+                    // 作品概要
+                    p.pf-p-works__itemText{
+                        font-family: $font-jp-text;
+                        @include fluid-font($font-size-sm, $font-size-base);
+                        margin: 0;
+                        padding:  1rem;
+                        color: #666;
+                        line-height: 1.6;
+                        text-align: start
+                    }
+                    // カテゴリ
+                    p.pf-p-works__itemcategory{
+                        font-family: $font-en-accent;
+                        font-style: italic;
+                        @include fluid-font($font-size-sm, $font-size-base);
+                        margin: 0;
+                        padding: 1rem;
+                        color: #666;
+                        line-height: 1.6;
+                        text-align: start
+                    }
                     }
                 }
             }
@@ -381,7 +399,7 @@ main#home{
             @include fluid-spacing(padding-bottom, $spacing-3xl, $spacing-3xl);
             max-width: 1200px;
             margin: 0 auto;
-            
+
             // タイトル直下に余白
             h2.pf-p-topWorks__title{
                 @include fluid-spacing(margin-bottom, $spacing-2xl, $spacing-2xl);
@@ -481,7 +499,7 @@ main#home{
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        font-weight: normal !important;
+        font-weight: bold;
     }
 
     // モバイルでの制作物カードのテキスト調整
@@ -493,7 +511,7 @@ main#home{
         line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        font-weight: bold !important;
+        font-weight: normal;
     }
 }
 

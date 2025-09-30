@@ -59,15 +59,23 @@
                     ?>
                         <article class="pf-p-works__item">
                             <a href="<?php the_permalink(); ?>">
+                                <!-- サムネ取得 -->
                                 <div class="pf-p-works__thmbnail">
                                     <?php if (has_post_thumbnail()) : ?>
                                         <?php the_post_thumbnail('medium'); ?>
                                     <?php endif; ?>
                                 </div>
-                                <div>
+                                <!-- テキスト取得 -->
+
+                                <div>                    <!-- カスタムフィールド：作品種別 -->
+                                    <h3 class="pf-p-works__itemJunle">
+                                        <?php the_field('works_type'); ?>
+                                    </h3>
+                                    <!-- カスタムフィールド：作品名 -->
                                     <h3 class="pf-p-works__itemTitle">
                                         <?php the_title(); ?>
                                     </h3>
+                                    <!-- 作品概要 -->
                                     <p class="pf-p-works__itemText">
                                         <?php
                                         if (function_exists('get_field') && get_field('description')) {
@@ -76,6 +84,12 @@
                                             echo esc_html(has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 30, '...'));
                                         }
                                         ?>
+                                    </p>
+                                    <!-- カスタムフィールド：作品カテゴリ -->
+                                    <p class="pf-p-works__itemcategory">
+                                        <?php if (get_field('works_category')) : ?>
+                                            <?php the_field('works_category'); ?>
+                                        <?php endif; ?>
                                     </p>
                                 </div>
                             </a>

@@ -168,7 +168,7 @@ main#page-works{
                 // 固定高さ（サムネイルとテキストを1:1に分割）
                 height: 420px;
                 @include mq-desktop { height: 520px; }
-                background-color: #7fccff;
+                background-color: #ffffff;
 
                 &:hover{
                     transform: translateY(-5px);
@@ -188,7 +188,7 @@ main#page-works{
                     width: 100%;
                     overflow: hidden;
                     min-height: 0; // フレックスアイテムの最小高さを0に設定
-                    background-color: #7fccff;
+                    background-color: #ffffff;
                     padding-top: 1rem; // 上余白 1rem（比率はグリッド1:1で維持）
 
                     img{
@@ -196,6 +196,8 @@ main#page-works{
                         height: 100%;
                         object-fit: cover;
                         display: block;
+                        background-color: #fff
+                        ;
                     }
                 }
 
@@ -236,6 +238,7 @@ main#page-works{
                         line-height: 1.6;
                         text-align: start
                     }
+                    // カテゴリ
                     p.pf-p-works__itemcategory{
                         font-family: $font-en-accent;
                         font-style: italic;

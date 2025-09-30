@@ -82,7 +82,7 @@
                                 <img src="<?= get_template_directory_uri(); ?>/assets/img/サンプル.jpg" alt="サムネなし">
                             <?php endif; ?>
                         </div>
-                        <!-- 作品タイトル -->
+                        <!-- テキスト部分-->
                         <div class="cardtextbox">
                             <!-- カスタムフィールド：作品種別 -->
                             <h3 class="pf-p-works__itemJunle"><?php the_field('works_type'); ?></h3>

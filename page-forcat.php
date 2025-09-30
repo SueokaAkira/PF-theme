@@ -14,7 +14,7 @@ get_header();
 
   <section class="l-container">
     <h3>🐾 あなたの愛猫が何かを伝えています…</h3>
-    <p>お猫様の足跡がメッセージに変換されます。</p>
+    <p>愛猫のタップがメッセージに変換されます。</p>
 
     <div class="output" id="output"></div>
     <div class="message" id="message"></div>
